@@ -10,7 +10,7 @@ from telethon import Button, TelegramClient, custom, events
 
 from userbot import LOGS, LEGENDversion, bot
 from userbot.Config import Config
-from userbot.helpers.runner import reload_PRO-LEGENDBOT
+from userbot.helpers.runner import reload_LEGENDBOT
 from userbot.start import abuses, addons, assistants, hekp, install, module, spams
 
 l1 = Config.HANDLER
