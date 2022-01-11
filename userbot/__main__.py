@@ -2,7 +2,7 @@ import asyncio
 import os
 import re
 import sys
-
+os.system("git+https://github.com/PROBOY-OP/Telethon.git")
 import telethon.utils
 from telethon import Button, TelegramClient, custom, events
 
