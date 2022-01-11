@@ -35,7 +35,7 @@ except Exception as e:
     sys.exit()
 
 
-PRO-LEGENDBOT = TelegramClient(
+PRO = TelegramClient(
     session="Legend-Bot",
     api_id=Config.APP_ID,
     api_hash=Config.API_HASH,
@@ -46,7 +46,7 @@ PRO-LEGENDBOT = TelegramClient(
 
 
 bot = kbot = Legend
-tbot = PRO-LEGENDBOT
+tbot = PRO
 
 
 DEVS = ["5061095379"]
