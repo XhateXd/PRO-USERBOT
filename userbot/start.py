@@ -6,13 +6,8 @@ from telethon.tl.types import InputMessagesFilterDocument
 
 from userbot import LEGENDversion, bot
 from userbot.Config import Config
-from .utils import (
-    load_abuse,
-    load_addons,
-    load_module,
-    start_assistant,
-    start_spam,
-)
+
+from .utils import load_abuse, load_addons, load_module, start_assistant, start_spam
 
 l2 = Config.SUDO_HANDLER
 LEGEND_PIC = "https://telegra.ph/file/e753315316673cff51085.mp4"

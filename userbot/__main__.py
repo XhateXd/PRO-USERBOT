@@ -10,7 +10,6 @@ from telethon import Button, TelegramClient, custom, events
 
 from userbot import LOGS, LEGENDversion, bot
 from userbot.Config import Config
-from userbot.helpers.runner import reload_LEGENDBOT
 from userbot.start import abuses, addons, assistants, hekp, install, module, spams
 
 l1 = Config.HANDLER
@@ -198,7 +197,7 @@ async def rel(event):
         await event.answer(
             "Reloading Lêɠêɳ̃dẞø†... Wait for few seconds...", cache_time=0, alert=True
         )
-        await reload_PRO-LEGENDBOT()
+        await reload_PRO - LEGENDBOT()
     else:
         await event.answer(
             "Sorry U Dont Have Access to Use this Button", cache_time=0, alert=True
