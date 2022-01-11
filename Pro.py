@@ -2,7 +2,6 @@ import os
 
 from telethon import TelegramClient
 from telethon.sessions import StringSession
-
 from userbot.Config import Config
 
 try:
