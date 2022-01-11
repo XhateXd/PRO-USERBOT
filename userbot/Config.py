@@ -17,13 +17,12 @@ if ENV:
         if FBAN_LOGGER_GROUP:
             FBAN_LOGGER_GROUP = int(FBAN_LOGGER_GROUP)
 
-        EMOJI_IN_HELP1 = os.environ.get("EMOJI_IN_HELP1", "🚀 ")
-        EMOJI_IN_HELP2 = os.environ.get("EMOJI_IN_HELP2", "⚡ ")
-        ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", "⚜")
+        EMOJI_IN_HELP1 = os.environ.get("EMOJI_IN_HELP1", "✨ ")
+        EMOJI_IN_HELP2 = os.environ.get("EMOJI_IN_HELP2", " ✨")
+        ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", "⭐")
         # specify command handler that should be used for the plugins
         # this should be a valid "regex" pattern
-        HANDLER = os.environ.get("HANDLER", r"\.")
-        HANDLER = os.environ.get("HANDLER", r"\.")
+        HANDLER = os.environ.get("HANDLER", r"\."
         # custom animation to kang plugin
         CUSTOM_STICKER_PACK_NAME = os.environ.get("CUSTOM_STICKER_PACK_NAME", None)
         # specify list of users allowed to use bot
@@ -75,7 +74,7 @@ if ENV:
             or "https://telegra.ph/file/47ffec836544b371408ab.mp4"
         )
         HELP_PIC = (
-            os.environ.get("OP_PIC", None)
+            os.environ.get("HELP_PIC", None)
             or "https://te.legra.ph/file/b5d01ceea49ee0a822661.mp4"
         )
         PING_PIC = (
@@ -84,7 +83,7 @@ if ENV:
         )
         ALIVE_MSG = os.environ.get("ALIVE_MSG", None) or "Lêɠêɳ̃dẞø† Is Online"
         PM_MSG = os.environ.get("PM_MSG", None)
-        INSTANT_BLOCK = os.environ.get("INSTANT_BLOCK", "DISABLE")
+        INSTANT_BLOCK = os.environ.get("INSTANT_BLOCK", "ON")
         YOUR_GROUP = os.environ.get("YOUR_GROUP", "@LegendBot_Pro")
         YOUR_CHANNEL = os.environ.get("YOUR_CHANNEL", "@Pro_LegendBot.")
         BOT_PIC = os.environ.get("ALIVE_PIC", None)
@@ -100,24 +99,17 @@ if ENV:
         APP_ID = os.environ.get("APP_ID", None)
         API_HASH = os.environ.get("API_HASH", None)
         PRO_STRING = os.environ.get("PRO_STRING", None)
-        BOT_MODE = os.environ.get("BOT_MODE", "ON")
-        BOTLOG = True
         EXTRA_PLUGIN = os.environ.get("EXTRA_PLUGIN", None)
         ASSISTANT = os.environ.get("ASSISTANT", None)
         ABUSE = os.environ.get("ABUSE", None)
         BOTLOG_CHATID = os.environ.get("LOGGER_ID", None)
         ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
         BOY_OR_GIRL = os.environ.get("BOY_OR_GIRL", "BOY")
-        BOT_TRIGGER = os.environ.get("BOT_TRIGGER", "^/")
-        BOTMODE_LOG = int(os.environ.get("BOTMODE_LOG", False))
         BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
         BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
         FORCE_SUB = os.environ.get("FORCE_SUB", None)
         FORCE_CHANNEL_UN = os.environ.get("FORCE_CHANNEL_UN", None)
-        LOGGER_ID = os.environ.get("LOGGER_ID", None)
-        if LOGGER_ID:
-            LOGGER_ID = int(LOGGER_ID)
-        LOGGER_ID = os.environ.get("LOGGER_ID", None)
+        LOGGER_ID = int(os.environ.get("LOGGER_ID", None))
         HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
         HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
         BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
@@ -161,7 +153,7 @@ if ENV:
         DUAL_LOG = os.environ.get("DUAL_LOG", None)
         # DO NOT EDIT BELOW THIS LINE IF YOU DO NOT KNOW WHAT YOU ARE DOING
         # TG API limit. A message can have maximum 4096 characters!
-        MAX_MESSAGE_SIZE_LIMIT = 100000
+        MAX_MESSAGE_SIZE_LIMIT = 4096
         # set blacklist_chats where you do not want userbot's features
         UB_BLACK_LIST_CHAT = set(
             int(x) for x in os.environ.get("UB_BLACK_LIST_CHAT", "").split()
@@ -189,14 +181,9 @@ if ENV:
         # pm log
         PM_LOG_GRP_ID = os.environ.get("LOGGER_ID", None)
         # set to True if you want to log PMs to your PM_LOGGR_BOT_API_ID
-        NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", True))
-        # heroku
         HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
         HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
         # send .get_id in any channel to forward all your NEW PMs to this group
-        LOGGER_ID = os.environ.get("LOGGER_ID", None)
-        if LOGGER_ID:
-            LOGGER_ID = int(LOGGER_ID)
         # send .get_id in your private channel to forward all your Private messages
 
         TAG_LOGGER = os.environ.get("TAG_LOGGER", None)
