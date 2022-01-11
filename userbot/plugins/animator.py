@@ -2,7 +2,7 @@
 # keep credits if you are gonna kang it lol
 import asyncio
 
-from PRO-LEGENDBOT.utils import admin_cmd, edit_or_reply
+from userbot.utils import admin_cmd, edit_or_reply
 from userbot import ALIVE_NAME
 from userbot.cmdhelp import CmdHelp
 

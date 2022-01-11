@@ -2,7 +2,7 @@ import time
 
 from telethon import version
 
-from PRO-LEGENDBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot import LEGENDversion, StartTime
 from userbot.cmdhelp import CmdHelp
 

@@ -7,7 +7,7 @@ from datetime import datetime
 from telethon import events
 from telethon.tl import functions, types
 
-from PRO-LEGENDBOT.utils import admin_cmd
+from userbot.utils import admin_cmd
 from userbot import ALIVE_NAME
 from userbot.cmdhelp import CmdHelp
 

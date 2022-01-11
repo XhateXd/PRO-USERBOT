@@ -1,7 +1,7 @@
 import random
 import re
 
-from PRO-LEGENDBOT.utils import admin_cmd, sudo_cmd
+from userbot.utils import admin_cmd, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot.events import register
 

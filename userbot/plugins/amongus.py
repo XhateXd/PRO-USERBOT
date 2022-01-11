@@ -3,7 +3,7 @@
 
 import asyncio
 
-from PRO-LEGENDBOT.utils import *
+from userbot.utils import *
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 

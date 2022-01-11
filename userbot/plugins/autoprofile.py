@@ -5,7 +5,7 @@ from telethon.errors import FloodWaitError
 from telethon.tl import functions
 from telethon.tl.functions.channels import GetAdminedPublicChannelsRequest
 
-from PRO-LEGENDBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot import ALIVE_NAME, BIO_MSG
 from userbot.cmdhelp import CmdHelp
 

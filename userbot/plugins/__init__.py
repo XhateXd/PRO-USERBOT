@@ -19,7 +19,7 @@ bsdk_pic = "./userbot/resources/pics/bsdk.jpg"
 bsdkwale_pic = "./userbot/resources/pics/bsdk_wale.jpg"
 chutiya_pic = "./userbot/resources/pics/chutiya.jpg"
 
-perf = "[ Přô - Lêɠêɳ̃dẞø† ]"
+perf = "[ Pro Lêɠêɳ̃dẞø† ]"
 
 
 DEVLIST = ["5061095379"]
@@ -49,7 +49,6 @@ else:
 
 START_TIME = datetime.datetime.now()
 uptime = f"{str(datetime.datetime.now() - START_TIME).split('.')[0]}"
-
 my_channel = Config.YOUR_CHANNEL or "Pro_LegendBot"
 my_group = Config.YOUR_GROUP or "LegendBot_Pro"
 if "@" in my_channel:
