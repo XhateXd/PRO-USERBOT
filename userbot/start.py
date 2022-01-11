@@ -6,7 +6,7 @@ from telethon.tl.types import InputMessagesFilterDocument
 
 from userbot import LEGENDversion, bot
 from userbot.Config import Config
-from userbot.utils import (
+from .utils import (
     load_abuse,
     load_addons,
     load_module,
