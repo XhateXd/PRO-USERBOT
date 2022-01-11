@@ -1,5 +1,3 @@
-# by uniborg...Thanks @Pro_LegendBoy
-# Now will be used in PRO-LEGENDBOT too....
 import asyncio
 import datetime
 from datetime import datetime
@@ -42,7 +40,7 @@ async def set_not_afk(event):
         total_afk_time = str((afk_end - afk_start))
     current_message = event.message.message
     if ".afk" not in current_message and "yes" in USER_AFK:  # pylint:disable=E0602
-        PRO-LEGENDBOT = await borg.send_message(
+        LEGENDBOT = await borg.send_message(
             event.chat_id,
             "⚜My Pro Master bαϲκ αℓινe !\n⏱️`wαs αƒk fοя:``" + total_afk_time + "`",
             file=LEGENDpic,
@@ -65,8 +63,8 @@ async def set_not_afk(event):
                 reply_to=event.message.id,
                 silent=True,
             )
-        await asyncio.sleep(5)
-        await PRO-LEGENDBOT.delete()
+        await asyncio.sleep(10)
+        await LEGENDBOT.delete()
         USER_AFK = {}  # pylint:disable=E0602
         afk_time = None  # pylint:disable=E0602
 
