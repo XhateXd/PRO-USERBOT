@@ -1,0 +1,3 @@
+build: 
+  docker:
+      PRO-LEGENDBOT: Dockerfile
