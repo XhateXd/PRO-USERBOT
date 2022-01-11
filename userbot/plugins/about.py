@@ -1,6 +1,6 @@
 import asyncio
 
-from PRO-LEGENDBOT.utils import admin_cmd
+from userbot.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 
