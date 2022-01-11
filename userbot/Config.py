@@ -137,7 +137,7 @@ if ENV:
             "TMP_DOWNLOAD_DIRECTORY", "./userbot/DOWNLOADS/"
         )
         TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "PRO-LEGENDBOT")
-        TG_GLOBAL_ALBUM_LIMIT = int(os.environ.gBOT_et("TG_GLOBAL_ALBUM_LIMIT", 9))
+        TG_GLOBAL_ALBUM_LIMIT = int(os.environ.get("TG_GLOBAL_ALBUM_LIMIT", 9))
         # MIRROR ACE API KEY AND TOKEN
         MIRROR_ACE_API_KEY = os.environ.get("MIRROR_ACE_API_KEY", None)
         MIRROR_ACE_API_TOKEN = os.environ.get("MIRROR_ACE_API_KEY", None)
