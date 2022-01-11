@@ -32,4 +32,4 @@ jobs:
           repository: .
           commit_user_name: PROBOY-OP
           commit_user_email: Pro045LegendBoy@gmail.com 
-          commit_author: PROBOY-OP <Pro45LegendBoy@gmail.com>
+          commit_author: PROBOY-OP<Pro45LegendBoy@gmail.com>
