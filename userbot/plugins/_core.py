@@ -3,7 +3,7 @@ import io
 import os
 from pathlib import Path
 
-from PRO-LEGENDBOT.utils import *
+from userbot.utils import *
 from userbot import *
 
 from . import *
