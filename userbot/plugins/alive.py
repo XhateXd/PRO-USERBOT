@@ -4,7 +4,7 @@ from telethon import version
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
 
-from PRO-LEGENDBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot import ALIVE_NAME, LEGENDversion
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
