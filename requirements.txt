@@ -109,7 +109,7 @@ sqlalchemy
 sqlalchemy==1.3.23
 telegraph
 twitter_scraper
-git+https://github.com/PROBOY-OP/Telethon.git
+https://github.com/New-dev0/Telethon/archive/Vector.zip
 tgcrypto
 tswift
 html-telegraph-poster
