@@ -19,7 +19,7 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 
-from PRO-LEGENDBOT.utils import *
+from userbot.utils import *
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
