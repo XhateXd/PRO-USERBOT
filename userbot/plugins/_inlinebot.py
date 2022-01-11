@@ -11,7 +11,7 @@ from telethon.events import InlineQuery, callbackquery
 from telethon.sync import custom
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.functions.users import GetFullUserRequest
-
+import telethon.utils 
 from userbot.Config import Config
 
 from . import *
