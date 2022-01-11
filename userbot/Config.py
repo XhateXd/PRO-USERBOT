@@ -7,10 +7,7 @@ if ENV:
     import os
 
     class Config(object):
-        NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_COLUMNS", 2))
-        # emoji to be displayed  in help .legend
         NO_OF_COLUMNS = int(os.environ.get("NO_OF_COLUMNS", 2))
-        # emoji to be displayed  in help .legend
         BL_CHAT = os.environ.get("BL_CHAT", "-1001344140905")
         G_BAN_LOGGER_GROUP = int(os.environ.get("G_BAN_LOGGER_GROUP", -1001169892177))
         FBAN_LOGGER_GROUP = os.environ.get("FBAN_LOGGER_GROUP", None)
@@ -158,15 +155,6 @@ if ENV:
         UB_BLACK_LIST_CHAT = set(
             int(x) for x in os.environ.get("UB_BLACK_LIST_CHAT", "").split()
         )
-        # maximum number of messages for antiflood
-        MAX_ANTI_FLOOD_MESSAGES = 5
-        # warn mode for anti flood
-        ANTI_FLOOD_WARN_MODE = ChatBannedRights(
-            until_date=None, view_messages=None, send_messages=True
-        )
-        # chat ids or usernames, it is recommended to use chat ids,
-        # providing usernames means an additional overhead for the user
-        CHATS_TO_MONITOR_FOR_ANTI_FLOOD = []
         # Get your own API key from https://www.remove.bg/ or
         # feel free to use http://telegram.dog/Remove_BGBot
         REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
@@ -182,16 +170,6 @@ if ENV:
         HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
         # send .get_id in any channel to forward all your NEW PMs to this group
         # send .get_id in your private channel to forward all your Private messages
-
-        TAG_LOGGER = os.environ.get("TAG_LOGGER", None)
-        if TAG_LOGGER:
-            TAG_LOGGER = int(TAG_LOGGER)
-
-        # Tag LOGGER
-
-        # For Databases
-        # can be None in which case plugins requiring
-        # DataBase would not work
         DB_URI = os.environ.get("DATABASE_URL", None)
         # number of rows of buttons to be displayed in .legend command
         BUTTONS_IN_HELP = int(os.environ.get("NO_OF_BUTTONS", 7))
