@@ -16,7 +16,7 @@ from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
-from userbot import CMD_LIST, LOAD_PLUG, LOGS, SUDO_LIST, Legend, PRO-LEGENDBOT, bot
+from userbot import CMD_LIST, LOAD_PLUG, LOGS, SUDO_LIST, Legend, PRO, bot
 from userbot.Config import Config
 from userbot.helpers.exceptions import CancelProcess
 from var import Var
@@ -51,7 +51,7 @@ def load_module(shortname):
         mod = importlib.util.module_from_spec(spec)
         mod.bot = Legend
         mod.borg = bot
-        mod.PRO-LEGENDBOT = PRO-LEGENDBOT
+        mod.PRO = PRO
         mod.tbot = PRO-LEGENDBOT
         mod.Legend = Legend
         mod.tgbot = bot.tgbot
@@ -141,7 +141,7 @@ def load_addons(shortname):
         import userbot.utils
 
         path = Path(f"userbot/plugins/Xtra_Plugin/{shortname}.py")
-        name = "userbot.plugins.PRO-LEGENDBOT-Addons.{}".format(shortname)
+        name = "userbot.plugins.Xtra_Plugin.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -161,9 +161,8 @@ def load_addons(shortname):
         mod.bot = Legend
         mod.bot = bot
         mod.borg = bot
-        mod.PRO-LEGENDBOT = bot
-        mod.PRO-LEGENDBOT = PRO-LEGENDBOT
-        mod.tbot = PRO-LEGENDBOT
+        mod.PRO = PRO
+        mod.tbot = PRO
         mod.Legend = Legend
         mod.tgbot = bot.tgbot
         mod.Var = Var
@@ -178,13 +177,13 @@ def load_addons(shortname):
         # support for uniborg
         sys.modules["uniborg.util"] = userbot.utils
         # support for PRO-LEGENDBOT originals
-        sys.modules["PRO-LEGENDBOT.utils"] = userbot.utils
+        sys.modules["LEGENDBOT.utils"] = userbot.utils
         sys.modules["userbot"] = userbot
         # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["PRO-LEGENDBOT-Addons." + shortname] = mod
+        sys.modules["Xtra_Plugin." + shortname] = mod
         LOGS.info("📍Extra Plugin📍 ~ " + shortname)
 
 
@@ -199,7 +198,7 @@ def load_abuse(shortname):
         import userbot.utils
 
         path = Path(f"userbot/plugins/Abuse/{shortname}.py")
-        name = "userbot/plugins/Abuse.{}".format(shortname)
+        name = "userbot.plugins.Abuse.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -212,12 +211,12 @@ def load_abuse(shortname):
         import userbot.utils
 
         path = Path(f"userbot/plugins/Abuse/{shortname}.py")
-        name = "userbot/plugins/Abuse.{}".format(shortname)
+        name = "userbot.plugins.Abuse.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = Legend
-        mod.PRO-LEGENDBOT = PRO-LEGENDBOT
-        mod.tbot = PRO-LEGENDBOT
+        mod.PRO= PRO
+        mod.tbot = PRO
         mod.Legend = Legend
         mod.tgbot = bot.tgbot
         mod.Var = Var
@@ -227,20 +226,18 @@ def load_abuse(shortname):
         sys.modules["uniborg.util"] = userbot.utils
         mod.Config = Config
         mod.borg = bot
-        mod.PRO-LEGENDBOT = bot
+        mod.PRO = bot
         mod.edit_or_reply = edit_or_reply
         mod.delete_LEGEND = delete_LEGEND
         mod.eod = delete_LEGEND
         mod.admin_cmd = admin_cmd
         mod.sudo_cmd = sudo_cmd
-        # support for PRO-LEGENDBOT originals
-        sys.modules["PRO-LEGENDBOT.utils"] = userbot.utils
+        sys.modules["LEGENDBOT.utils"] = userbot.utils
         sys.modules["userbot"] = userbot
-        # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["ABUSE." + shortname] = mod
+        sys.modules["Abuse." + shortname] = mod
         LOGS.info("🔱PRO-LEGENDBOT-Abuse🔱 ~ " + shortname)
 
 
