@@ -52,7 +52,7 @@ def load_module(shortname):
         mod.bot = Legend
         mod.borg = bot
         mod.PRO = PRO
-        mod.tbot = PRO - LEGENDBOT
+        mod.tbot = PRO
         mod.Legend = Legend
         mod.tgbot = bot.tgbot
         mod.Var = Var
@@ -68,8 +68,8 @@ def load_module(shortname):
         mod.legend_cmd = admin_cmd
         mod.sudo_cmd = sudo_cmd
         # support for PRO-LEGENDBOT originals
-        sys.modules["PRO-LEGENDBOT.utils"] = userbot.utils
-        sys.modules["PRO-LEGENDBOT"] = userbot
+        sys.modules["LEGENDBOT.utils"] = userbot.utils
+        sys.modules["LEGENDBOT"] = userbot
         # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
