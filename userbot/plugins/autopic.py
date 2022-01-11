@@ -9,7 +9,7 @@ import requests
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl import functions
 
-from PRO-LEGENDBOT.utils import admin_cmd
+from userbot.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
 
 COLLECTION_STRING = [
