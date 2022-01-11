@@ -73,7 +73,7 @@
 `pip install -U -r requirements.txt`
 - Generate Legend STRING.
 
-`python LegendString.py`
+`python String.py`
 - Create config.py or rename exampleconfig.py to config.py. Fill All The Required Variables.
 - Finally Start PRO-LEGENDBOT By Vps
 
@@ -147,7 +147,7 @@
 - Open the terminal.
 - Paste this code.
 
-`pkg install python wget -y && pip install telethon && wget https://raw.githubusercontent.com/PRO-LEGENDBOT/PRO-USERBOT/PRO-LEGENDBOT/LegendString.py && python3 LegendString.py`
+`pkg install python wget -y && pip install telethon && wget https://raw.githubusercontent.com/PRO-LEGENDBOT/PRO-USERBOT/PRO-LEGENDBOT/String.py && python3 String.py`
 - Fill API ID, API HASH, Phone number (with country code).
 - Paste the OTP received on Telegram.
 - If You have Enabled 2-Step Verification then fill your password.
