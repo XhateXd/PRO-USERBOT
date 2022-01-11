@@ -19,7 +19,7 @@ bsdk_pic = "./userbot/resources/pics/bsdk.jpg"
 bsdkwale_pic = "./userbot/resources/pics/bsdk_wale.jpg"
 chutiya_pic = "./userbot/resources/pics/chutiya.jpg"
 
-perf = "[ Pro Lêɠêɳ̃dẞø† ]"
+perf = "[ Přô-Lêɠêɳ̃dẞø† ]"
 
 
 DEVLIST = ["5061095379"]
