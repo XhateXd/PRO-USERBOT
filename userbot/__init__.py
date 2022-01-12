@@ -6,13 +6,13 @@ import heroku3
 from telethon import TelegramClient
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
-
+from userbot.helpers.logger import logging
 from userbot.Config import Config
 from var import Var
 
 import asyncio
 from distutils.util import strtobool as sb
-from logging import DEBUG, INFO, basicConfig, getLogger
+from logging import DEBUG, INFO, basicConfig, getlogger
 
 import pylast
 from pySmartDL import SmartDL
@@ -29,7 +29,7 @@ LEGENDversion = "v1.0"
 botversion = "v1.0"
 from .k import *
 
-LOGS = getlogger(__name__)
+LOGS = logging.getlogger(__name__)
 
 if Config.PRO_STRING:
     session = StringSession(str(Config.PRO_STRING))
@@ -112,7 +112,7 @@ if bool(ENV):
         basicConfig(
             format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
         )
-    LOGS = getLogger("[Lêɠêɳ̃dẞø† 3.0]")
+    LOGS = logging.getlogger("[Lêɠêɳ̃dẞø† 3.0]")
 
 try:
     if Config.HEROKU_API_KEY is not None or Config.HEROKU_APP_NAME is not None:
@@ -154,3 +154,4 @@ SUDO_LIST = {}
 
 from userbot.cmdhelp import CmdHelp
 from userbot.helpers import *
+from userbot.utils import *
