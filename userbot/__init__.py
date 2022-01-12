@@ -26,9 +26,9 @@ LOGGER = True
 StartTime = time.time()
 LEGENDversion = "v1.0"
 botversion = "v1.0"
-from .k import *
-
 from logging import DEBUG, INFO, basicConfig, getLogger
+
+from .k import *
 
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 if CONSOLE_LOGGER_VERBOSE:
