@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String
 
-from PRO-LEGENDBOT.plugins.sql_helper import BASE, SESSION
+from userbot.plugins.sql_helper import BASE, SESSION
 
 
 class fban(BASE):
