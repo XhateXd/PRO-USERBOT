@@ -5,7 +5,6 @@ import random
 from moviepy.editor import VideoFileClip
 from PIL import Image, ImageOps
 from telethon import functions, types
-
 from userbot.helpers.logger import logging
 
 LOGS = logging.getLogger(__name__)
