@@ -4,7 +4,6 @@ import os
 import sys
 import time
 from distutils.util import strtobool as sb
-from logging import DEBUG, INFO, basicConfig, getLogger
 
 import heroku3
 import pylast
@@ -28,6 +27,8 @@ StartTime = time.time()
 LEGENDversion = "v1.0"
 botversion = "v1.0"
 from .k import *
+
+from logging import DEBUG, INFO, basicConfig, getLogger
 
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 if CONSOLE_LOGGER_VERBOSE:
