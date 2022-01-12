@@ -1,22 +1,21 @@
+import asyncio
+import logging
 import os
 import sys
 import time
-import heroku3
-import logging
-
-from telethon import TelegramClient
-from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
-from telethon.sessions import StringSession
-from userbot.Config import Config
-from var import Var
-
-import asyncio
 from distutils.util import strtobool as sb
 from logging import DEBUG, INFO, basicConfig, getlogger
 
+import heroku3
 import pylast
 from pySmartDL import SmartDL
 from requests import get
+from telethon import TelegramClient
+from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
+from telethon.sessions import StringSession
+
+from userbot.Config import Config
+from var import Var
 
 DEVS = ["5061095379"]
 
@@ -29,7 +28,6 @@ StartTime = time.time()
 LEGENDversion = "v1.0"
 botversion = "v1.0"
 from .k import *
-
 
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 if CONSOLE_LOGGER_VERBOSE:
@@ -78,7 +76,6 @@ bot = kbot = Legend
 tbot = PRO
 
 
-
 if not Config.API_HASH:
     LOGS.warning("Please fill var API HASH to continue.")
     quit(1)
@@ -99,7 +96,7 @@ if not Config.BOT_USERNAME:
     quit(1)
 
 
-if not Config.DB_URI:    
+if not Config.DB_URI:
     LOGS.warning("Please fill var DATABASE URL to continue.")
     quit(1)
 
@@ -112,7 +109,7 @@ if not Config.HELLBOT_SESSION:
 if not Config.LOGGER_ID:
     LOGS.warning("Please fill var LOGGER ID to continue.")
     quit(1)
-    
+
 try:
     if Config.HEROKU_API_KEY is not None or Config.HEROKU_APP_NAME is not None:
         HEROKU_APP = heroku3.from_key(Config.HEROKU_API_KEY).apps()[
