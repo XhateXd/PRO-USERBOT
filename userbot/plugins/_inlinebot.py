@@ -16,12 +16,12 @@ from userbot.Config import Config
 
 from . import *
 
-DEFAULTUSER = alive_name =Config.ALIVE_NAME 
+DEFAULTUSER = alive_name = Config.ALIVE_NAME
 legend_row = Config.BUTTONS_IN_HELP
-legend_emoji1 = Config.HELP_EMOJI1 
-legend_emoji2 = Config.HELP_EMOJI2 
-alive_emoji = Config.ALIVE_EMOJI 
-legend_pic = Config.PM_PIC 
+legend_emoji1 = Config.HELP_EMOJI1
+legend_emoji2 = Config.HELP_EMOJI2
+alive_emoji = Config.ALIVE_EMOJI
+legend_pic = Config.PM_PIC
 cstm_pmp = Config.PM_MSG
 ALV_PIC = VAR_PIC = Config.ALIVE_PIC
 help_pic = Config.HELP_PIC
