@@ -2,7 +2,7 @@ import asyncio
 import os
 import re
 import sys
-os.system("pip install -U https://github.com/New-dev0/Telethon/archive/Vector.zip")
+
 import telethon.utils
 from telethon import Button, TelegramClient, custom, events
 
@@ -33,7 +33,7 @@ async def add_bot(bot_token):
         bot.me = await bot.get_me()
         bot.uid = telethon.utils.get_peer_id(bot.me)
     except Exception as e:
-        print(f"PRO_STRING - {str(e)}")
+        LOGS.error(f"PRO_STRING - {str(e)}")
         sys.exit()
 
 
@@ -43,18 +43,18 @@ else:
     bot.tgbot = None
     try:
         if Config.BOT_USERNAME is not None:
-            print("Checking Telegram Bot Username...")
+            LOGS.info("Checking Telegram Bot Username...")
             bot.tgbot = TelegramClient(
                 "BOT_TOKEN", api_id=Config.APP_ID, api_hash=Config.API_HASH
             ).start(bot_token=Config.BOT_TOKEN)
-            print("Checking Completed. Proceeding to next step...")
-            print("♥️ Starting PRO-LEGENDBOT ♥️")
+            LOGS.info("Checking Completed. Proceeding to next step...")
+            LOGS.info("♥️ Starting PRO-LEGENDBOT ♥️")
             bot.loop.run_until_complete(add_bot(Config.BOT_USERNAME))
             LOGS.info("🥇🔥 PRO-LEGENDBOT Startup Completed 🔥🥇")
         else:
             bot.start()
     except Exception as e:
-        print(f"BOT_TOKEN - {str(e)}")
+        LOGS.error(f"BOT_TOKEN - {str(e)}")
         sys.exit()
 
 print("📍⚜Loading Modules / Plugins⚜✔")
