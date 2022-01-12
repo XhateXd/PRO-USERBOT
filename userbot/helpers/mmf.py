@@ -2,7 +2,6 @@ import os
 import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
-
 from userbot.Config import Config
 
 
