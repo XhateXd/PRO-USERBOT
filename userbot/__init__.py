@@ -30,7 +30,20 @@ LEGENDversion = "v1.0"
 botversion = "v1.0"
 from .k import *
 
-LOGS = getlogger(__name__)
+
+CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
+if CONSOLE_LOGGER_VERBOSE:
+    basicConfig(
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        level=DEBUG,
+    )
+else:
+    basicConfig(
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
+    )
+
+LOGS = logging.getlogger("[Lêɠêɳ̃dẞø† 3.0]")
+
 
 if Config.PRO_STRING:
     session = StringSession(str(Config.PRO_STRING))
@@ -99,22 +112,7 @@ if not Config.HELLBOT_SESSION:
 if not Config.LOGGER_ID:
     LOGS.warning("Please fill var LOGGER ID to continue.")
     quit(1)
-
-
-if bool(ENV):
-    CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
-
-    if CONSOLE_LOGGER_VERBOSE:
-        basicConfig(
-            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-            level=DEBUG,
-        )
-    else:
-        basicConfig(
-            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
-        )
-    LOGS = logging.getlogger("[Lêɠêɳ̃dẞø† 3.0]")
-
+    
 try:
     if Config.HEROKU_API_KEY is not None or Config.HEROKU_APP_NAME is not None:
         HEROKU_APP = heroku3.from_key(Config.HEROKU_API_KEY).apps()[
