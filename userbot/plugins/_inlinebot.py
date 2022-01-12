@@ -16,31 +16,31 @@ from userbot.Config import Config
 
 from . import *
 
-DEFAULTUSER = ALIVE_NAME or "LEGEND"
+DEFAULTUSER = alive_name =Config.ALIVE_NAME 
 legend_row = Config.BUTTONS_IN_HELP
-legend_emoji1 = Config.HELP_EMOJI1 or "⭐"
-legend_emoji2 = Config.HELP_EMOJI2 or "⭐"
-alive_emoji = Config.ALIVE_EMOJI or "🔰"
-alive_name = Config.ALIVE_NAME or "LegendBoy"
-legend_pic = Config.PM_PIC or "https://te.legra.ph/file/0c605739ddaa472cad75f.jpg"
+legend_emoji1 = Config.HELP_EMOJI1 
+legend_emoji2 = Config.HELP_EMOJI2 
+alive_emoji = Config.ALIVE_EMOJI 
+legend_pic = Config.PM_PIC 
 cstm_pmp = Config.PM_MSG
 ALV_PIC = VAR_PIC = Config.ALIVE_PIC
 help_pic = Config.HELP_PIC
+LOG_GP = Config.LOGGER_ID
+
 PREV_REPLY_MESSAGE = {}
 mybot = Config.BOT_USERNAME
 HANDLER = os.environ.get("HANDLER", r".")
+
 if mybot.startswith("@"):
     botname = mybot
 else:
     botname = f"@{mybot}"
-
-LOG_GP = Config.LOGGER_ID
 mssge = (
     str(cstm_pmp)
     if cstm_pmp
     else "**You Have Trespassed To My Master's PM!\nThis Is Illegal And Regarded As Crime.**"
 )
-TOTAL_WARN = Config.MAX_FLOOD_IN_PM
+
 USER_BOT_WARN_ZERO = (
     "Enough Of Your Flooding In My Master's PM!! \n\n**🚫 Blocked and Reported**"
 )
@@ -123,14 +123,14 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         builder = event.builder
         result = None
         query = event.text
-        if event.query.user_id == bot.uid and query == "PRO-LEGENDBOT_help":
+        if event.query.user_id == bot.uid and query == "LEGENDBOT_help":
             rev_text = query[::-1]
             veriler = button(0, sorted(CMD_HELP))
             apn = []
             for x in CMD_LIST.values():
                 for y in x:
                     apn.append(y)
-            help_msg = f"⚜『{legend_mention}』⚜\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
+            help_msg = f"『{legend_mention}』\n\n⭐ ## 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ##⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
