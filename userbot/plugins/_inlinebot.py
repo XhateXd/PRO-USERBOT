@@ -22,7 +22,10 @@ legend_emoji1 = Config.HELP_EMOJI1
 legend_emoji2 = Config.HELP_EMOJI2
 alive_emoji = Config.ALIVE_EMOJI
 legend_pic = Config.PM_PIC
-mssge = cstm_pmp = Config.PM_MSG or "I am Assistant Of My Owner\nI am Here To Protect My Owner From Scanner"
+mssge = cstm_pmp = (
+    Config.PM_MSG
+    or "I am Assistant Of My Owner\nI am Here To Protect My Owner From Scanner"
+)
 ALV_PIC = VAR_PIC = Config.ALIVE_PIC
 help_pic = Config.HELP_PIC
 LOG_GP = Config.LOGGER_ID
