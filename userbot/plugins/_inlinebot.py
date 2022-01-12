@@ -22,24 +22,20 @@ legend_emoji1 = Config.HELP_EMOJI1
 legend_emoji2 = Config.HELP_EMOJI2
 alive_emoji = Config.ALIVE_EMOJI
 legend_pic = Config.PM_PIC
-cstm_pmp = Config.PM_MSG
+mssge = cstm_pmp = Config.PM_MSG or "I am Assistant Of My Owner\nI am Here To Protect My Owner From Scanner"
 ALV_PIC = VAR_PIC = Config.ALIVE_PIC
 help_pic = Config.HELP_PIC
 LOG_GP = Config.LOGGER_ID
 
 PREV_REPLY_MESSAGE = {}
 mybot = Config.BOT_USERNAME
+
 HANDLER = os.environ.get("HANDLER", r".")
 
 if mybot.startswith("@"):
     botname = mybot
 else:
     botname = f"@{mybot}"
-mssge = (
-    str(cstm_pmp)
-    if cstm_pmp
-    else "**You Have Trespassed To My Master's PM!\nThis Is Illegal And Regarded As Crime.**"
-)
 
 USER_BOT_WARN_ZERO = (
     "Enough Of Your Flooding In My Master's PM!! \n\n**🚫 Blocked and Reported**"
