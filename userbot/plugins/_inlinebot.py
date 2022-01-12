@@ -5,7 +5,7 @@ import re
 from math import ceil
 from re import compile
 
-from telethon import Button, custom, events, functions
+from telethon import Button, custom, events, functions, types
 from telethon.errors.rpcerrorlist import UserNotParticipantError
 from telethon.events import InlineQuery, callbackquery
 from telethon.sync import custom
@@ -15,6 +15,8 @@ from telethon.tl.functions.users import GetFullUserRequest
 from userbot.Config import Config
 
 from . import *
+
+CATLOGO = "https://telegra.ph/file/493268c1f5ebedc967eba.jpg"
 
 DEFAULTUSER = alive_name = Config.ALIVE_NAME
 legend_row = Config.BUTTONS_IN_HELP
@@ -44,7 +46,7 @@ USER_BOT_WARN_ZERO = (
     "Enough Of Your Flooding In My Master's PM!! \n\n**🚫 Blocked and Reported**"
 )
 
-LEGEND_FIRST = "__{}__\nPlease choose why u are here.♥️!!"
+LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
 
 
 var_txt = """
@@ -102,11 +104,11 @@ def button(page, modules):
     buttons.append(
         [
             custom.Button.inline(
-                f"ẞαƈƙ", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
+                f"⬅️ẞαƈƙ", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
             ),
             custom.Button.inline(f"🔥 ❌ 🔥", data="close"),
             custom.Button.inline(
-                f"ɳ̃êӿ†", data=f"page({0 if page == (max_pages - 1) else page + 1})"
+                f"ɳ̃êӿ†➡️", data=f"page({0 if page == (max_pages - 1) else page + 1})"
             ),
         ]
     )
@@ -116,7 +118,6 @@ def button(page, modules):
 
 
 if Config.BOT_USERNAME is not None and tgbot is not None:
-
     @tgbot.on(InlineQuery)  # pylint:disable=E0602
     async def inline_handler(event):
         builder = event.builder
@@ -172,7 +173,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 [
                     Button.url(
                         f"{LEGEND_USER}", f"tg://openmessage?user_id={Pro_LegendBoy}"
-                    )
+                    ) 
                 ],
                 [
                     Button.url("My Channel", f"https://t.me/{my_channel}"),
@@ -243,55 +244,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     [custom.Button.inline("Curious ❓", data="pmclick")],
                 ],
             )
-
-        elif event.query.user_id == bot.uid and query == "varboy":
-            le_gend = var_txt.format(
-                Config.ALIVE_NAME,
-                Config.ALIVE_MSG,
-                Config.ABUSE,
-                Config.ASSISTANT,
-                Config.AWAKE_PIC,
-                Config.BOT_USERNAME,
-                Config.BOT_TOKEN,
-                Config.EXTRA_PLUGIN,
-                Config.HELP_PIC,
-                Config.PM_DATA,
-                Config.PM_PIC,
-                Config.LOGGER_ID,
-            )
-            var_btn = [
-                [
-                    Button.url(
-                        f"{LEGEND_USER}", f"tg://openmessage?user_id={Pro_LegendBoy}"
-                    )
-                ],
-                [
-                    Button.url("🔹️Command🔹️", f"http://telegra.ph/Astronomer-10-07"),
-                ],
-            ]
-            if VAR_PIC and VAR_PIC.endswith((".jpg", ".png")):
-                result = builder.photo(
-                    VAR_PIC,
-                    text=le_gend,
-                    buttons=var_btn,
-                    link_preview=False,
-                )
-            elif VAR_PIC:
-                result = builder.document(
-                    VAR_PIC,
-                    text=le_gend,
-                    title="PRO-LEGENDBOT Alive",
-                    buttons=var_btn,
-                    link_preview=False,
-                )
-            else:
-                result = builder.article(
-                    text=le_gend,
-                    title="PRO-LEGENDBOT Alive",
-                    buttons=var_btn,
-                    link_preview=False,
-                )
-
         elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
                 title="Repository",
@@ -321,7 +273,35 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 link_preview=True,
             )
         else:
-            result = builder.photo(
+            buttons = [
+                (
+                    Button.url("Source code", "https://github.com/sandy1709/catuserbot"),
+                    Button.url(
+                        "Deploy",
+                        "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack&template=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack",
+                    ),
+                )
+            ]
+            markup = event.client.build_reply_markup(buttons)
+            photo = types.InputWebDocument(
+                url=CATLOGO, size=0, mime_type="image/jpeg", attributes=[]
+            )
+            text, msg_entities = await event.client._parse_message_text(
+                "𝗗𝗲𝗽𝗹𝗼𝘆 𝘆𝗼𝘂𝗿 𝗼𝘄𝗻 𝗖𝗮𝘁𝗨𝘀𝗲𝗿𝗯𝗼𝘁.", "md"
+            )
+            result = types.InputBotInlineResult(
+                id=str(uuid4()),
+                type="photo",
+                title="𝘾𝙖𝙩𝙐𝙨𝙚𝙧𝙗𝙤𝙩",
+                description="Deploy yourself",
+                url="https://github.com/sandy1709/catuserbot",
+                thumb=photo,
+                content=photo,
+                send_message=types.InputBotInlineMessageMediaAuto(
+                    reply_markup=markup, message=text, entities=msg_entities
+                ),
+            )
+            """result = builder.photo(
                 ALV_PIC,
                 text="""Hey! This is [Lêɠêɳ̃dẞø†](https://t.me/Pro_LegendBot) \nYou can know more about me from the links given below 👇""",
                 buttons=[
@@ -336,7 +316,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     ],
                 ],
                 link_preview=False,
-            )
+            )"""
         await event.answer([result] if result else None)
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"pmclick")))
