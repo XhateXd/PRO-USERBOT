@@ -11,7 +11,7 @@ from telethon.events import InlineQuery, callbackquery
 from telethon.sync import custom
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.functions.users import GetFullUserRequest
-import telethon.utils 
+
 from userbot.Config import Config
 
 from . import *
@@ -299,7 +299,11 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 text=f"**⚜ 𝙻𝚎𝚐𝚎𝚗𝚍𝚊𝚛𝚢 𝙰𝚏 𝙻𝚎𝚐𝚎𝚗𝚍𝙱𝚘𝚝 ⚜**",
                 buttons=[
                     [Button.url("♥️ Tutorial ♥", "https://youtu.be/9dQgdUJfk_k")],
-                    [Button.url("📍 𝚁𝚎𝚙𝚘 📍", "https://github.com/PROBOY-OP/PRO-LEGENDBOT")],
+                    [
+                        Button.url(
+                            "📍 𝚁𝚎𝚙𝚘 📍", "https://github.com/PROBOY-OP/PRO-LEGENDBOT"
+                        )
+                    ],
                     [
                         Button.url(
                             "💞 Deploy 💞",
@@ -613,9 +617,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
         command = CMD_HELP_BOT[cmd]["commands"][commands]
         if command["params"] is None:
-            result += (
-                f"**🛠 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 :**  `{HANDLER[:1]}{command['command']}`\n"
-            )
+            result += f"**🛠 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 :**  `{HANDLER[:1]}{command['command']}`\n"
         else:
             result += f"**🛠 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 :**  `{HANDLER[:1]}{command['command']} {command['params']}`\n"
         if command["example"] is None:

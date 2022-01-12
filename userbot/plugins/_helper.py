@@ -4,9 +4,9 @@ from telethon.errors.rpcerrorlist import BotInlineDisabledError as noinline
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot.utils import admin_cmd, sudo_cmd
 from userbot import CMD_LIST, bot
 from userbot.Config import Config
+from userbot.utils import admin_cmd, sudo_cmd
 
 from . import *
 
@@ -47,7 +47,9 @@ async def _(event):
     chat = "@Botfather"
     if tgbotusername is not None:
         try:
-            results = await event.client.inline_query(tgbotusername, "PRO-LEGENDBOT_help")
+            results = await event.client.inline_query(
+                tgbotusername, "PRO-LEGENDBOT_help"
+            )
             await results[0].click(
                 event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
             )
