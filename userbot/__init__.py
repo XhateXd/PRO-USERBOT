@@ -3,19 +3,13 @@ import logging
 import os
 import sys
 import time
-import heroku3
-import asyncio
 from distutils.util import strtobool as sb
 from logging import DEBUG, INFO, basicConfig, getLogger
 
+import heroku3
 import pylast
 from pySmartDL import SmartDL
 from requests import get
-
-from pySmartDL import SmartDL
-from requests import get
-from distutils.util import strtobool as sb
-from logging import DEBUG, INFO, basicConfig
 from telethon import TelegramClient
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
