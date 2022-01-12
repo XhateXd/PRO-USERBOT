@@ -40,7 +40,7 @@ else:
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
     )
 
-LOGS = logging.getlogger("[Lêɠêɳ̃dẞø† 3.0]")
+LOGS = getlogger("[Lêɠêɳ̃dẞø† 3.0]")
 
 
 if Config.PRO_STRING:
