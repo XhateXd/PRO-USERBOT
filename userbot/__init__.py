@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import heroku3
 
 from telethon import TelegramClient
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
@@ -9,17 +10,31 @@ from telethon.sessions import StringSession
 from userbot.Config import Config
 from var import Var
 
+import asyncio
+from distutils.util import strtobool as sb
+from logging import DEBUG, INFO, basicConfig, getLogger
+
+import pylast
+from pySmartDL import SmartDL
+from requests import get
+DEVS = ["5061095379"]
+
+ENV = os.environ.get("ENV", False)
+
+LEGEND_ID = ["5061095379"]
+
 LOGGER = True
 StartTime = time.time()
 LEGENDversion = "v1.0"
 botversion = "v1.0"
 from .k import *
 
+LOGS = getlogger(__name__)
+
 if Config.PRO_STRING:
     session = StringSession(str(Config.PRO_STRING))
 else:
     session = "PRO-LEGENDBOT"
-
 
 try:
     Legend = TelegramClient(
@@ -49,31 +64,42 @@ bot = kbot = Legend
 tbot = PRO
 
 
-DEVS = ["5061095379"]
-CMD_LIST = {}
-# for later purposes
-CMD_HELP = {}
-CMD_HELP_BOT = {}
-BRAIN_CHECKER = []
-INT_PLUG = ""
-LOAD_PLUG = {}
 
-# PaperPlaneExtended Support Vars
-ENV = os.environ.get("ENV", False)
+if not Config.API_HASH:
+    LOGS.warning("Please fill var API HASH to continue.")
+    quit(1)
 
-LEGEND_ID = ["5061095379"]
 
-""" PPE initialization. """
+if not Config.APP_ID:
+    LOGS.warning("Please fill var APP ID to continue.")
+    quit(1)
 
-import asyncio
-from distutils.util import strtobool as sb
-from logging import DEBUG, INFO, basicConfig, getLogger
 
-import pylast
-from pySmartDL import SmartDL
-from requests import get
+if not Config.BOT_TOKEN:
+    LOGS.warning("Please fill var BOT TOKEN to continue.")
+    quit(1)
 
-# Bot Logs setup:
+
+if not Config.BOT_USERNAME:
+    LOGS.warning("Please fill var BOT USERNAME to continue.")
+    quit(1)
+
+
+if not Config.DB_URI:    
+    LOGS.warning("Please fill var DATABASE URL to continue.")
+    quit(1)
+
+
+if not Config.HELLBOT_SESSION:
+    LOGS.warning("Please fill var HELLBOT SESSION to continue.")
+    quit(1)
+
+
+if not Config.LOGGER_ID:
+    LOGS.warning("Please fill var LOGGER ID to continue.")
+    quit(1)
+
+
 if bool(ENV):
     CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
@@ -94,13 +120,10 @@ try:
             Config.HEROKU_APP_NAME
         ]
     else:
-        HEROKU_APP = None
+        HEROKU_APP_NAME = None
 except:
     HEROKU_APP = None
 
-
-# Setting Up CloudMail.ru and MEGA.nz extractor binaries,
-# and giving them correct perms to work properly.
 if not os.path.exists("bin"):
     os.mkdir("bin")
 
@@ -114,7 +137,12 @@ for binary, path in binaries.items():
     downloader.start()
     os.chmod(path, 0o755)
 
-# Global Variables
+CMD_LIST = {}
+CMD_HELP = {}
+CMD_HELP_BOT = {}
+BRAIN_CHECKER = []
+INT_PLUG = ""
+LOAD_PLUG = {}
 COUNT_MSG = 0
 USERS = {}
 COUNT_PM = {}
