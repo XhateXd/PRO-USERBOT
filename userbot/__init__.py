@@ -41,7 +41,7 @@ else:
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
     )
 
-LOGS = getlogger("__name__")
+LOGS = getLogger("__name__")
 
 
 if Config.PRO_STRING:
