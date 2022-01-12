@@ -2,11 +2,11 @@ import os
 import sys
 import time
 import heroku3
+import logging
 
 from telethon import TelegramClient
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
-from userbot.helpers.logger import logging
 from userbot.Config import Config
 from var import Var
 
@@ -17,6 +17,7 @@ from logging import DEBUG, INFO, basicConfig, getlogger
 import pylast
 from pySmartDL import SmartDL
 from requests import get
+
 DEVS = ["5061095379"]
 
 ENV = os.environ.get("ENV", False)
@@ -29,7 +30,7 @@ LEGENDversion = "v1.0"
 botversion = "v1.0"
 from .k import *
 
-LOGS = logging.getlogger(__name__)
+LOGS = getlogger(__name__)
 
 if Config.PRO_STRING:
     session = StringSession(str(Config.PRO_STRING))
@@ -46,7 +47,7 @@ try:
         connection_retries=None,
     )
 except Exception as e:
-    print(f"PRO_STRING - {e}")
+    LOGS.error(f"PRO_STRING - {e}")
     sys.exit()
 
 
@@ -154,4 +155,3 @@ SUDO_LIST = {}
 
 from userbot.cmdhelp import CmdHelp
 from userbot.helpers import *
-from userbot.utils import *
