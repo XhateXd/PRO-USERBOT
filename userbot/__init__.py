@@ -102,7 +102,7 @@ if not Config.DB_URI:
     quit(1)
 
 
-if not Config.HELLBOT_SESSION:
+if not Config.PRO_STRING:
     LOGS.warning("Please fill var HELLBOT SESSION to continue.")
     quit(1)
 
@@ -150,4 +150,4 @@ AFKREASON = None
 SUDO_LIST = {}
 
 from userbot.cmdhelp import CmdHelp
-from userbot.helpers import reply_id
+from userbot.helpers import *
