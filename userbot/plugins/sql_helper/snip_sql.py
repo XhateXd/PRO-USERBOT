@@ -1,6 +1,6 @@
 from sqlalchemy import Column, LargeBinary, Numeric, UnicodeText
 
-from PRO-LEGENDBOT.plugins.sql_helper import BASE, SESSION
+from userbot.plugins.sql_helper import BASE, SESSION
 
 
 class Snips(BASE):
@@ -67,7 +67,22 @@ def add_snip(
     SESSION.add(adder)
     SESSION.commit()
 
-
+def adds_snip(keyword, reply, f_mesg_id):
+    to_check = get_snips(keyword)
+    if not to_check:
+        adder = Note(keyword, reply, f_mesg_id)
+        SESSION.add(adder)
+        SESSION.commit()
+        return True
+    rem = SESSION.query(Note).get(keyword)
+    SESSION.delete(rem)
+    SESSION.commit()
+    adder = Note(keyword, reply, f_mesg_id)
+    SESSION.add(adder)
+    SESSION.commit()
+    return False
+    
+    
 def remove_snip(keyword):
     note = SESSION.query(Snips).filter(Snips.snip == keyword)
     if note:
