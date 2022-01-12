@@ -3,13 +3,19 @@ import logging
 import os
 import sys
 import time
-from distutils.util import strtobool as sb
-from logging import DEBUG, INFO, basicConfig, getlogger
-
 import heroku3
+import asyncio
+from distutils.util import strtobool as sb
+from logging import DEBUG, INFO, basicConfig, getLogger
+
 import pylast
 from pySmartDL import SmartDL
 from requests import get
+
+from pySmartDL import SmartDL
+from requests import get
+from distutils.util import strtobool as sb
+from logging import DEBUG, INFO, basicConfig
 from telethon import TelegramClient
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
@@ -40,7 +46,7 @@ else:
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
     )
 
-LOGS = getlogger("[Lêɠêɳ̃dẞø† 3.0]")
+LOGS = getlogger("__name__")
 
 
 if Config.PRO_STRING:
