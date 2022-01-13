@@ -95,7 +95,7 @@ async def set_group_photo(gpic):
             await gpic.client(
                 EditPhotoRequest(gpic.chat_id, await gpic.client.upload_file(photo))
             )
-            await eod(gpic, f"`Group Profile Pic Changed `\nChat: {gpic.chat.title})
+            await eod(gpic, f"`Group Profile Pic Changed `\nChat: {gpic.chat.title}")
             legend = True
         except PhotoCropSizeSmallError:
             await edit_or_reply(gpic, PP_TOO_SMOL)
