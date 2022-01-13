@@ -94,15 +94,13 @@ async def set_group_photo(gpic):
         else:
             await edit_or_reply(gpic, INVALID_MEDIA)
     legend = None
-    A = gvarstatus("ABUSE_PIC")
-    if A is not None:
-        b = A.split(" ")
-        c = [main_pic]
-        for d in b:
-            c.append(d)
-        gbpic = random.choice(c)
-    else:
-        gbpic = gban_pic
+    ABUSE_PIC = gvarstatus("ABUSE_PIC")
+    if ABUSE_PIC:
+             LEGEND = [x for x in HELP_PIC.split()]
+                PIC = list(LEGEND)
+                help_pic = random.choice(PIC)
+            elif not HELP_PIC:
+                help_pic = "https://te.legra.ph/file/b5d01ceea49ee0a822661.mp4"
     if photo:
         try:
             await gpic.client(
