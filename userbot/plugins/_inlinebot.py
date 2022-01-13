@@ -49,14 +49,15 @@ LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
     or """
-{}
-   🏅Bø† Status🏅
-**{} Oաղer :** {}
-**{} Lêɠêɳ̃dẞø† :** {}
-**{} Telethon :** {}
-**{} Ãbûßê     :** {}
-**{} ßudø      :** {}
-**{} Bø†       :** {}
+         {}
+      Bø† Status
+{} **Lêɠêɳ̃dẞø†:** {}
+{} **Telethon :** {}
+{} **Uptime  :** {}
+{} **Abuse :** {}
+{} **ßudø  :** {}
+{} **Bø†  :** {}
+{} **Oաner :** {}
 """
 )
 
@@ -169,17 +170,19 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             leg_end = alive_txt.format(
                 Config.ALIVE_MSG,
                 alive_emoji,
-                alive_name,
-                alive_emoji,
                 LEGENDversion,
                 alive_emoji,
                 version.__version__,
+                alive_emoji,
+                uptime,
                 alive_emoji,
                 abuse_m,
                 alive_emoji,
                 is_sudo,
                 alive_emoji,
                 Config.BOY_OR_GIRL,
+                alive_emoji,
+                alive_name,
             )
             alv_btn = [
                 [
