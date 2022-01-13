@@ -45,9 +45,9 @@ USER_BOT_WARN_ZERO = (
 )
 
 LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
-            
 
-about = Config.ALIVE_EMOJI 
+
+about = Config.ALIVE_EMOJI
 if about is not None:
     b = about.split()
     c = []
@@ -57,7 +57,7 @@ if about is not None:
     alive_emoji = random.choice(c)
 else:
     alive_emoji = "✥"
-    
+
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
     or """
