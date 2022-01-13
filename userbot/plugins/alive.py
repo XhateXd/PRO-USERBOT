@@ -1,75 +1,26 @@
 import asyncio
 import time
-
-from userbot.cmdhelp import CmdHelp
-from userbot.Config import Config
-from userbot.utils import admin_cmd
-
-from . import *
-
-CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG
-
-edit_time = 12
 from telethon import version
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
-
 from userbot import ALIVE_NAME, LEGENDversion
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
-
 from . import *
-
-
-def get_readable_time(seconds: int) -> str:
-    count = 0
-    ping_time = ""
-    time_list = []
-    time_suffix_list = ["s", "m", "h", "days"]
-
-    while count < 4:
-        count += 1
-        if count < 3:
-            remainder, result = divmod(seconds, 60)
-        else:
-            remainder, result = divmod(seconds, 24)
-        if seconds == 0 and remainder == 0:
-            break
-        time_list.append(int(result))
-        seconds = int(remainder)
-
-    for x in range(len(time_list)):
-        time_list[x] = str(time_list[x]) + time_suffix_list[x]
-    if len(time_list) == 4:
-        ping_time += time_list.pop() + ", "
-
-    time_list.reverse()
-    ping_time += ":".join(time_list)
-
-    return ping_time
-
-
-uptime = get_readable_time((time.time() - StartTime))
-DEFAULTUSER = ALIVE_NAME or "𝖑𝖊ɠêɳ̃dẞø✞︎ 🇮🇳"
+CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG
+DEFAULTUSER = ALIVE_NAME 
 LEGEND_IMG = "https://telegra.ph/file/153977a71b928874151a5.jpg"
-CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG or "ℓєgєи∂ Choice 𝖑𝖊ɠêɳ̃dẞø✞︎"
+CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG 
 CUSTOM_YOUR_GROUP = Config.YOUR_GROUP or "@LegendBot_Pro"
-
-Legend = bot.uid
-mention = f"[{DEFAULTUSER}](tg://user?id={Legend})"
-
-
 @bot.on(admin_cmd(outgoing=True, pattern="legend$"))
 @bot.on(sudo_cmd(pattern="legend$", allow_sudo=True))
 async def amireallyalive(alive):
     if alive.fwd_from:
         return
     reply_to_id = await reply_id(alive)
-
     if LEGEND_IMG:
         LEGEND_caption = f"**{CUSTOM_ALIVE_TEXT}**\n"
-
         LEGEND_caption += f"~~~~~~~~~~~~~~~~~~~~~~~\n"
         LEGEND_caption += f"        **✘𝕭𝖔† 𝕾𝖙𝖆𝖙𝖚𝖘✘** \n"
         LEGEND_caption += f"•🔥• **Oաղ̃ҽ̈ɾ**          ~ {ALIVE_NAME}\n\n"
@@ -78,7 +29,6 @@ async def amireallyalive(alive):
         LEGEND_caption += f"•🌟• **𝚄ρtime**         ~ `{uptime}`\n"
         LEGEND_caption += f"•🌟• **𝙶𝚛𝚘𝚞𝚙**           ~ [𝙶𝚛𝚘𝚞𝚙](t.me/LegendBot_Pro)\n"
         LEGEND_caption += f"•🌟• **𝙼𝚢 𝙶𝚛𝚘𝚞𝚙**  ~ {CUSTOM_YOUR_GROUP}\n"
-
         await alive.client.send_file(
             alive.chat_id, LEGEND_IMG, caption=LEGEND_caption, reply_to=reply_to_id
         )
@@ -146,10 +96,9 @@ pm_caption += f"**╰────────────**\n"
 @borg.on(admin_cmd(pattern=r"about"))
 @borg.on(sudo_cmd(pattern="about$", allow_sudo=True))
 async def amireallyalive(yes):
+    edit_time = 12
     await yes.get_chat()
-
     on = await borg.send_file(yes.chat_id, file=file1, caption=pm_caption)
-
     await asyncio.sleep(edit_time)
     ok = await borg.edit_message(yes.chat_id, on, file=file2)
 
