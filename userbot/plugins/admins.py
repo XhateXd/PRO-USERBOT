@@ -22,7 +22,7 @@ from telethon.tl.types import (
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
-from userbot.plugins.sql_helper.mute_sql import is_muted, unmute, mute, get_all_muted
+from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
 from userbot.utils import *
 
 from . import *
@@ -95,7 +95,9 @@ async def set_group_photo(gpic):
             await gpic.client(
                 EditPhotoRequest(gpic.chat_id, await gpic.client.upload_file(photo))
             )
-            await eod(gpic, f"⚜ `Group Profile Pic Changed` ⚜\n🔰Chat ~ {gpic.chat.title}")
+            await eod(
+                gpic, f"⚜ `Group Profile Pic Changed` ⚜\n🔰Chat ~ {gpic.chat.title}"
+            )
             legend = True
         except PhotoCropSizeSmallError:
             await edit_or_reply(gpic, PP_TOO_SMOL)
@@ -279,6 +281,7 @@ async def watcher(event):
         except Exception as e:
             LOGS.info(str(e))
 
+
 @bot.on(admin_cmd("mute(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="mute(?: |$)(.*)", allow_sudo=True))
 async def startmute(event):
@@ -369,6 +372,7 @@ async def startmute(event):
                 f"**Chat :** {get_display_name(await event.get_chat())}(`{event.chat_id}`)",
             )
 
+
 @bot.on(admin_cmd("unmute(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="unmute(?: |$)(.*)", allow_sudo=True))
 async def endmute(event):
@@ -426,6 +430,7 @@ async def endmute(event):
                 f"**User :** [{user.first_name}](tg://user?id={user.id})\n"
                 f"**Chat :** {get_display_name(await event.get_chat())}(`{event.chat_id}`)",
             )
+
 
 @bot.on(admin_cmd("pin($| (.*))"))
 @bot.on(sudo_cmd(pattern="pin($| (.*))", allow_sudo=True))
