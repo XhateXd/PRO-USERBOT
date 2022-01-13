@@ -11,10 +11,11 @@ from telethon.events import InlineQuery, callbackquery
 from telethon.sync import custom
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.functions.users import GetFullUserRequest
-from .sql_helper.gvar_sql import gvarstat, gvarstatus 
+
 from userbot.Config import Config
 
 from . import *
+from .sql_helper.gvar_sql import gvarstatus
 
 DEFAULTUSER = alive_name = Config.ALIVE_NAME
 legend_row = Config.BUTTONS_IN_HELP
@@ -292,9 +293,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         else:
             buttons = [
                 (
-                    Button.url(
-                        "Sources", "https://github.com/PROBOY-OP/PRO-LEGENDBOT"
-                    ),
+                    Button.url("Sources", "https://github.com/PROBOY-OP/PRO-LEGENDBOT"),
                     Button.url(
                         "Deploy",
                         "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FPROBOY-OP%2FPRO-LEGENDBOT&template=https%3A%2F%2Fgithub.com%2FPROBOY-OP%2FPRO-LEGENDBOT",
@@ -319,7 +318,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 send_message=types.InputBotInlineMessageMediaAuto(
                     reply_markup=markup, message=text, entities=msg_entities
                 ),
-            )                
+            )
         await event.answer([result] if result else None)
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"pmclick")))
