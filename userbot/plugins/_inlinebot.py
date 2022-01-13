@@ -14,7 +14,6 @@ from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot.Config import Config
-from userbot.plugins.sql_helper.globals import gvarstatus
 
 from . import *
 
@@ -45,8 +44,6 @@ USER_BOT_WARN_ZERO = (
 )
 
 LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
-
-
 
 
 alive_txt = (
