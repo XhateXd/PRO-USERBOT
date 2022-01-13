@@ -1,10 +1,11 @@
 import asyncio
 import html
 import os
+import random
 import re
 from math import ceil
 from re import compile
-import random
+
 from telethon import Button, custom, events, functions, types
 from telethon.errors.rpcerrorlist import UserNotParticipantError
 from telethon.events import InlineQuery, callbackquery
