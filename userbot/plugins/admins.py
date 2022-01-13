@@ -19,7 +19,7 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 from telethon.utils import get_display_name
-
+from .sql_helper.gvar_sql import gvarstatus 
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
@@ -93,14 +93,23 @@ async def set_group_photo(gpic):
         else:
             await edit_or_reply(gpic, INVALID_MEDIA)
     legend = None
+    A = gvarstatus("ABUSE_PIC")
+    if A is not None:
+        b = A.split(" ")
+        c = [main_pic]
+        for d in b:
+            c.append(d)
+        gbpic = random.choice(c)
+    else:
+        gbpic = gban_pic
     if photo:
         try:
             await gpic.client(
                 EditPhotoRequest(gpic.chat_id, await gpic.client.upload_file(photo))
             )
             await bot.send_file(
-                gpic,
-                main_pic,
+                gpic.chat_id,
+                gbpic,
                 caption=f"⚜ `Group Profile Pic Changed` ⚜\n🔰Chat ~ {gpic.chat.title}",
             )
             legend = True
