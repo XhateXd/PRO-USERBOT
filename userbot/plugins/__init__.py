@@ -1,7 +1,7 @@
 import datetime
 
 from telethon import version
-
+from .sql_helper.gvar_sql import gvarstatus 
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
