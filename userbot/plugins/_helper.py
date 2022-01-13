@@ -107,8 +107,8 @@ async def yardim(event):
             await event.edit(input_str + " is not a valid plugin!")
 
 
-@bot.on(admin_cmd(pattern="plinfo(?: |$)(.*)", outgoing=True))
-@bot.on(sudo_cmd(pattern="plinfo(?: |$)(.*)", allow_sudo=True))
+@bot.on(admin_cmd(pattern="ihelp(?: |$)(.*)", outgoing=True))
+@bot.on(sudo_cmd(pattern="ihelp(?: |$)(.*)", allow_sudo=True))
 async def LEGENDBOTt(event):
     if event.fwd_from:
         return
@@ -156,6 +156,7 @@ async def _(event):
     await event.edit("тєℓєтнση  вαѕє∂ υѕєявσт ρσωєяє∂ ву **Lêɠêɳ̃dẞø†** вσт")
     
     
-CmdHelp("helper").add_command("repo", None, "To Get Repo And Repl Link").add_commanf("help", None, "To Get Help Menu").add_command("op", "
-                                                       <plugin name>", "To Get Detail About Plugin", "op alive").add_command(
-    pl
+CmdHelp("helper").add_command("repo", None, "To Get Repo And Repl Link").add_commanf("help", None, "To Get Help Menu").add_command("op", "<plugin name>", "To Get Detail About Plugin", "op alive").add_command("ihelp", "<Pluggin Name>", "To get detail about any plugin").add()
+
+
+
