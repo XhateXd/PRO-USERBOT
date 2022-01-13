@@ -16,12 +16,14 @@ from telethon.tl.functions.users import GetFullUserRequest
 from userbot.Config import Config
 
 from . import *
+from userbot import *
+            from userbot.helpers.ffunctions.utils import get_readable_time
+
 
 DEFAULTUSER = alive_name = Config.ALIVE_NAME
 legend_row = Config.BUTTONS_IN_HELP
 legend_emoji1 = Config.HELP_EMOJI1
 legend_emoji2 = Config.HELP_EMOJI2
-alive_emoji = Config.ALIVE_EMOJI
 mssge = cstm_pmp = (
     Config.PM_MSG
     or "I am Assistant Of My Owner\nI am Here To Protect My Owner From Scanner"
@@ -153,9 +155,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     link_preview=False,
                 )
         elif event.query.user_id == bot.uid and query == "alive":
-            from userbot import *
-            from userbot.helpers.ffunctions.utils import get_readable_time
-
             uptime = await get_readable_time((time.time() - StartTime))
             uptime = uptime
             about = os.environ.get("ALIVE_EMOJI", None) or "✥"
