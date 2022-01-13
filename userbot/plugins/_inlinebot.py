@@ -118,6 +118,7 @@ def button(page, modules):
 
 
 if Config.BOT_USERNAME is not None and tgbot is not None:
+
     @tgbot.on(InlineQuery)  # pylint:disable=E0602
     async def inline_handler(event):
         builder = event.builder
@@ -173,7 +174,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 [
                     Button.url(
                         f"{LEGEND_USER}", f"tg://openmessage?user_id={Pro_LegendBoy}"
-                    ) 
+                    )
                 ],
                 [
                     Button.url("My Channel", f"https://t.me/{my_channel}"),
@@ -275,7 +276,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         else:
             buttons = [
                 (
-                    Button.url("Source code", "https://github.com/sandy1709/catuserbot"),
+                    Button.url(
+                        "Source code", "https://github.com/sandy1709/catuserbot"
+                    ),
                     Button.url(
                         "Deploy",
                         "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack&template=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack",
