@@ -15,7 +15,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 from userbot.Config import Config
 
 from . import *
-from .sql_helper.gvar_sql import gvarstatus
+from userbot.plugins.sql_helper.globals import gvarstatus
 
 DEFAULTUSER = alive_name = Config.ALIVE_NAME
 legend_row = Config.BUTTONS_IN_HELP
