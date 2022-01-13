@@ -327,16 +327,13 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     ),
                 )
             ]
-            ALV_PIC = (
-                gvarstatus(ALIVE_PIC)
-                or "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
-            )
+            ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
             markup = event.client.build_reply_markup(buttons)
             photo = types.InputWebDocument(
                 url=ALV_PIC, size=0, mime_type="image/jpeg", attributes=[]
             )
             text, msg_entities = await event.client._parse_message_text(
-                f"𝘿𝙀𝙋𝙇𝙊𝙔 𝙐𝙍 𝙊𝙒𝙉 𝙇𝙀𝙂𝙀𝙉𝘿𝘽𝙊𝙏\n      [ Lêɠêɳ̃dẞø† ]    ", "md"
+                "𝘿𝙀𝙋𝙇𝙊𝙔 𝙐𝙍 𝙊𝙒𝙉 𝙇𝙀𝙂𝙀𝙉𝘿𝘽𝙊𝙏\n      [ Lêɠêɳ̃dẞø† ]", "md"
             )
             result = types.InputBotInlineResult(
                 id=str(uuid4()),
