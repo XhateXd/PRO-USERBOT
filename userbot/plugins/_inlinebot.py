@@ -147,7 +147,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 CAT = [x for x in ALIVE_PIC.split()]
                 PIC = list(CAT)
                 I_IMG = random.choice(PIC)
-            elif not IALIVE_PIC:
+            elif not IHELP_PIC:
                 I_IMG = None
             help_pic = I_IMG
             if help_pic and help_pic.endswith((".jpg", ".png")):
