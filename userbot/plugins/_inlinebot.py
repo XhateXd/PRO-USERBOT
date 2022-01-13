@@ -145,8 +145,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     for d in b:
                         c.append(d)
                 help_pic = random.choice(c)
-            #else:
-                #help_pic = "https://te.legra.ph/file/c1976f0c9c976d394246e.jpg"
+            # else:
+            # help_pic = "https://te.legra.ph/file/c1976f0c9c976d394246e.jpg"
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
