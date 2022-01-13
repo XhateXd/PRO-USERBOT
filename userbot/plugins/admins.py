@@ -29,7 +29,6 @@ from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
 from userbot.utils import *
 
 from . import *
-from .sql_helper.gvar_sql import gvarstatus
 
 lg_id = Config.LOGGER_ID
 # =================== CONSTANT ===================
