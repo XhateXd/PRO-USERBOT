@@ -303,7 +303,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
             """result = builder.photo(
                 ALV_PIC,
-                text="""Hey! This is [Lêɠêɳ̃dẞø†](https://t.me/Pro_LegendBot) \nYou can know more about me from the links given below 👇""",
+                text=Hey! This is [Lêɠêɳ̃dẞø†](https://t.me/Pro_LegendBot) \nYou can know more about me from the links given below 👇,
                 buttons=[
                     [
                         custom.Button.url(
