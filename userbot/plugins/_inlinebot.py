@@ -153,8 +153,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     link_preview=False,
                 )
         elif event.query.user_id == bot.uid and query == "alive":
-            from userbot.helpers.ffunctions.utils import get_readable_time
             from userbot import StartTime
+            from userbot.helpers.ffunctions.utils import get_readable_time
+
             uptime = get_readable_time((time.time() - StartTime))
             uptime = uptime
             about = os.environ.get("ALIVE_EMOJI", None) or "✥"
@@ -163,10 +164,11 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 c = []
                 if len(b) >= 1:
                     for d in b:
-                       c.append(d)
+                        c.append(d)
                 alive_emoji = random.choice(c)
             leg_end = alive_txt.format(
-                Config.ALIVE_MSG, alive_emoji,
+                Config.ALIVE_MSG,
+                alive_emoji,
                 alive_name,
                 alive_emoji,
                 LEGENDversion,
