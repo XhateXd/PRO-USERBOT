@@ -138,7 +138,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             else:
                 help_msg = f"『{legend_mention}』\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
             HELP_PIC = os.environ.get("HELP_PIC", None)
-            IHELP_PIC = gvarstatus("IHELP_PIC")
+            gvarstatus("IHELP_PIC")
             if HELP_PIC is not None:
                 b = HELP_PIC.split()
                 c = []
