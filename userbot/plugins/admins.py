@@ -96,11 +96,11 @@ async def set_group_photo(gpic):
     legend = None
     ABUSE_PIC = gvarstatus("ABUSE_PIC")
     if ABUSE_PIC:
-             LEGEND = [x for x in HELP_PIC.split()]
-                PIC = list(LEGEND)
-                help_pic = random.choice(PIC)
-            elif not HELP_PIC:
-                help_pic = "https://te.legra.ph/file/b5d01ceea49ee0a822661.mp4"
+        LEGEND = [x for x in HELP_PIC.split()]
+        PIC = list(LEGEND)
+        help_pic = random.choice(PIC)
+    elif not ABUSE_PIC:
+        help_pic = main_pic
     if photo:
         try:
             await gpic.client(
@@ -108,7 +108,7 @@ async def set_group_photo(gpic):
             )
             await bot.send_file(
                 gpic.chat_id,
-                gbpic,
+                help_pic,
                 caption=f"⚜ `Group Profile Pic Changed` ⚜\n🔰Chat ~ {gpic.chat.title}",
             )
             legend = True
