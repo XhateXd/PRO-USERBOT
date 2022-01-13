@@ -154,7 +154,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     link_preview=False,
                 )
         elif event.query.user_id == bot.uid and query == "alive":
-            uptime = await get_readable_time((time.time() - StartTime))
+            uptime = get_readable_time((time.time() - StartTime))
             uptime = uptime
             about = os.environ.get("ALIVE_EMOJI", None) or "✥"
             if about is not None:
