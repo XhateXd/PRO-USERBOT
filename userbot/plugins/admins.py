@@ -25,8 +25,10 @@ from userbot.Config import Config
 from userbot.helpers.utils import _format
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
 from userbot.utils import *
-
+from userbot.helpers.events import get_user_from_init
 from . import *
+
+from telethon.utils import get_display_name
 
 lg_id = Config.LOGGER_ID
 # =================== CONSTANT ===================
@@ -136,7 +138,7 @@ async def promote(promt):
         pin_messages=True,
     )
     LEGENDevent = await edit_or_reply(promt, "Promoting...")
-    user, rank = await get_user_from_event(promt)
+    user, rank = await get_user_from_init(promt)
     if not rank:
         rank = "ℓєgєи∂"
     if not user:
@@ -171,7 +173,7 @@ async def demote(dmod):
         return
     LEGENDevent = await edit_or_reply(dmod, "Demoting...")
     rank = "??????"
-    user = await get_user_from_event(dmod)
+    user = await get_user_from_init(dmod)
     user = user[0]
     if not user:
         return
@@ -212,7 +214,7 @@ async def ban(bon):
     if not admin and not creator:
         await edit_or_reply(bon, NO_ADMIN)
         return
-    user, reason = await get_user_from_event(bon)
+    user, reason = await get_user_from_init(bon)
     if not user:
         return
     LEGENDevent = await edit_or_reply(bon, "Banning this retard")
@@ -254,7 +256,7 @@ async def nothanos(unbon):
         await edit_or_reply(unbon, NO_ADMIN)
         return
     LEGENDevent = await edit_or_reply(unbon, "Unbanning...")
-    user = await get_user_from_event(unbon)
+    user = await get_user_from_init(unbon)
     user = user[0]
     if not user:
         return
@@ -318,7 +320,7 @@ async def startmute(event):
             return await edit_or_reply(
                 event, "`You can't mute a person without admin rights niqq.` ಥ﹏ಥ  "
             )
-        user, reason = await get_user_from_event(event)
+        user, reason = await get_user_from_init(event)
         if not user:
             return
         if user.id == bot.uid:
@@ -401,7 +403,7 @@ async def endmute(event):
                 f"**User :** [{replied_user.user.first_name}](tg://user?id={event.chat_id})\n",
             )
     else:
-        user, _ = await get_user_from_event(event)
+        user, _ = await get_user_from_init(event)
         if not user:
             return
         try:
@@ -487,7 +489,7 @@ async def kick(usr):
     if not admin and not creator:
         await edit_or_reply(usr, NO_ADMIN)
         return
-    user, reason = await get_user_from_event(usr)
+    user, reason = await get_user_from_init(usr)
     if not user:
         await edit_or_reply(usr, "Couldn't fetch user.")
         return
@@ -540,7 +542,7 @@ async def _(event):
             pass
 
 
-async def get_user_from_event(event):
+async def get_user_from_init(event):
     if event.fwd_from:
         return
     args = event.pattern_match.group(1).split(" ", 1)
