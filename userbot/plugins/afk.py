@@ -142,7 +142,7 @@ async def on_afk(event):  # sourcery no-metrics
         AFK_.last_afk_message[event.chat_id] = msg
         if event.is_private:
             return
-        await event.get_chat()
+        hmm = await event.get_chat()
         if Config.LOGGER_ID == -100:
             return
         full = None
