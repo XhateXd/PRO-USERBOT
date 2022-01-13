@@ -1,18 +1,23 @@
 import asyncio
-import time
+
 from telethon import version
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
+
 from userbot import ALIVE_NAME, LEGENDversion
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+
 from . import *
+
 CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG
-DEFAULTUSER = ALIVE_NAME 
+DEFAULTUSER = ALIVE_NAME
 LEGEND_IMG = "https://telegra.ph/file/153977a71b928874151a5.jpg"
-CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG 
+CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG
 CUSTOM_YOUR_GROUP = Config.YOUR_GROUP or "@LegendBot_Pro"
+
+
 @bot.on(admin_cmd(outgoing=True, pattern="legend$"))
 @bot.on(sudo_cmd(pattern="legend$", allow_sudo=True))
 async def amireallyalive(alive):
