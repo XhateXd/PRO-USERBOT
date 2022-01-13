@@ -245,7 +245,7 @@ async def _(event):
             await eod(event, f"`I shall be Going afk! because ~` {AFK_.reason}", 5)
         else:
             await eod(event, "`I shall be Going afk! `", 5)
-        AFK_.media_afk = await reply.forward_to(BOTLOG_CHATID)
+        AFK_.media_afk = await reply.forward_to(LOGGER_ID)
         if AFK_.reason:
             await event.client.send_message(
                 LOGGGER_ID,
