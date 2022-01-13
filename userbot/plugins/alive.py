@@ -1,9 +1,5 @@
 import asyncio
-import time 
-import random
-import re
 import time
-from datetime import datetime
 from platform import python_version
 
 from telethon import version
