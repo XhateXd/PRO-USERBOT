@@ -49,16 +49,14 @@ LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
     or """
-**Hey,
-     {}**
-  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
-  🏅Bø† Status🏅
-**•{}•Oաղer :** {}
-**•{}•Lêɠêɳ̃dẞø† :** {}
-**•{}•Telethon :** {}
-**•{}•Ãbûßê     :** {}
-**•{}•ßudø      :** {}
-**•{}•Bø†       :** {}
+{}
+   🏅Bø† Status🏅
+**{} Oաղer :** {}
+**{} Lêɠêɳ̃dẞø† :** {}
+**{} Telethon :** {}
+**{} Ãbûßê     :** {}
+**{} ßudø      :** {}
+**{} Bø†       :** {}
 """
 )
 
@@ -155,9 +153,20 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     link_preview=False,
                 )
         elif event.query.user_id == bot.uid and query == "alive":
+            from userbot.helpers.ffunctions.utils import get_readable_time
+            from userbot import StartTime
+            uptime = get_readable_time((time.time() - StartTime))
+            uptime = uptime
+            about = os.environ.get("ALIVE_EMOJI", None) or "✥"
+            if about is not None:
+                b = about.split()
+                c = []
+                if len(b) >= 1:
+                    for d in b:
+                       c.append(d)
+                alive_emoji = random.choice(c)
             leg_end = alive_txt.format(
-                Config.ALIVE_MSG,
-                alive_emoji,
+                Config.ALIVE_MSG, alive_emoji,
                 alive_name,
                 alive_emoji,
                 LEGENDversion,
