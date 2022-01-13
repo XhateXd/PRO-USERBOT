@@ -100,8 +100,8 @@ pm_caption = f"**╭────────────**\n"
 pm_caption += f"┣✨ Owner   ~ {Config.ALIVE_NAME}\n"
 pm_caption += f"┣✨ Lêɠêɳ̃dẞø† ~ {LEGENDversion}\n"
 pm_caption += f"┣✨ ProBoy   ~ [Owner](https://t.me/Pro_LegendBoy)\n"
-pm_caption += f"┣✨ Support ~ [G𝖗ουρ](https://t.me/LegendBot_Pro)\n"
-pm_caption += f"┣✨ Repo   ~ [Rєρο](https://github.com/PROBOY-OP/PRO-LEGENDBOT)\n"
+pm_caption += f"┣✨ Support ~ [Group](https://t.me/LegendBot_Pro)\n"
+pm_caption += f"┣✨ Repo   ~ [Repo](https://github.com/PROBOY-OP/PRO-LEGENDBOT)\n"
 pm_caption += f"**╰────────────**\n"
 
 
