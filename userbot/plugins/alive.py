@@ -29,8 +29,8 @@ async def amireallyalive(alive):
     uptime = get_readable_time((time.time() - StartTime))
     uptime = uptime
     if LEGEND_IMG:
-        LEGEND_caption = f"**LegendBot is Up And Running**\n"
-        LEGEND_caption += f"    🔰Bot Status🔰 \n"
+        LEGEND_caption = f"**LegendBot is Up And Running**\n\n"
+        LEGEND_caption += f"      🔰Bot Status🔰 \n"
         LEGEND_caption += f"✥ **LegendBo† version**   ~ {LEGENDversion}\n"
         LEGEND_caption += f"✥ **Telethon version**   ~ `{version.__version__}`\n"
         LEGEND_caption += f"✥ **Python version**    ~ `{python_version()}`\n"
