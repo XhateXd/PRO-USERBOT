@@ -241,9 +241,7 @@ async def _(event):
             AFK_.afk_time = datetime.now()
         AFK_.USERAFK_ON = f"on: {AFK_.reason}"
         if AFK_.reason:
-            await eod(
-                event, f"`I shall be Going afk! because ~` {AFK_.reason}", 5
-            )
+            await eod(event, f"`I shall be Going afk! because ~` {AFK_.reason}", 5)
         else:
             await eod(event, "`I shall be Going afk! `", 5)
         AFK_.media_afk = await reply.forward_to(BOTLOG_CHATID)
