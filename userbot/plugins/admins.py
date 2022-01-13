@@ -94,9 +94,9 @@ async def set_group_photo(gpic):
         else:
             await edit_or_reply(gpic, INVALID_MEDIA)
     legend = None
-    ABUSE_PIC = gvarstatus("ABUSE_PIC")
+    ABUSE_PIC = os.environ.get("ABUSE_PIC", None)
     if ABUSE_PIC:
-        LEGEND = [x for x in HELP_PIC.split()]
+        LEGEND = [x for x in ABUSE_PIC.split()]
         PIC = list(LEGEND)
         help_pic = random.choice(PIC)
     elif not ABUSE_PIC:
