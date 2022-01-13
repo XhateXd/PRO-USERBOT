@@ -5,7 +5,7 @@ from telethon import version
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
-from userbot.sql_helper.globals import addgvar, delgvar, gvarstatus
+from userbot.plugins.sql_helper.globals import addgvar, delgvar, gvarstatus
 from userbot.utils import *
 
 LEGEND_USER = bot.me.first_name
