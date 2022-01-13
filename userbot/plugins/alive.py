@@ -1,19 +1,21 @@
 import asyncio
-import time
-from platform import python_version
 import os
 import random
+import time
+from platform import python_version
+
 from telethon import version
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
 
+from userbot import *
 from userbot import LEGENDversion
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from userbot.helpers.events import reply_id
 from userbot.helpers.ffunctions.utils import get_readable_time
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
-from userbot import *
+
 from . import *
 
 LEGEND_IMG = "https://telegra.ph/file/153977a71b928874151a5.jpg"
@@ -40,8 +42,12 @@ async def amireallyalive(alive):
         LEGEND_caption = f"**LegendBot is Up And Running**\n\n"
         LEGEND_caption += f"      🔰Bot Status🔰 \n"
         LEGEND_caption += f"{alive_emoji} **LegendBo† version**   ~ {LEGENDversion}\n"
-        LEGEND_caption += f"{alive_emoji} **Telethon version**   ~ `{version.__version__}`\n"
-        LEGEND_caption += f"{alive_emoji} **Python version**    ~ `{python_version()}`\n"
+        LEGEND_caption += (
+            f"{alive_emoji} **Telethon version**   ~ `{version.__version__}`\n"
+        )
+        LEGEND_caption += (
+            f"{alive_emoji} **Python version**    ~ `{python_version()}`\n"
+        )
         LEGEND_caption += f"{alive_emoji} **Uptime**           ~ `{uptime}`\n"
         LEGEND_caption += f"{alive_emoji} **Master**          ~ `{Config.ALIVE_NAME}`"
         await alive.client.send_file(
