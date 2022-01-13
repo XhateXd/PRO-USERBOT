@@ -122,7 +122,7 @@ async def on_afk(event):  # sourcery no-metrics
             else:
                 message_to_reply = f"`I am AFK .\n\nAFK Since {endtime}\nReason : Not Mentioned ( ಠ ʖ̯ ಠ)`"
             if event.chat_id:
-                msg = await event.reply(message_to_reply, file=AFK_.media_afk.media)
+                msg = await event.reply(message_to_reply, file=AFK_.media_afk)
         elif AFK_.afk_type == "text":
             if AFK_.msg_link and AFK_.reason:
                 message_to_reply = (
@@ -150,14 +150,14 @@ async def on_afk(event):  # sourcery no-metrics
         except Exception as e:
             LOGS.info(str(e))
         messaget = media_type(event)
-        resalt = f"#AFK_TAGS \n<b>Group : </b><code>{hmm.title}</code>"
+        resalt = f"#AFK"
         if full is not None:
-            resalt += f"\n<b>From : </b> 👤"
+            resalt += f" 👤"
         if messaget is not None:
             resalt += f"\n<b>Message type : </b><code>{messaget}</code>"
         else:
             resalt += f"\n<b>Message : </b>{event.message.message}"
-        resalt += f"\n<b>Message link: </b><a href = 'https://t.me/c/{hmm.id}/{event.message.id}'> link</a>"
+        resalt += f"Message link "
         if not event.is_private:
             await event.client.send_message(
                 Config.LOGGER_ID,
