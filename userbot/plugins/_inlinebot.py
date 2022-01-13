@@ -13,12 +13,11 @@ from telethon.sync import custom
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.functions.users import GetFullUserRequest
 
+from userbot import *
 from userbot.Config import Config
+from userbot.helpers.ffunctions.utils import get_readable_time
 
 from . import *
-from userbot import *
-            from userbot.helpers.ffunctions.utils import get_readable_time
-
 
 DEFAULTUSER = alive_name = Config.ALIVE_NAME
 legend_row = Config.BUTTONS_IN_HELP
