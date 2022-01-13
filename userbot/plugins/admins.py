@@ -514,7 +514,7 @@ async def kick(usr):
         await LEGENDevent.edit(NO_PERM + f"\n{str(e)}")
         return
     if reason:
-        await bot.send_file(usr.chat_id, help_pic
+        await bot.send_file(usr.chat_id, help_pic,
             f"🔶Kicked [{user.first_name}](tg://user?id={user.id})!\n🔶яєαѕοи: {reason}"
         )
     else:
