@@ -76,7 +76,9 @@ async def send(event):
         )
         await event.delete()
     else:
-        await edit_or_reply(event, f"There is no any plugin file with name = {input_str}")
+        await edit_or_reply(
+            event, f"There is no any plugin file with name = {input_str}"
+        )
 
 
 @bot.on(admin_cmd(pattern="install ?(.*)"))
