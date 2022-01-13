@@ -22,7 +22,6 @@ legend_row = Config.BUTTONS_IN_HELP
 legend_emoji1 = Config.HELP_EMOJI1
 legend_emoji2 = Config.HELP_EMOJI2
 alive_emoji = Config.ALIVE_EMOJI
-legend_pic = Config.PM_PIC
 mssge = cstm_pmp = (
     Config.PM_MSG
     or "I am Assistant Of My Owner\nI am Here To Protect My Owner From Scanner"
@@ -129,14 +128,18 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             for x in CMD_LIST.values():
                 for y in x:
                     apn.append(y)
-            help_msg = f"『{legend_mention}』\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
-            HELP_PIC = gvarstatus("HELP_PIC")
+            HELP_MESSAGE = gvarstatus("HELP_MESSAGE") 
+            if HELP_MESSAGE:
+                help_msg = HELP_MESSAGE
+            else:
+                help_msg = f"『{legend_mention}』\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
+            HELP_PIC = gvarstatus("HELP_PIC") 
             if HELP_PIC:
-                LEGEND = [x for x in IALIVE_PIC.split()]
+                LEGEND = [x for x in HELP_PIC.split()]
                 PIC = list(LEGEND)
                 help_pic = random.choice(PIC)
             elif not HELP_PIC:
-                help_pic = None
+                help_pic = "https://te.legra.ph/file/b5d01ceea49ee0a822661.mp4"
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
@@ -197,7 +200,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 PIC = list(LEGEND)
                 ALV_PIC = random.choice(PIC)
             elif not IALIVE_PIC:
-                ALV_PIC = None
+                ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
             if ALV_PIC and ALV_PIC.endswith((".jpg", ".png")):
                 result = builder.photo(
                     ALV_PIC,
@@ -232,6 +235,19 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     Button.url("💝My Group💝", f"https://t.me/{my_group}"),
                 ],
             ]
+            
+            ALIVE_PIC = gvarstatus("ALIVE_PIC")
+            IALIVE_PIC = gvarstatus("IALIVE_PIC")
+            if IALIVE_PIC:
+                LEGEND = [x for x in IALIVE_PIC.split()]
+                PIC = list(LEGEND)
+                ALV_PIC = random.choice(PIC)
+            if not IALIVE_PIC and ALIVE_PIC:
+                LEGEND = [x for x in ALIVE_PIC.split()]
+                PIC = list(LEGEND)
+                ALV_PIC = random.choice(PIC)
+            elif not IALIVE_PIC:
+                ALV_PIC = None
             if ALV_PIC and ALV_PIC.endswith((".jpg", ".png")):
                 result = builder.article(
                     buttons=fsub_btn,
@@ -247,9 +263,20 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     buttons=alv_btn,
                     link_preview=False,
                 )
-
         elif event.query.user_id == bot.uid and query == "pm_warn":
             lege_nd = LEGEND_FIRST.format(mssge)
+            PM_PIC = gvarstatus("PM_PIC")
+            IPM_PIC = gvarstatus("IPM_PIC")
+            if IPM_PIC:
+                LEGEND = [x for x in IPM_PIC.split()]
+                PIC = list(LEGEND)
+                legend_pic = random.choice(PIC)
+            if not IPM_PIC and PM_PIC:
+                LEGEND = [x for x in PM_PIC.split()]
+                PIC = list(LEGEND)
+                legend_pic = random.choice(PIC)
+            elif not IPM_PIC:
+                legend_pic = "https://te.legra.ph/file/0c605739ddaa472cad75f.jpg"
             result = builder.photo(
                 file=legend_pic,
                 text=lege_nd,
@@ -300,6 +327,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     ),
                 )
             ]
+            ALV_PIC = gvarstatus(ALIVE_PIC) or "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
             markup = event.client.build_reply_markup(buttons)
             photo = types.InputWebDocument(
                 url=ALV_PIC, size=0, mime_type="image/jpeg", attributes=[]
