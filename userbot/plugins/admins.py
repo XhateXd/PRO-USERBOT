@@ -205,7 +205,7 @@ async def demote(dmod):
     await bot.send_file(
         dmod.chat_id,
         help_pic,
-        caption=f"Demoted Successfully\nUser:[{user.first_name}}](tg://user.id})\n Chat: {dmod.chat_title}",
+        caption=f"Demoted Successfully\nUser:[{user.first_name}}](tg://{user.id})\n Chat: {dmod.chat.title}",
     )
     if LOGGER:
         await dmod.client.send_message(
