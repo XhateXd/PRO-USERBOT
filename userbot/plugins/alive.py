@@ -29,14 +29,13 @@ async def amireallyalive(alive):
     uptime = get_readable_time((time.time() - StartTime))
     uptime = uptime
     if LEGEND_IMG:
-        LEGEND_caption = f"**{Config.ALIVE_MSG}**\n"
-        LEGEND_caption += f"~~~~~~~~~~~~~~~~~~~~~~~\n"
-        LEGEND_caption += f"    ✘Bot Status✘ \n"
-        LEGEND_caption += f"**LegendBo† version**   ~ {LEGENDversion}\n"
-        LEGEND_caption += f"**Telethon version**   ~ `{version.__version__}`\n"
-        LEGEND_caption += f"**Python version**    ~ `{python_version()}`\n"
-        LEGEND_caption += f"**Uptime**           ~ `{uptime}`\n"
-        LEGEND_caption += f"**Master**          ~ `{Config.ALIVE_NAME}`"
+        LEGEND_caption = f"**LegendBot is Up And Running**\n"
+        LEGEND_caption += f"    🔰Bot Status🔰 \n"
+        LEGEND_caption += f"✥ **LegendBo† version**   ~ {LEGENDversion}\n"
+        LEGEND_caption += f"✥ **Telethon version**   ~ `{version.__version__}`\n"
+        LEGEND_caption += f"✥ **Python version**    ~ `{python_version()}`\n"
+        LEGEND_caption += f"✥ **Uptime**           ~ `{uptime}`\n"
+        LEGEND_caption += f"✥ **Master**          ~ `{Config.ALIVE_NAME}`"
         await alive.client.send_file(
             alive.chat_id, LEGEND_IMG, caption=LEGEND_caption, reply_to=reply_to_id
         )
