@@ -20,16 +20,12 @@ Gvar.__table__.create(checkfirst=True)
 
 def gvarstatus(variable):
     try:
-        return (
-            SESSION.query(Gvar)
-            .filter(Gvar.variable == str(variable))
-            .first()
-            .value
-        )
+        return SESSION.query(Gvar).filter(Gvar.variable == str(variable)).first().value
     except BaseException:
         return None
     finally:
         SESSION.close()
+
 
 def gvarstat(variable):
     try:
