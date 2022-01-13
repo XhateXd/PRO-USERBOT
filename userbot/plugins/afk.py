@@ -241,7 +241,7 @@ async def _(event):
             AFK_.afk_time = datetime.now()
         AFK_.USERAFK_ON = f"on: {AFK_.reason}"
         if AFK_.reason:
-            await edit_delete(
+            await eod(
                 event, f"`I shall be Going afk! because ~` {AFK_.reason}", 5
             )
         else:
