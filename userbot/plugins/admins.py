@@ -25,7 +25,6 @@ from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from userbot.helpers.events import get_user_from_init
 from userbot.helpers.utils import _format
-from userbot.plugins.sql_helper.globals import gvarstatus
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
 from userbot.utils import *
 
@@ -75,7 +74,8 @@ if NORMAL_PIC:
     help_pic = random.choice(PIC)
 else:
     help_pic = main_pic
-    
+
+
 @bot.on(admin_cmd("setgpic$"))
 @bot.on(sudo_cmd(pattern="setgpic$", allow_sudo=True))
 @errors_handler
@@ -156,8 +156,9 @@ async def promote(promt):
     try:
         await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
         await bot.send_file(
-            promt.chat_id, help_pic,
-            caption=f"**⚜Promoted ~** [{user.first_name}](tg://user?id={user.id})⚜\n**Successfully In** ~ `{promt.chat.title}`!! \n**Admin Tag ~**  `{rank}`"
+            promt.chat_id,
+            help_pic,
+            caption=f"**⚜Promoted ~** [{user.first_name}](tg://user?id={user.id})⚜\n**Successfully In** ~ `{promt.chat.title}`!! \n**Admin Tag ~**  `{rank}`",
         )
     except BadRequestError:
         await LEGENDevent.edit(NO_PERM)
@@ -244,7 +245,11 @@ async def ban(bon):
         await LEGENDevent.edit("I ain't got msg deleting right. But still Banned!")
         return
     if reason:
-        await bot.send_file(bon.chat_id, help_pic, caption=f"[{user.first_name}](tg://user?id={user.id}) Is Banned In Chat: {bon.chat_title} !!\nяєαѕοи: {reason}")
+        await bot.send_file(
+            bon.chat_id,
+            help_pic,
+            caption=f"[{user.first_name}](tg://user?id={user.id}) Is Banned In Chat: {bon.chat_title} !!\nяєαѕοи: {reason}",
+        )
     else:
         await LEGENDevent.edit(f"{str(user.id)} is banned!")
     if LOGGER:
@@ -275,7 +280,11 @@ async def nothanos(unbon):
         return
     try:
         await unbon.client(EditBannedRequest(unbon.chat_id, user.id, UNBAN_RIGHTS))
-        await LEGENDevent.edit(unbon.chat_id, help_pic, f"[{user.first_name}](tg://user?id={user.id})has been unbanned Successfully In Chat: {unbon.chat_title} \nGiving one more chance 😏")
+        await LEGENDevent.edit(
+            unbon.chat_id,
+            help_pic,
+            f"[{user.first_name}](tg://user?id={user.id})has been unbanned Successfully In Chat: {unbon.chat_title} \nGiving one more chance 😏",
+        )
         if LOGGER:
             await unbon.client.send_message(
                 lg_id,
@@ -318,7 +327,11 @@ async def startmute(event):
         except Exception as e:
             await event.edit(f"**Error **\n`{e}`")
         else:
-            await bot.send_file(event.chat_id, help_pic, "`Successfully muted that person.\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **`")
+            await bot.send_file(
+                event.chat_id,
+                help_pic,
+                "`Successfully muted that person.\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **`",
+            )
         if LOGGER:
             await event.client.send_message(
                 LOGGER_ID,
@@ -406,8 +419,10 @@ async def endmute(event):
         except Exception as e:
             await event.edit(f"**Error **\n`{e}`")
         else:
-            await bot.send_file(event.chat_id, help_pic,
-                "`Successfully unmuted that person\n乁( ◔ ౪◔)「    ┑(￣Д ￣)┍`"
+            await bot.send_file(
+                event.chat_id,
+                help_pic,
+                "`Successfully unmuted that person\n乁( ◔ ౪◔)「    ┑(￣Д ￣)┍`",
             )
         if LOGGER:
             await event.client.send_message(
@@ -514,8 +529,10 @@ async def kick(usr):
         await LEGENDevent.edit(NO_PERM + f"\n{str(e)}")
         return
     if reason:
-        await bot.send_file(usr.chat_id, help_pic,
-            f"🔶Kicked [{user.first_name}](tg://user?id={user.id})!\n🔶яєαѕοи: {reason}"
+        await bot.send_file(
+            usr.chat_id,
+            help_pic,
+            f"🔶Kicked [{user.first_name}](tg://user?id={user.id})!\n🔶яєαѕοи: {reason}",
         )
     else:
         await LEGENDevent.edit(f"Kicked [{user.first_name}](tg://user?id={user.id})!")
