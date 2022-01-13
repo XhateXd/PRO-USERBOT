@@ -209,7 +209,7 @@ async def _(event):
                 )
 
 
-@borg.on(admin_cmd(pattern=r"afk (.*)", outgoing=True))
+@borg.on(admin_cmd(pattern=r"mafk (.*)", outgoing=True))
 async def _(event):
     "To mark yourself as afk i.e. Away from keyboard (supports media)"
     reply = await event.get_reply_message()
@@ -218,7 +218,7 @@ async def _(event):
         return await edit_or_reply(
             event, "`You haven't replied to any media to activate media afk`"
         )
-    if not LOGGER:
+    if not LOGGER_ID:
         return await edit_or_reply(
             event, "`To use media afk you need to set PRIVATE_GROUP_BOT_API_ID config`"
         )
