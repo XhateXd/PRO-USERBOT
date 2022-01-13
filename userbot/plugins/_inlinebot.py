@@ -53,7 +53,7 @@ if about is not None:
     c = []
     if len(b) >= 1:
         for d in b:
-        c.append(d)
+            c.append(d)
     alive_emoji = random.choice(c)
 else:
     alive_emoji = "✥"
