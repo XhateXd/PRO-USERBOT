@@ -118,7 +118,7 @@ async def on_afk(event):  # sourcery no-metrics
         if AFK_.afk_type == "media":
             if AFK_.reason:
                 message_to_reply = (
-                    f"`I am AFK .\n\nAFK Since {endtime}\nReason : {AFK_.reason}`"
+                    f"`I am AFK .\n\n📍AFK Since {endtime}\n📍Reason : {AFK_.reason}`"
                 )
             else:
                 message_to_reply = f"`I am AFK .\n\nAFK Since {endtime}\nReason : Not Mentioned ( ಠ ʖ̯ ಠ)`"
@@ -168,7 +168,7 @@ async def on_afk(event):  # sourcery no-metrics
             )
 
 
-@borg.on(admin_cmd(pattern=r"afk (.*)", outgoing=True))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern=r"afk (.*)"))  # pylint:disable=E0602
 async def _(event):
     "To mark yourself as afk i.e. Away from keyboard"
     AFK_.USERAFK_ON = {}
