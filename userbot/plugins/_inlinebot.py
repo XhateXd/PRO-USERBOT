@@ -57,7 +57,6 @@ alive_txt = (
 {} **Abuse :** {}
 {} **ßudø  :** {}
 {} **Bø†  :** {}
-{} **Oաner :** {}
 """
 )
 
@@ -154,10 +153,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     link_preview=False,
                 )
         elif event.query.user_id == bot.uid and query == "alive":
-            from userbot import StartTime
+            from userbot import *
             from userbot.helpers.ffunctions.utils import get_readable_time
-
-            uptime = get_readable_time((time.time() - StartTime))
+            uptime = await get_readable_time((time.time() - StartTime))
             uptime = uptime
             about = os.environ.get("ALIVE_EMOJI", None) or "✥"
             if about is not None:
@@ -167,6 +165,16 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     for d in b:
                         c.append(d)
                 alive_emoji = random.choice(c)
+            ALIVE_PIC = Config.ALIVE_PIC
+            if ALIVE_PIC is not None:
+                b = ALIVE_PIC.split()
+                c = []
+                if len(b) >= 1:
+                    for d in b:
+                        c.append(d)
+                ALV_PIC = random.choice(c)
+            else:
+                ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
             leg_end = alive_txt.format(
                 Config.ALIVE_MSG,
                 alive_emoji,
@@ -181,8 +189,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 is_sudo,
                 alive_emoji,
                 Config.BOY_OR_GIRL,
-                alive_emoji,
-                alive_name,
             )
             alv_btn = [
                 [
@@ -195,16 +201,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     Button.url("My Group", f"https://t.me/{my_group}"),
                 ],
             ]
-            ALIVE_PIC = Config.ALIVE_PIC
-            if ALIVE_PIC is not None:
-                b = ALIVE_PIC.split()
-                c = []
-                if len(b) >= 1:
-                    for d in b:
-                        c.append(d)
-                ALV_PIC = random.choice(c)
-            else:
-                ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
             if ALV_PIC and ALV_PIC.endswith((".jpg", ".png")):
                 result = builder.photo(
                     ALV_PIC,
