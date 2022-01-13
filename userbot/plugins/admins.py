@@ -27,7 +27,7 @@ from userbot.helpers.events import get_user_from_init
 from userbot.helpers.utils import _format
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
 from userbot.utils import *
-
+from .sql_helper.gvar_sql import gvarstatus 
 from . import *
 
 lg_id = Config.LOGGER_ID
@@ -93,7 +93,7 @@ async def set_group_photo(gpic):
         else:
             await edit_or_reply(gpic, INVALID_MEDIA)
     legend = None
-    ABUSE_PIC = os.environ.get("ABUSE_PIC", None)
+    ABUSE_PIC = gvarstatus("HELP_PIC")
     if ABUSE_PIC:
         LEGEND = [x for x in ABUSE_PIC.split()]
         PIC = list(LEGEND)
