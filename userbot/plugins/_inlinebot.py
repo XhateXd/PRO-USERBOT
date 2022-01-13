@@ -51,9 +51,10 @@ alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
     or """
          {}
-      Bø† Status
-{} **Lêɠêɳ̃dẞø†:** {}
-{} **Telethon :** {}
+
+         {}Bo† Status{}
+{} **LegendBo† version:** {}
+{} **Telethon version :** {}
 {} **Uptime  :** {}
 {} **Abuse :** {}
 {} **ßudø  :** {}
@@ -186,6 +187,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 Msg = " Pro LegendBot Is Up"
             leg_end = alive_txt.format(
                 Msg,
+                alive_emoji,
+                alive_emoji,        
                 alive_emoji,
                 LEGENDversion,
                 alive_emoji,
