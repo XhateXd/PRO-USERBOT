@@ -22,7 +22,7 @@ from telethon.tl.types import (
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
-from userbot.plugins.sql_helper.mute_sql import is_muted
+from userbot.plugins.sql_helper.mute_sql import is_muted, unmute, mute, get_all_muted
 from userbot.utils import *
 
 from . import *
@@ -95,7 +95,7 @@ async def set_group_photo(gpic):
             await gpic.client(
                 EditPhotoRequest(gpic.chat_id, await gpic.client.upload_file(photo))
             )
-            await eod(gpic, f"`Group Profile Pic Changed `\nChat: {gpic.chat.title}")
+            await eod(gpic, f"⚜ `Group Profile Pic Changed` ⚜\n🔰Chat ~ {gpic.chat.title}")
             legend = True
         except PhotoCropSizeSmallError:
             await edit_or_reply(gpic, PP_TOO_SMOL)
@@ -141,7 +141,7 @@ async def promote(promt):
     try:
         await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
         await LEGENDevent.edit(
-            f"**🔥Promoted ~** [{user.first_name}](tg://user?id={user.id})  **Successfully In** ~ `{promt.chat.title}`!! \n**Admin Tag ~**  `{rank}`"
+            f"**⚜Promoted ~** [{user.first_name}](tg://user?id={user.id})⚜\n**Successfully In** ~ `{promt.chat.title}`!! \n**Admin Tag ~**  `{rank}`"
         )
     except BadRequestError:
         await LEGENDevent.edit(NO_PERM)
@@ -279,6 +279,153 @@ async def watcher(event):
         except Exception as e:
             LOGS.info(str(e))
 
+@bot.on(admin_cmd("mute(?: |$)(.*)"))
+@bot.on(sudo_cmd(pattern="mute(?: |$)(.*)", allow_sudo=True))
+async def startmute(event):
+    "To mute a person in that paticular chat"
+    if event.is_private:
+        await event.edit("`Unexpected issues or ugly errors may occur!`")
+        await sleep(2)
+        await event.get_reply_message()
+        replied_user = await event.client(GetFullUserRequest(event.chat_id))
+        if is_muted(event.chat_id, event.chat_id):
+            return await event.edit(
+                "`This user is already muted in this chat ~~lmfao sed rip~~`"
+            )
+        if event.chat_id == catub.uid:
+            return await edit_delete(event, "`You cant mute yourself`")
+        try:
+            mute(event.chat_id, event.chat_id)
+        except Exception as e:
+            await event.edit(f"**Error **\n`{e}`")
+        else:
+            await event.edit("`Successfully muted that person.\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **`")
+        if LOGGER:
+            await event.client.send_message(
+                LOGGER_ID,
+                "#PM_MUTE\n"
+                f"**User :** [{replied_user.user.first_name}](tg://user?id={event.chat_id})\n",
+            )
+    else:
+        chat = await event.get_chat()
+        admin = chat.admin_rights
+        creator = chat.creator
+        if not admin and not creator:
+            return await edit_or_reply(
+                event, "`You can't mute a person without admin rights niqq.` ಥ﹏ಥ  "
+            )
+        user, reason = await get_user_from_event(event)
+        if not user:
+            return
+        if user.id == bot.uid:
+            return await edit_or_reply(event, "`Sorry, I can't mute myself`")
+        if is_muted(user.id, event.chat_id):
+            return await edit_or_reply(
+                event, "`This user is already muted in this chat ~~lmfao sed rip~~`"
+            )
+        result = await event.client.get_permissions(event.chat_id, user.id)
+        try:
+            if result.participant.banned_rights.send_messages:
+                return await edit_or_reply(
+                    event,
+                    "`This user is already muted in this chat ~~lmfao sed rip~~`",
+                )
+        except AttributeError:
+            pass
+        except Exception as e:
+            return await edit_or_reply(event, f"**Error : **`{e}`")
+        try:
+            await event.client(EditBannedRequest(event.chat_id, user.id, MUTE_RIGHTS))
+        except UserAdminInvalidError:
+            if "admin_rights" in vars(chat) and vars(chat)["admin_rights"] is not None:
+                if chat.admin_rights.delete_messages is not True:
+                    return await edit_or_reply(
+                        event,
+                        "`You can't mute a person if you dont have delete messages permission. ಥ﹏ಥ`",
+                    )
+            elif "creator" not in vars(chat):
+                return await edit_or_reply(
+                    event, "`You can't mute a person without admin rights niqq.` ಥ﹏ಥ  "
+                )
+            mute(user.id, event.chat_id)
+        except Exception as e:
+            return await edit_or_reply(event, f"**Error : **`{e}`")
+        if reason:
+            await edit_or_reply(
+                event,
+                f"{_format.mentionuser(user.first_name ,user.id)} `is muted in {get_display_name(await event.get_chat())}`\n"
+                f"`Reason:`{reason}",
+            )
+        else:
+            await edit_or_reply(
+                event,
+                f"{_format.mentionuser(user.first_name ,user.id)} `is muted in {get_display_name(await event.get_chat())}`\n",
+            )
+        if LOGGER:
+            await event.client.send_message(
+                LOGGER_ID,
+                "#MUTE\n"
+                f"**User :** [{user.first_name}](tg://user?id={user.id})\n"
+                f"**Chat :** {get_display_name(await event.get_chat())}(`{event.chat_id}`)",
+            )
+
+@bot.on(admin_cmd("unmute(?: |$)(.*)"))
+@bot.on(sudo_cmd(pattern="unmute(?: |$)(.*)", allow_sudo=True))
+async def endmute(event):
+    "To mute a person in that paticular chat"
+    if event.is_private:
+        await event.edit("`Unexpected issues or ugly errors may occur!`")
+        await sleep(1)
+        replied_user = await event.client(GetFullUserRequest(event.chat_id))
+        if not is_muted(event.chat_id, event.chat_id):
+            return await event.edit(
+                "`__This user is not muted in this chat__\n（ ^_^）o自自o（^_^ ）`"
+            )
+        try:
+            unmute(event.chat_id, event.chat_id)
+        except Exception as e:
+            await event.edit(f"**Error **\n`{e}`")
+        else:
+            await event.edit(
+                "`Successfully unmuted that person\n乁( ◔ ౪◔)「    ┑(￣Д ￣)┍`"
+            )
+        if LOGGER:
+            await event.client.send_message(
+                LOGGER_ID,
+                "#PM_UNMUTE\n"
+                f"**User :** [{replied_user.user.first_name}](tg://user?id={event.chat_id})\n",
+            )
+    else:
+        user, _ = await get_user_from_event(event)
+        if not user:
+            return
+        try:
+            if is_muted(user.id, event.chat_id):
+                unmute(user.id, event.chat_id)
+            else:
+                result = await event.client.get_permissions(event.chat_id, user.id)
+                if result.participant.banned_rights.send_messages:
+                    await event.client(
+                        EditBannedRequest(event.chat_id, user.id, UNBAN_RIGHTS)
+                    )
+        except AttributeError:
+            return await edit_or_reply(
+                event,
+                "`This user can already speak freely in this chat ~~lmfao sed rip~~`",
+            )
+        except Exception as e:
+            return await edit_or_reply(event, f"**Error : **`{e}`")
+        await edit_or_reply(
+            event,
+            f"{_format.mentionuser(user.first_name ,user.id)} `is unmuted in {get_display_name(await event.get_chat())}\n乁( ◔ ౪◔)「    ┑(￣Д ￣)┍`",
+        )
+        if LOGGER:
+            await event.client.send_message(
+                LOGGER_ID,
+                "#UNMUTE\n"
+                f"**User :** [{user.first_name}](tg://user?id={user.id})\n"
+                f"**Chat :** {get_display_name(await event.get_chat())}(`{event.chat_id}`)",
+            )
 
 @bot.on(admin_cmd("pin($| (.*))"))
 @bot.on(sudo_cmd(pattern="pin($| (.*))", allow_sudo=True))
@@ -347,7 +494,7 @@ async def kick(usr):
         return
     if reason:
         await LEGENDevent.edit(
-            f"🔶κιϲκє∂ [{user.first_name}](tg://user?id={user.id})!\n🔶яєαѕοи: {reason}"
+            f"🔶Kicked [{user.first_name}](tg://user?id={user.id})!\n🔶яєαѕοи: {reason}"
         )
     else:
         await LEGENDevent.edit(f"Kicked [{user.first_name}](tg://user?id={user.id})!")
