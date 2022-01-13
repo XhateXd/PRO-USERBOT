@@ -47,25 +47,10 @@ USER_BOT_WARN_ZERO = (
 LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
 
 
-var_txt = """
-     ♦️ALL VAR♦️
-•ALIVE_NAME = `{}`
-•ALIVE_MSG = `{}`
-•ABUSE = {}
-•ASSISTANT = {}
-•AWAKE_PIC = `{}`
-•BOT_USERNAME = `{}`
-•BOT_TOKEN = `{}`
-•EXTRA_PLUGIN = `{}`
-•OP_PIC = `{}`
-•PM_DATA = {}
-•PM_PIC = `{}`
-•LOGGER_ID = `{}`
-"""
 
 
 alive_txt = (
-    gvarstatus("ALIVE_TEMPLATE")
+    os.environ.get("ALIVE_TEMPLATE", None)
     or """
 **Hey,
      {}**
@@ -132,21 +117,24 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             for x in CMD_LIST.values():
                 for y in x:
                     apn.append(y)
-            HELP_MESSAGE = gvarstatus("HELP_MESSAGE")
+            HELP_MESSAGE = os.environ.get("HELP_MESSAGE", None)
             if HELP_MESSAGE:
-                help_msg = HELP_MESSAGE
+                b = HELP_MESSAGE.split(", ")
+                c = []
+                if len(b) >= 1:
+                    for d in b:
+                        c.append(d)
+                help_msg = random.choice(c)
             else:
                 help_msg = f"『{legend_mention}』\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
             HELP_PIC = os.environ.get("HELP_PIC", None)
-            gvarstatus("IHELP_PIC")
             if HELP_PIC is not None:
                 b = HELP_PIC.split()
                 c = []
                 if len(b) >= 1:
                     for d in b:
                         c.append(d)
-                PIC = random.choice(c)
-            help_pic = PIC
+                help_pic = random.choice(c)
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
@@ -196,17 +184,15 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     Button.url("My Group", f"https://t.me/{my_group}"),
                 ],
             ]
-            ALIVE_PIC = gvarstatus("ALIVE_PIC")
-            IALIVE_PIC = gvarstatus("IALIVE_PIC")
-            if IALIVE_PIC:
-                LEGEND = [x for x in IALIVE_PIC.split()]
-                PIC = list(LEGEND)
-                ALV_PIC = random.choice(PIC)
-            if not IALIVE_PIC and ALIVE_PIC:
-                LEGEND = [x for x in ALIVE_PIC.split()]
-                PIC = list(LEGEND)
-                ALV_PIC = random.choice(PIC)
-            elif not IALIVE_PIC:
+            ALIVE_PIC = Config.ALIVE_PIC
+            if ALIVE_PIC is not None:
+                b = ALIVE_PIC.split()
+                c = []
+                if len(b) >= 1:
+                    for d in b:
+                        c.append(d)
+                ALV_PIC = random.choice(c)
+            else:
                 ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
             if ALV_PIC and ALV_PIC.endswith((".jpg", ".png")):
                 result = builder.photo(
@@ -242,19 +228,16 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     Button.url("💝My Group💝", f"https://t.me/{my_group}"),
                 ],
             ]
-
-            ALIVE_PIC = gvarstatus("ALIVE_PIC")
-            IALIVE_PIC = gvarstatus("IALIVE_PIC")
-            if IALIVE_PIC:
-                LEGEND = [x for x in IALIVE_PIC.split()]
-                PIC = list(LEGEND)
-                ALV_PIC = random.choice(PIC)
-            if not IALIVE_PIC and ALIVE_PIC:
-                LEGEND = [x for x in ALIVE_PIC.split()]
-                PIC = list(LEGEND)
-                ALV_PIC = random.choice(PIC)
-            elif not IALIVE_PIC:
-                ALV_PIC = None
+            ALIVE_PIC = Config.ALIVE_PIC
+            if ALIVE_PIC is not None:
+                b = ALIVE_PIC.split()
+                c = []
+                if len(b) >= 1:
+                    for d in b:
+                        c.append(d)
+                ALV_PIC = random.choice(c)
+            else:
+                ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
             if ALV_PIC and ALV_PIC.endswith((".jpg", ".png")):
                 result = builder.article(
                     buttons=fsub_btn,
@@ -272,17 +255,15 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
         elif event.query.user_id == bot.uid and query == "pm_warn":
             lege_nd = LEGEND_FIRST.format(mssge)
-            PM_PIC = gvarstatus("PM_PIC")
-            IPM_PIC = gvarstatus("IPM_PIC")
-            if IPM_PIC:
-                LEGEND = [x for x in IPM_PIC.split()]
-                PIC = list(LEGEND)
-                legend_pic = random.choice(PIC)
-            if not IPM_PIC and PM_PIC:
-                LEGEND = [x for x in PM_PIC.split()]
-                PIC = list(LEGEND)
-                legend_pic = random.choice(PIC)
-            elif not IPM_PIC:
+            PM_PIC = Config.PM_PIC
+            if PM_PIC is not None:
+                b = PM_PIC.split()
+                c = []
+                if len(b) >= 1:
+                    for d in b:
+                        c.append(d)
+                legend_pic = random.choice(c)
+            else:
                 legend_pic = "https://te.legra.ph/file/0c605739ddaa472cad75f.jpg"
             result = builder.photo(
                 file=legend_pic,
@@ -333,7 +314,16 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     ),
                 )
             ]
-            ALV_PIC = "https://te.legra.ph/file/c1976f0c9c976d394246e.jpg"
+            ALIVE_PIC = Config.ALIVE_PIC
+            if ALIVE_PIC is not None:
+                b = ALIVE_PIC.split()
+                c = []
+                if len(b) >= 1:
+                    for d in b:
+                        c.append(d)
+                ALV_PIC = random.choice(c)
+            else:
+                ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
             markup = event.client.build_reply_markup(buttons)
             photo = types.InputWebDocument(
                 url=ALV_PIC, size=0, mime_type="image/jpeg", attributes=[]
