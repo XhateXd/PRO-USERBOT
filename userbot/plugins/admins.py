@@ -98,8 +98,8 @@ async def set_group_photo(gpic):
             await gpic.client(
                 EditPhotoRequest(gpic.chat_id, await gpic.client.upload_file(photo))
             )
-            await eod(
-                gpic, f"⚜ `Group Profile Pic Changed` ⚜\n🔰Chat ~ {gpic.chat.title}"
+            await bot.send_file(
+                gpic, main_pic, f"⚜ `Group Profile Pic Changed` ⚜\n🔰Chat ~ {gpic.chat.title}"
             )
             legend = True
         except PhotoCropSizeSmallError:
@@ -190,8 +190,8 @@ async def demote(dmod):
     except BadRequestError:
         await LEGENDevent.edit(NO_PERM)
         return
-    await LEGENDevent.edit(
-        "∂ємοτє∂ ѕυϲϲєѕѕƒυℓℓγ!ϐнυτ υ∂∂ янє τнє α∂мιи ϐαи καя αα gγє zαмєєи ρє 😏"
+    await bot.send_file(
+        LEGENDevent, chutiya_pic, "∂ємοτє∂ ѕυϲϲєѕѕƒυℓℓγ!ϐнυτ υ∂∂ янє τнє α∂мιи ϐαи καя αα gγє zαмєєи ρє 😏"
     )
     if LOGGER:
         await dmod.client.send_message(
