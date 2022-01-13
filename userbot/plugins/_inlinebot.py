@@ -4,7 +4,7 @@ import os
 import re
 from math import ceil
 from re import compile
-
+import random
 from telethon import Button, custom, events, functions, types
 from telethon.errors.rpcerrorlist import UserNotParticipantError
 from telethon.events import InlineQuery, callbackquery
@@ -141,8 +141,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 LEGEND = [x for x in HELP_PIC.split()]
                 PIC = list(LEGEND)
                 help_pic = random.choice(PIC)
-            elif not HELP_PIC:
-                help_pic = "https://te.legra.ph/file/b5d01ceea49ee0a822661.mp4"
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
