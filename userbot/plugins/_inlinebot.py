@@ -157,8 +157,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
             else:
                 result = builder.article(
-                    "Hey Use .plinfo and .plinfo plugin_name",
-                    text=help_msg,
+                    text="Check Group Inline Permission Or",
+                    title="PRO-LEGENDBOT Alive",
                     buttons=veriler[1],
                     link_preview=False,
                 )
@@ -292,7 +292,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
                 title="Repository",
-                text=f"**⚜ 𝙻𝚎𝚐𝚎𝚗𝚍𝚊𝚛𝚢 𝙰𝚏 𝙻𝚎𝚐𝚎𝚗𝚍𝙱𝚘𝚝 ⚜**",
+                text=f"**⚜ Legendary Af Pro - LegendBot ⚜**",
                 buttons=[
                     [Button.url("♥️ Tutorial ♥", "https://youtu.be/9dQgdUJfk_k")],
                     [
@@ -308,7 +308,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     ],
                 ],
             )
-
         elif query.startswith("http"):
             part = query.split(" ")
             result = builder.article(
@@ -327,13 +326,13 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     ),
                 )
             ]
-            ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
+            ALV_PIC = "https://te.legra.ph/file/c1976f0c9c976d394246e.jpg"
             markup = event.client.build_reply_markup(buttons)
             photo = types.InputWebDocument(
                 url=ALV_PIC, size=0, mime_type="image/jpeg", attributes=[]
             )
             text, msg_entities = await event.client._parse_message_text(
-                "𝘿𝙀𝙋𝙇𝙊𝙔 𝙐𝙍 𝙊𝙒𝙉 𝙇𝙀𝙂𝙀𝙉𝘿𝘽𝙊𝙏\n      [ Lêɠêɳ̃dẞø† ]", "md"
+                "𝘿𝙀𝙋𝙇𝙊𝙔 𝙐𝙍 𝙊𝙒𝙉 𝙇𝙀𝙂𝙀𝙉𝘿𝘽𝙊𝙏\n            [ Lêɠêɳ̃dẞø† ]", "md"
             )
             result = types.InputBotInlineResult(
                 id=str(uuid4()),
@@ -378,9 +377,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 [Button.inline("As Usual", data="tg_okay")],
             ],
         )
-        yup_text = "`Warning`-❗️⚠️Don't send any message now wait kindly!!!❗️⚠️"
-        await bot.send_message(legend.query.user_id, yup_text)
-
+   
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"tg_okay")))
     async def yeahbaba(legend):
         if legend.query.user_id == bot.uid:
@@ -452,10 +449,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 [Button.inline("No", data="hmm")],
             ],
         )
-
-        reqws = "`Warning`- ❗️⚠️Don't send any message now wait kindly!!!❗️⚠️"
-
-        await bot.send_message(legend.query.user_id, reqws)
         await bot.send_message(
             LOG_GP,
             message=f"Hello, Master  [Nibba](tg://user?id={legend_id}). Wants To Request Something.",
@@ -540,8 +533,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 link_preview=False,
             )
         else:
-            reply_pop_up_alert = "κγα υиgℓι καя янє нο мєяє ϐοτ ραя αgαя ϲнαнιγє τοн κнυ∂ κα ϐαиα ℓο иα. Aα נατє нο υиgℓι καяиє мєяє ϐοτ ρє.   ©Lêɠêɳ̃dẞø†"
-            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+            await event.answer("Deploy Ur Own     ©Lêɠêɳ̃dẞø†", cache_time=0, alert=True)
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"page\((.+?)\)")))
     async def page(event):
@@ -599,7 +591,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
         else:
             return await event.answer(
-                "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. ©Lêɠêɳ̃dẞø†™",
+                "Deploy Ur Own. ©Lêɠêɳ̃dẞø†™",
                 cache_time=0,
                 alert=True,
             )
@@ -648,7 +640,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
         else:
             return await event.answer(
-                "MY MASTER ONLY CAN ACCESS THIS BUTTON. DEPLOY UR OWN ©Lêɠêɳ̃dẞø†™ ",
+                "Deploy Ur Own ©Lêɠêɳ̃dẞø†™ ",
                 cache_time=0,
                 alert=True,
             )
