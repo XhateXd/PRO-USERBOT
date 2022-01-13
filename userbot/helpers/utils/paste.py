@@ -3,7 +3,6 @@ import json
 import requests
 
 from userbot.Config import Config
-
 from userbot.helpers.logger import logging
 
 LOGS = logging.getLogger("LegendBot")
