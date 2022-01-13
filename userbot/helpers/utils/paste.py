@@ -4,7 +4,7 @@ import requests
 
 from userbot.Config import Config
 
-from ..helpers.logger import logging
+from userbot.helpers.logger import logging
 
 LOGS = logging.getLogger("LegendBot")
 
