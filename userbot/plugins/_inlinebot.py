@@ -47,7 +47,7 @@ USER_BOT_WARN_ZERO = (
 LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
             
 
-about = os.environ.get("ALIVE_EMOJI", None) or "✥"
+about = Config.ALIVE_EMOJI or "✥"
 if about is not None:
     b = about.split()
     c = []
