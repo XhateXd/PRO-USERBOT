@@ -8,13 +8,12 @@ from userbot import ALIVE_NAME, LEGENDversion
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.helpers.ffunctions import get_readable_time 
 
 from . import *
+from userbot.helpers.events import reply_id
 
-CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG
-DEFAULTUSER = ALIVE_NAME
 LEGEND_IMG = "https://telegra.ph/file/153977a71b928874151a5.jpg"
-CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG
 CUSTOM_YOUR_GROUP = Config.YOUR_GROUP or "@LegendBot_Pro"
 
 
@@ -24,52 +23,40 @@ async def amireallyalive(alive):
     if alive.fwd_from:
         return
     reply_to_id = await reply_id(alive)
+    uptime = await get_readable_time((time.time() - StartTime))
     if LEGEND_IMG:
-        LEGEND_caption = f"**{CUSTOM_ALIVE_TEXT}**\n"
+        LEGEND_caption = f"**{Config.ALIVE_MSG}**\n"
         LEGEND_caption += f"~~~~~~~~~~~~~~~~~~~~~~~\n"
-        LEGEND_caption += f"        **✘𝕭𝖔† 𝕾𝖙𝖆𝖙𝖚𝖘✘** \n"
-        LEGEND_caption += f"•🔥• **Oաղ̃ҽ̈ɾ**          ~ {ALIVE_NAME}\n\n"
-        LEGEND_caption += f"•🌟• **𝖑𝖊ɠêɳ̃dẞø†**   ~ {LEGENDversion}\n"
-        LEGEND_caption += f"•🌟• **†ҽ̀lҽ́thøղ̃**     ~ `{version.__version__}`\n"
-        LEGEND_caption += f"•🌟• **𝚄ρtime**         ~ `{uptime}`\n"
-        LEGEND_caption += f"•🌟• **𝙶𝚛𝚘𝚞𝚙**           ~ [𝙶𝚛𝚘𝚞𝚙](t.me/LegendBot_Pro)\n"
-        LEGEND_caption += f"•🌟• **𝙼𝚢 𝙶𝚛𝚘𝚞𝚙**  ~ {CUSTOM_YOUR_GROUP}\n"
+        LEGEND_caption += f"    ✘Bot Status✘ \n"
+        LEGEND_caption += f"**LegendBo† version**   ~ {LEGENDversion}\n"
+        LEGEND_caption += f"**†elethon version**  ~ `{version.__version__}`\n"
+        LEGEND_caption += f"**Uptime**           ~ `{uptime}`\n"
+        LEGEND_caption += f"**Master**          ~ `{Config.ALIVE_NAME}`"
         await alive.client.send_file(
             alive.chat_id, LEGEND_IMG, caption=LEGEND_caption, reply_to=reply_to_id
         )
         await alive.delete()
     else:
         await edit_or_reply(
-            alive,
-            f"**{CUSTOM_ALIVE_TEXT}**\n\n"
-            f"~~~~~~~~~~~~~~~~~~~~~~~ \n"
-            f"         \n"
-            f"•⚡• 𝕿єℓєτнοи    : `{version.__version__}`\n"
-            f"🇮🇳 ℓєgєи∂ϐοτ  : `{LEGENDversion}`\n"
-            f"🇮🇳 υρτιмє        : `{uptime}`\n"
-            f"🔱 ɱαรƭεɾ        : {mention}\n"
-            f"🔱 σωɳεɾ         : [ℓєgєи∂](t.me/Pro_LegendBoy)\n",
+            alive, "Soon new Template Add",
         )
 
 
 msg = (
     gvarstatus("ALIVE_TEMPLATE")
     or f"""
-**  ⚜️ Lêɠêɳ̃dẞø† ιѕ σиℓιиє ⚜️**
-
-       {Config.ALIVE_MSG}
-    **  Bø✞︎ ẞ✞︎α✞︎µѕ **
-**•⚜️•Øաղ̃ҽ̈r     :** **{mention}**
-**•🌹•𝖑𝖊ɠêɳ̃dẞø✞︎  :** {LEGENDversion}
-**•🌹•✞︎ҽ̀lҽ́ƭhøղ  :** {version.__version__}
-**•🌹•Ãbûßê     :**  {abuse_m}
-**•🌹•ßudø      :**  {is_sudo}
-**•🌹•Bøt.      :** {Config.BOY_OR_GIRL}
+**  ⚜️ Lêɠêɳ̃dẞø† is Online ⚜️**
+     {Config.ALIVE_MSG}
+    ** Bot Status **
+**••Owner   :** **{mention}**
+**••LegendBot  :** {LEGENDversion}
+**••Telethon  :** {version.__version__}
+**••Abuse    :**  {abuse_m}
+**••ßudø    :**  {is_sudo}
+**••Bøt   :** {Config.BOY_OR_GIRL}
 """
 )
 botname = Config.BOT_USERNAME
-
-
 @bot.on(admin_cmd(pattern="alive$"))
 @bot.on(admin_cmd(pattern="alive$", allow_sudo=True))
 async def legend_a(event):
@@ -88,13 +75,13 @@ file3 = "https://te.legra.ph/file/d2a5265abdc4e73af1f94.jpg"
 file4 = "https://te.legra.ph/file/d17467283e73c884834a5.jpg"
 file5 = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
 """ =======================CONSTANTS====================== """
-pm_caption = f"** {CUSTOM_ALIVE_TEXT}**\n"
+pm_caption = f"** {Config.ALIVE_MSG}**\n"
 pm_caption += f"**╭────────────**\n"
-pm_caption += f"┣»»»『{legend_mention}』«««\n"
-pm_caption += f"┣Lêɠêɳ̃dẞø† ~ {LEGENDversion}\n"
-pm_caption += f"┣Lêɠêɳ̃d  ~ [Owner](https://t.me/Pro_LegendBoy)\n"
-pm_caption += f"┣Support ~ [G𝖗ουρ](https://t.me/LegendBot_Pro)\n"
-pm_caption += f"┣Řepô    ~ [Rєρο](https://github.com/PROBOY-OP/PRO-LEGENDBOT)\n"
+pm_caption += f"┣✨ Owner   ~ 『{legend_mention}』«««\n"
+pm_caption += f"┣✨ Lêɠêɳ̃dẞø† ~ {LEGENDversion}\n"
+pm_caption += f"┣✨ ProBoy   ~ [Owner](https://t.me/Pro_LegendBoy)\n"
+pm_caption += f"┣✨ Support ~ [G𝖗ουρ](https://t.me/LegendBot_Pro)\n"
+pm_caption += f"┣✨ Repo   ~ [Rєρο](https://github.com/PROBOY-OP/PRO-LEGENDBOT)\n"
 pm_caption += f"**╰────────────**\n"
 
 
