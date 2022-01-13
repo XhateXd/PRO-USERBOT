@@ -23,7 +23,7 @@ async def send(event):
     message_id = event.message.id
     thumb = core_pic
     input_str = event.pattern_match.group(1)
-    omk = f"**⍟ 𝙿𝚕𝚞𝚐𝚒𝚗 𝚗𝚊𝚖𝚎 ≈** `{input_str}`\n**⍟ 𝚄𝚙𝚕𝚘𝚊𝚍𝚎𝚍 𝙱𝚢 ≈** {legend_mention}\n\n⚜ **[Lêɠêɳ̃dẞø†](https://t.me/LegendBot_Pro)** ⚜"
+    omk = f"**⍟ 𝙿𝚕𝚞𝚐𝚒𝚗 𝚗𝚊𝚖𝚎 ≈** `{input_str}`\n**⍟ 𝚄𝚙𝚕𝚘𝚊𝚍𝚎𝚍 𝙱𝚢 ≈** {legend_mention}\n\n⚜ **[Pro-Lêɠêɳ̃dẞø†](https://t.me/LegendBot_Pro)** ⚜"
     the_plugin_file = "./userbot/plugins/{}.py".format(input_str)
     the_1plugin_file = "./userbot/plugins/Abuse/{}.py".format(input_str)
     the_2plugin_file = "./userbot/plugins/Spam/{}.py".format(input_str)
@@ -76,7 +76,7 @@ async def send(event):
         )
         await event.delete()
     else:
-        await edit_or_reply(event, "File not found..... Kek")
+        await edit_or_reply(event, f"There is no any plugin file with name = {input_str}")
 
 
 @bot.on(admin_cmd(pattern="install ?(.*)"))
@@ -125,7 +125,7 @@ async def install(event):
                                     b = 1
                                 await legend.edit(a)
                             return await legend.edit(
-                                f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {legend_mention}\n\n{string}\n\n        ⚡ **[Lêɠêɳ̃dẞø†]({chnl_link})** ⚡",
+                                f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {legend_mention}\n\n{string}\n\n        ⚡ **[Pro-Lêɠêɳ̃dẞø†]({chnl_link})** ⚡",
                                 link_preview=False,
                             )
 
@@ -136,7 +136,7 @@ async def install(event):
                         os.remove(downloaded_file_name)
                         return await eod(
                             legend,
-                            f"**Failed to Install** \n`Error`\nModule already installed or unknown format",
+                            f"**Failed to Install** \n`Error`, Module already installed or unknown format",
                         )
                 else:
                     return await eod(
@@ -258,7 +258,7 @@ CmdHelp("core").add_command(
 ).add_warning(
     "Before Install Any Plugin.Open That File file by command .open"
 ).add_info(
-    "Xtra Plugin"
+    "If U Want Extra Plugin Deploy From Here"
 ).add_type(
     "Official"
 ).add()
