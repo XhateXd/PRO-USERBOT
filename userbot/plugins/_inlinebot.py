@@ -176,8 +176,18 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 ALV_PIC = random.choice(c)
             else:
                 ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
+            pp = Config.ALIVE_MSG
+            if pp is not None:
+                b = pp.split(", ")
+                c = []
+                if len(b) >= 1:
+                    for d in b:
+                        c.append(d)
+                Msg = random.choice(c)
+            else:
+                 Msg = " Pro LegendBot Is Up"
             leg_end = alive_txt.format(
-                Config.ALIVE_MSG,
+                Msg,
                 alive_emoji,
                 LEGENDversion,
                 alive_emoji,
