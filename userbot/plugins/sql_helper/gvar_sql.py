@@ -19,8 +19,8 @@ Gvar.__table__.create(checkfirst=True)
 def gvarstatus(variable):
     try:
         return (
-            SESSION.query(Globals)
-            .filter(Globals.variable == str(variable))
+            SESSION.query(Gvar)
+            .filter(Gvar.variable == str(variable))
             .first()
             .value
         )
