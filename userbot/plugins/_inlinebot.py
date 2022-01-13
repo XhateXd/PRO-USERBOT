@@ -47,15 +47,17 @@ USER_BOT_WARN_ZERO = (
 LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
             
 
-about = Config.ALIVE_EMOJI or "✥"
+about = Config.ALIVE_EMOJI 
 if about is not None:
     b = about.split()
     c = []
     if len(b) >= 1:
         for d in b:
         c.append(d)
-        alive_emoji = random.choice(c)
-
+    alive_emoji = random.choice(c)
+else:
+    alive_emoji = "✥"
+    
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
     or """
