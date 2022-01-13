@@ -63,7 +63,7 @@ var_txt = """
 """
 
 
-alive_txt = """
+alive_txt = gvarstatus("ALIVE_TEMPLATE") or """
 **Hey,
      {}**
   ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
