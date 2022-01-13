@@ -1,7 +1,8 @@
 import asyncio
 import time
 from platform import python_version
-
+import os
+import random
 from telethon import version
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
@@ -27,14 +28,14 @@ async def amireallyalive(alive):
     reply_to_id = await reply_id(alive)
     uptime = get_readable_time((time.time() - StartTime))
     uptime = uptime
-    A = os.environ.get("ALIVE_EMOJI" None) or "✥"
-    if A is not None:
-        b = A.split()
+    about = os.environ.get("ALIVE_EMOJI", None) or "✥"
+    if about is not None:
+        b = about.split()
         c = []
         if len(b) >= 1:
             for d in b:
             c.append(d)
-    alive_emoji = random.choice(c)
+        alive_emoji = random.choice(c)
     if LEGEND_IMG:
         LEGEND_caption = f"**LegendBot is Up And Running**\n\n"
         LEGEND_caption += f"      🔰Bot Status🔰 \n"
