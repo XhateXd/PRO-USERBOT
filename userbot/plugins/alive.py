@@ -12,7 +12,7 @@ from userbot.Config import Config
 from userbot.helpers.events import reply_id
 from userbot.helpers.ffunctions.utils import get_readable_time
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
-
+from userbot import *
 from . import *
 
 LEGEND_IMG = "https://telegra.ph/file/153977a71b928874151a5.jpg"
@@ -25,17 +25,24 @@ async def amireallyalive(alive):
     if alive.fwd_from:
         return
     reply_to_id = await reply_id(alive)
-    StartTime = time.time()
     uptime = get_readable_time((time.time() - StartTime))
     uptime = uptime
+    A = os.environ.get("ALIVE_EMOJI" None) or "✥"
+    if A is not None:
+        b = A.split()
+        c = []
+        if len(b) >= 1:
+            for d in b:
+            c.append(d)
+    alive_emoji = random.choice(c)
     if LEGEND_IMG:
         LEGEND_caption = f"**LegendBot is Up And Running**\n\n"
         LEGEND_caption += f"      🔰Bot Status🔰 \n"
-        LEGEND_caption += f"✥ **LegendBo† version**   ~ {LEGENDversion}\n"
-        LEGEND_caption += f"✥ **Telethon version**   ~ `{version.__version__}`\n"
-        LEGEND_caption += f"✥ **Python version**    ~ `{python_version()}`\n"
-        LEGEND_caption += f"✥ **Uptime**           ~ `{uptime}`\n"
-        LEGEND_caption += f"✥ **Master**          ~ `{Config.ALIVE_NAME}`"
+        LEGEND_caption += f"{alive_emoji} **LegendBo† version**   ~ {LEGENDversion}\n"
+        LEGEND_caption += f"{alive_emoji} **Telethon version**   ~ `{version.__version__}`\n"
+        LEGEND_caption += f"{alive_emoji} **Python version**    ~ `{python_version()}`\n"
+        LEGEND_caption += f"{alive_emoji} **Uptime**           ~ `{uptime}`\n"
+        LEGEND_caption += f"{alive_emoji} **Master**          ~ `{Config.ALIVE_NAME}`"
         await alive.client.send_file(
             alive.chat_id, LEGEND_IMG, caption=LEGEND_caption, reply_to=reply_to_id
         )
@@ -53,12 +60,12 @@ msg = (
 **  ⚜️ Lêɠêɳ̃dẞø† is Online ⚜️**
      {Config.ALIVE_MSG}
     ** Bot Status **
-**••Owner   :** **{Config.ALIVE_NAME}**
-**••LegendBot  :** {LEGENDversion}
-**••Telethon  :** {version.__version__}
-**••Abuse    :**  {abuse_m}
-**••ßudø    :**  {is_sudo}
-**••Bøt   :** {Config.BOY_OR_GIRL}
+**🔰 Owner   :** **{Config.ALIVE_NAME}**
+**✨ LegendBot  :** {LEGENDversion}
+**✨ Telethon  :** {version.__version__}
+**✨ Abuse    :**  {abuse_m}
+**✨ Sudo    :**  {is_sudo}
+**✨ Bøt   :** {Config.BOY_OR_GIRL}
 """
 )
 botname = Config.BOT_USERNAME
@@ -81,10 +88,9 @@ file2 = "https://te.legra.ph/file/11ec9dd576ee5536125b2.jpg"
 file3 = "https://te.legra.ph/file/d2a5265abdc4e73af1f94.jpg"
 file4 = "https://te.legra.ph/file/d17467283e73c884834a5.jpg"
 file5 = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
-""" =======================CONSTANTS====================== """
-pm_caption = f"** {Config.ALIVE_MSG}**\n"
+"""=======================CONSTANTS====================== """
 pm_caption += f"**╭────────────**\n"
-pm_caption += f"┣✨ Owner   ~ 『{legend_mention}』«««\n"
+pm_caption += f"┣✨ Owner   ~ {Config.ALIVE_NAME}\n"
 pm_caption += f"┣✨ Lêɠêɳ̃dẞø† ~ {LEGENDversion}\n"
 pm_caption += f"┣✨ ProBoy   ~ [Owner](https://t.me/Pro_LegendBoy)\n"
 pm_caption += f"┣✨ Support ~ [G𝖗ουρ](https://t.me/LegendBot_Pro)\n"
