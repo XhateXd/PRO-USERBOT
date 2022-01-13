@@ -11,7 +11,7 @@ from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from userbot.helpers.tools import media_type
 from userbot.utils import admin_cmd
-
+from userbot.helpers.utils import _format
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ℓєgєи∂"
 
 LEGEND = bot.uid
@@ -150,14 +150,14 @@ async def on_afk(event):  # sourcery no-metrics
         except Exception as e:
             LOGS.info(str(e))
         messaget = media_type(event)
-        resalt = f"#AFK"
+        resalt = f"#AFK_TAGS \n<b>Group : </b><code>{hmm.title}</code>"
         if full is not None:
-            resalt += f" 👤"
+            resalt += f"\n<b>From : </b> 👤{_format.htmlmentionuser(full.first_name , full.id)}"
         if messaget is not None:
             resalt += f"\n<b>Message type : </b><code>{messaget}</code>"
         else:
             resalt += f"\n<b>Message : </b>{event.message.message}"
-        resalt += f"Message link "
+        resalt += f"\n<b>Message link: </b><a href = 'https://t.me/c/{hmm.id}/{event.message.id}'> link</a>"
         if not event.is_private:
             await event.client.send_message(
                 Config.LOGGER_ID,
@@ -248,7 +248,7 @@ async def _(event):
         AFK_.media_afk = await reply.forward_to(LOGGER_ID)
         if AFK_.reason:
             await event.client.send_message(
-                LOGGGER_ID,
+                LOGGER_ID,
                 f"#AFKTRUE \nSet AFK mode to True, and Reason is {AFK_.reason}",
             )
         else:
