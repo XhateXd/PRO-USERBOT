@@ -4,14 +4,14 @@ from telethon import version
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
 
-from userbot import ALIVE_NAME, LEGENDversion
+from userbot import LEGENDversion
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
+from userbot.helpers.events import reply_id
+from userbot.helpers.ffunctions import get_readable_time
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
-from userbot.helpers.ffunctions import get_readable_time 
 
 from . import *
-from userbot.helpers.events import reply_id
 
 LEGEND_IMG = "https://telegra.ph/file/153977a71b928874151a5.jpg"
 CUSTOM_YOUR_GROUP = Config.YOUR_GROUP or "@LegendBot_Pro"
@@ -38,7 +38,8 @@ async def amireallyalive(alive):
         await alive.delete()
     else:
         await edit_or_reply(
-            alive, "Soon new Template Add",
+            alive,
+            "Soon new Template Add",
         )
 
 
@@ -57,6 +58,8 @@ msg = (
 """
 )
 botname = Config.BOT_USERNAME
+
+
 @bot.on(admin_cmd(pattern="alive$"))
 @bot.on(admin_cmd(pattern="alive$", allow_sudo=True))
 async def legend_a(event):
