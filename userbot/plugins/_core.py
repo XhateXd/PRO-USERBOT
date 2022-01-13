@@ -78,7 +78,7 @@ async def send(event):
         await event.delete()
     else:
         await edit_or_reply(
-            event, f"There is no any plugin file with name = {input_str}"
+            event, f"Name Of Plugin: {input_str}\nNot Found In LegendBot"
         )
 
 
