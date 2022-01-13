@@ -155,6 +155,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "alive":
             from userbot import *
             from userbot.helpers.ffunctions.utils import get_readable_time
+
             uptime = await get_readable_time((time.time() - StartTime))
             uptime = uptime
             about = os.environ.get("ALIVE_EMOJI", None) or "✥"
