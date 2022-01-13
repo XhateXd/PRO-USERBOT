@@ -154,9 +154,12 @@ async def _(event):
     logger.info(result)  # pylint:disable=E0602
 
     await event.edit("тєℓєтнση  вαѕє∂ υѕєявσт ρσωєяє∂ ву **Lêɠêɳ̃dẞø†** вσт")
-    
-    
-CmdHelp("helper").add_command("repo", None, "To Get Repo And Repl Link").add_commanf("help", None, "To Get Help Menu").add_command("op", "<plugin name>", "To Get Detail About Plugin", "op alive").add_command("ihelp", "<Pluggin Name>", "To get detail about any plugin").add()
 
 
-
+CmdHelp("helper").add_command("repo", None, "To Get Repo And Repl Link").add_commanf(
+    "help", None, "To Get Help Menu"
+).add_command(
+    "op", "<plugin name>", "To Get Detail About Plugin", "op alive"
+).add_command(
+    "ihelp", "<Pluggin Name>", "To get detail about any plugin"
+).add()
