@@ -11,12 +11,10 @@ from telethon.events import InlineQuery, callbackquery
 from telethon.sync import custom
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.functions.users import GetFullUserRequest
-
+from .sql_helper.gvar_sql import gvarstat, gvarstatus 
 from userbot.Config import Config
 
 from . import *
-
-CATLOGO = "https://telegra.ph/file/493268c1f5ebedc967eba.jpg"
 
 DEFAULTUSER = alive_name = Config.ALIVE_NAME
 legend_row = Config.BUTTONS_IN_HELP
@@ -28,7 +26,6 @@ mssge = cstm_pmp = (
     Config.PM_MSG
     or "I am Assistant Of My Owner\nI am Here To Protect My Owner From Scanner"
 )
-ALV_PIC = VAR_PIC = Config.ALIVE_PIC
 help_pic = Config.HELP_PIC
 LOG_GP = Config.LOGGER_ID
 
@@ -131,7 +128,14 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             for x in CMD_LIST.values():
                 for y in x:
                     apn.append(y)
-            help_msg = f"『{legend_mention}』\n\n⭐ ## 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ##⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
+            help_msg = f"『{legend_mention}』\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
+            HELP_PIC = gvarstatus("HELP_PIC")
+            if HELP_PIC:
+                LEGEND = [x for x in IALIVE_PIC.split()]
+                PIC = list(LEGEND)
+                help_pic = random.choice(PIC)
+            elif not HELP_PIC:
+                help_pic = None
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
@@ -149,7 +153,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
             else:
                 result = builder.article(
-                    f"Hey! Only use .op please",
+                    "Hey Use .plinfo and .plinfo plugin_name",
                     text=help_msg,
                     buttons=veriler[1],
                     link_preview=False,
@@ -181,6 +185,18 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     Button.url("My Group", f"https://t.me/{my_group}"),
                 ],
             ]
+            ALIVE_PIC = gvarstatus("ALIVE_PIC")
+            IALIVE_PIC = gvarstatus("IALIVE_PIC")
+            if IALIVE_PIC:
+                LEGEND = [x for x in IALIVE_PIC.split()]
+                PIC = list(LEGEND)
+                ALV_PIC = random.choice(PIC)
+            if not IALIVE_PIC and ALIVE_PIC:
+                LEGEND = [x for x in ALIVE_PIC.split()]
+                PIC = list(LEGEND)
+                ALV_PIC = random.choice(PIC)
+            elif not IALIVE_PIC:
+                ALV_PIC = None
             if ALV_PIC and ALV_PIC.endswith((".jpg", ".png")):
                 result = builder.photo(
                     ALV_PIC,
@@ -277,49 +293,33 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             buttons = [
                 (
                     Button.url(
-                        "Source code", "https://github.com/sandy1709/catuserbot"
+                        "Sources", "https://github.com/PROBOY-OP/PRO-LEGENDBOT"
                     ),
                     Button.url(
                         "Deploy",
-                        "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack&template=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack",
+                        "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FPROBOY-OP%2FPRO-LEGENDBOT&template=https%3A%2F%2Fgithub.com%2FPROBOY-OP%2FPRO-LEGENDBOT",
                     ),
                 )
             ]
             markup = event.client.build_reply_markup(buttons)
             photo = types.InputWebDocument(
-                url=CATLOGO, size=0, mime_type="image/jpeg", attributes=[]
+                url=ALV_PIC, size=0, mime_type="image/jpeg", attributes=[]
             )
             text, msg_entities = await event.client._parse_message_text(
-                "𝗗𝗲𝗽𝗹𝗼𝘆 𝘆𝗼𝘂𝗿 𝗼𝘄𝗻 𝗖𝗮𝘁𝗨𝘀𝗲𝗿𝗯𝗼𝘁.", "md"
+                f"𝘿𝙀𝙋𝙇𝙊𝙔 𝙐𝙍 𝙊𝙒𝙉 𝙇𝙀𝙂𝙀𝙉𝘿𝘽𝙊𝙏\n      [ Lêɠêɳ̃dẞø† ]    ", "md"
             )
             result = types.InputBotInlineResult(
                 id=str(uuid4()),
                 type="photo",
-                title="𝘾𝙖𝙩𝙐𝙨𝙚𝙧𝙗𝙤𝙩",
+                title="Lêɠêɳ̃dẞø†",
                 description="Deploy yourself",
-                url="https://github.com/sandy1709/catuserbot",
+                url="https://github.com/PROBOY-OP/PRO-USERBOT",
                 thumb=photo,
                 content=photo,
                 send_message=types.InputBotInlineMessageMediaAuto(
                     reply_markup=markup, message=text, entities=msg_entities
                 ),
-            )
-            """result = builder.photo(
-                ALV_PIC,
-                text=Hey! This is [Lêɠêɳ̃dẞø†](https://t.me/Pro_LegendBot) \nYou can know more about me from the links given below 👇,
-                buttons=[
-                    [
-                        custom.Button.url(
-                            "⭐ Repo ⭐", "https://Github.com/PROBOY-OP/PRO-LEGENDBOT"
-                        ),
-                        custom.Button.url(
-                            "⚡ Repl ⚡",
-                            "https://replit.com/@KrishnaJaiswal1/PRO-LEGENDBOT#main.py",
-                        ),
-                    ],
-                ],
-                link_preview=False,
-            )"""
+            )                
         await event.answer([result] if result else None)
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"pmclick")))
