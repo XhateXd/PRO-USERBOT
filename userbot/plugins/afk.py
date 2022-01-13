@@ -168,7 +168,7 @@ async def on_afk(event):  # sourcery no-metrics
             )
 
 
-@borg.on(admin_cmd(pattern=r"afk (.*)"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern=r"afk (.*)", outgoing=True))  # pylint:disable=E0602
 async def _(event):
     "To mark yourself as afk i.e. Away from keyboard"
     AFK_.USERAFK_ON = {}
