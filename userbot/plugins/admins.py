@@ -68,7 +68,14 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 # ================================================
 
-
+NORMAL_PIC = os.environ.get("NORMAL_PIC", None)
+if NORMAL_PIC:
+    LEGEND = [x for x in NORMAL_PIC.split()]
+    PIC = list(LEGEND)
+    help_pic = random.choice(PIC)
+else:
+    help_pic = main_pic
+    
 @bot.on(admin_cmd("setgpic$"))
 @bot.on(sudo_cmd(pattern="setgpic$", allow_sudo=True))
 @errors_handler
@@ -94,13 +101,6 @@ async def set_group_photo(gpic):
         else:
             await edit_or_reply(gpic, INVALID_MEDIA)
     legend = None
-    ABUSE_PIC = gvarstatus("HELP_PIC")
-    if ABUSE_PIC:
-        LEGEND = [x for x in ABUSE_PIC.split()]
-        PIC = list(LEGEND)
-        help_pic = random.choice(PIC)
-    elif not ABUSE_PIC:
-        help_pic = main_pic
     if photo:
         try:
             await gpic.client(
@@ -155,8 +155,9 @@ async def promote(promt):
         return
     try:
         await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await LEGENDevent.edit(
-            f"**⚜Promoted ~** [{user.first_name}](tg://user?id={user.id})⚜\n**Successfully In** ~ `{promt.chat.title}`!! \n**Admin Tag ~**  `{rank}`"
+        await bot.send_file(
+            promt.chat_id, help_pic
+            caption=f"**⚜Promoted ~** [{user.first_name}](tg://user?id={user.id})⚜\n**Successfully In** ~ `{promt.chat.title}`!! \n**Admin Tag ~**  `{rank}`"
         )
     except BadRequestError:
         await LEGENDevent.edit(NO_PERM)
@@ -201,8 +202,8 @@ async def demote(dmod):
         await LEGENDevent.edit(NO_PERM)
         return
     await bot.send_file(
-        dmod,
-        chutiya_pic,
+        dmod.chat_id,
+        help_pic,
         caption="Demoted Successfully\nUser:[{user.first_name}}](tg://user.id})\n Chat: {dmod.chat.title}",
     )
     if LOGGER:
@@ -243,7 +244,7 @@ async def ban(bon):
         await LEGENDevent.edit("I ain't got msg deleting right. But still Banned!")
         return
     if reason:
-        await LEGENDevent.edit(f"{str(user.id)} ιѕ ϐαииє∂ !!\nяєαѕοи: {reason}")
+        await bot.send_file(bon.chat_id, help_pic, caption=f"[{user.first_name}](tg://user?id={user.id}) Is Banned In Chat: {bon.chat_title} !!\nяєαѕοи: {reason}")
     else:
         await LEGENDevent.edit(f"{str(user.id)} is banned!")
     if LOGGER:
@@ -274,7 +275,7 @@ async def nothanos(unbon):
         return
     try:
         await unbon.client(EditBannedRequest(unbon.chat_id, user.id, UNBAN_RIGHTS))
-        await LEGENDevent.edit("υиϐαииє∂ ѕυϲϲєѕѕƒυℓℓγ! Giving one more chance 😏")
+        await LEGENDevent.edit(unbon.chat_id, help_pic, f"[{user.first_name}](tg://user?id={user.id})has been unbanned Successfully In Chat: {unbon.chat_title} \nGiving one more chance 😏")
         if LOGGER:
             await unbon.client.send_message(
                 lg_id,
@@ -310,14 +311,14 @@ async def startmute(event):
             return await event.edit(
                 "`This user is already muted in this chat ~~lmfao sed rip~~`"
             )
-        if event.chat_id == catub.uid:
+        if event.chat_id == bot.uid:
             return await edit_delete(event, "`You cant mute yourself`")
         try:
             mute(event.chat_id, event.chat_id)
         except Exception as e:
             await event.edit(f"**Error **\n`{e}`")
         else:
-            await event.edit("`Successfully muted that person.\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **`")
+            await bot.send_file(event.chat_id, help_pic, "`Successfully muted that person.\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **`")
         if LOGGER:
             await event.client.send_message(
                 LOGGER_ID,
@@ -405,7 +406,7 @@ async def endmute(event):
         except Exception as e:
             await event.edit(f"**Error **\n`{e}`")
         else:
-            await event.edit(
+            await bot.send_file(event.chat_id, help_pic,
                 "`Successfully unmuted that person\n乁( ◔ ౪◔)「    ┑(￣Д ￣)┍`"
             )
         if LOGGER:
@@ -472,7 +473,7 @@ async def pin(msg):
     except BadRequestError:
         await edit_or_reply(msg, NO_PERM)
         return
-    hmm = await edit_or_reply(msg, "ριииє∂ ѕυϲϲєѕѕƒυℓℓγ!")
+    hmm = await eod(msg, "ριииє∂ ѕυϲϲєѕѕƒυℓℓγ!")
     user = await get_user_from_id(msg.sender_id, msg)
     if LOGGER:
         await msg.client.send_message(
@@ -513,7 +514,7 @@ async def kick(usr):
         await LEGENDevent.edit(NO_PERM + f"\n{str(e)}")
         return
     if reason:
-        await LEGENDevent.edit(
+        await bot.send_file(usr.chat_id, help_pic
             f"🔶Kicked [{user.first_name}](tg://user?id={user.id})!\n🔶яєαѕοи: {reason}"
         )
     else:
