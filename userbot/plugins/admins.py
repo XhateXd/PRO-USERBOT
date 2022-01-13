@@ -156,7 +156,7 @@ async def promote(promt):
     try:
         await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
         await bot.send_file(
-            promt.chat_id, help_pic
+            promt.chat_id, help_pic,
             caption=f"**⚜Promoted ~** [{user.first_name}](tg://user?id={user.id})⚜\n**Successfully In** ~ `{promt.chat.title}`!! \n**Admin Tag ~**  `{rank}`"
         )
     except BadRequestError:
