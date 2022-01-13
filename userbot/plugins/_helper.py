@@ -126,7 +126,7 @@ async def LEGENDBOTt(event):
         ]
 
         for i in sayfa:
-            string += f"`♦️`"
+            string += f"`👉`"
             for sira, a in enumerate(i):
                 string += "`" + str(a)
                 if sira == i.index(i[-1]):
@@ -154,3 +154,8 @@ async def _(event):
     logger.info(result)  # pylint:disable=E0602
 
     await event.edit("тєℓєтнση  вαѕє∂ υѕєявσт ρσωєяє∂ ву **Lêɠêɳ̃dẞø†** вσт")
+    
+    
+CmdHelp("helper").add_command("repo", None, "To Get Repo And Repl Link").add_commanf("help", None, "To Get Help Menu").add_command("op", "
+                                                       <plugin name>", "To Get Detail About Plugin", "op alive").add_command(
+    pl
