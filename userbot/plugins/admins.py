@@ -34,7 +34,6 @@ PP_TOO_SMOL = "`The image is too small`"
 PP_ERROR = "`Failure while processing the image`"
 NO_ADMIN = "`I am not an admin! Chutiya sala`"
 NO_PERM = "`I don't have sufficient permissions! Sed -_-`"
-CHAT_PP_CHANGED = "`Chat Picture Changed Successfully`"
 INVALID_MEDIA = "`Invalid media Extension`"
 
 BANNED_RIGHTS = ChatBannedRights(
@@ -96,7 +95,7 @@ async def set_group_photo(gpic):
             await gpic.client(
                 EditPhotoRequest(gpic.chat_id, await gpic.client.upload_file(photo))
             )
-            await edit_or_reply(gpic, CHAT_PP_CHANGED)
+            await eod(gpic, f"`Group Profile Pic Changed `\nChat: {gpic.chat.title})
             legend = True
         except PhotoCropSizeSmallError:
             await edit_or_reply(gpic, PP_TOO_SMOL)
