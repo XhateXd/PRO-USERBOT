@@ -128,12 +128,12 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             for x in CMD_LIST.values():
                 for y in x:
                     apn.append(y)
-            HELP_MESSAGE = gvarstatus("HELP_MESSAGE") 
+            HELP_MESSAGE = gvarstatus("HELP_MESSAGE")
             if HELP_MESSAGE:
                 help_msg = HELP_MESSAGE
             else:
                 help_msg = f"『{legend_mention}』\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
-            HELP_PIC = gvarstatus("HELP_PIC") 
+            HELP_PIC = gvarstatus("HELP_PIC")
             if HELP_PIC:
                 LEGEND = [x for x in HELP_PIC.split()]
                 PIC = list(LEGEND)
@@ -235,7 +235,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     Button.url("💝My Group💝", f"https://t.me/{my_group}"),
                 ],
             ]
-            
+
             ALIVE_PIC = gvarstatus("ALIVE_PIC")
             IALIVE_PIC = gvarstatus("IALIVE_PIC")
             if IALIVE_PIC:
@@ -327,7 +327,10 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     ),
                 )
             ]
-            ALV_PIC = gvarstatus(ALIVE_PIC) or "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
+            ALV_PIC = (
+                gvarstatus(ALIVE_PIC)
+                or "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
+            )
             markup = event.client.build_reply_markup(buttons)
             photo = types.InputWebDocument(
                 url=ALV_PIC, size=0, mime_type="image/jpeg", attributes=[]
