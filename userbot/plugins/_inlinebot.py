@@ -377,7 +377,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 [Button.inline("As Usual", data="tg_okay")],
             ],
         )
-   
+
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"tg_okay")))
     async def yeahbaba(legend):
         if legend.query.user_id == bot.uid:
@@ -533,7 +533,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 link_preview=False,
             )
         else:
-            await event.answer("Deploy Ur Own     ©Lêɠêɳ̃dẞø†", cache_time=0, alert=True)
+            await event.answer(
+                "Deploy Ur Own     ©Lêɠêɳ̃dẞø†", cache_time=0, alert=True
+            )
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"page\((.+?)\)")))
     async def page(event):
