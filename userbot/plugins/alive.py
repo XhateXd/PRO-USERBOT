@@ -8,7 +8,7 @@ from userbot import LEGENDversion
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from userbot.helpers.events import reply_id
-from userbot.helpers.ffunctions import get_readable_time
+from userbot.helpers.ffunctions.utils import get_readable_time
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 from . import *
