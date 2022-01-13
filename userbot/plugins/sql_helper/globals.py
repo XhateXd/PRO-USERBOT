@@ -1,3 +1,4 @@
+
 try:
     from . import BASE, SESSION
 except ImportError:
@@ -5,8 +6,8 @@ except ImportError:
 from sqlalchemy import Column, String, UnicodeText
 
 
-class Gvar(BASE):
-    __tablename__ = "gvar"
+class Globals(BASE):
+    __tablename__ = "globals"
     variable = Column(String, primary_key=True, nullable=False)
     value = Column(UnicodeText, primary_key=True, nullable=False)
 
@@ -15,21 +16,17 @@ class Gvar(BASE):
         self.value = value
 
 
-Gvar.__table__.create(checkfirst=True)
+Globals.__table__.create(checkfirst=True)
 
 
 def gvarstatus(variable):
     try:
-        return SESSION.query(Gvar).filter(Gvar.variable == str(variable)).first().value
-    except BaseException:
-        return None
-    finally:
-        SESSION.close()
-
-
-def gvarstat(variable):
-    try:
-        return SESSION.query(Gvar).filter(Gvar.variable == str(variable)).first().value
+        return (
+            SESSION.query(Globals)
+            .filter(Globals.variable == str(variable))
+            .first()
+            .value
+        )
     except BaseException:
         return None
     finally:
@@ -37,17 +34,17 @@ def gvarstat(variable):
 
 
 def addgvar(variable, value):
-    if SESSION.query(Gvar).filter(Gvar.variable == str(variable)).one_or_none():
+    if SESSION.query(Globals).filter(Globals.variable == str(variable)).one_or_none():
         delgvar(variable)
-    adder = Gvar(str(variable), value)
+    adder = Globals(str(variable), value)
     SESSION.add(adder)
     SESSION.commit()
 
 
 def delgvar(variable):
     rem = (
-        SESSION.query(Gvar)
-        .filter(Gvar.variable == str(variable))
+        SESSION.query(Globals)
+        .filter(Globals.variable == str(variable))
         .delete(synchronize_session="fetch")
     )
     if rem:
