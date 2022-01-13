@@ -156,7 +156,8 @@ async def _(event):
     await event.edit("тєℓєтнση  вαѕє∂ υѕєявσт ρσωєяє∂ ву **Lêɠêɳ̃dẞø†** вσт")
 
 
-CmdHelp("helper").add_command("repo", None, "To Get Repo And Repl Link").add_commanf(
+CmdHelp("helper").add_command("repo", None, "To Get Repo And Repl Link"
+).add_command(
     "help", None, "To Get Help Menu"
 ).add_command(
     "op", "<plugin name>", "To Get Detail About Plugin", "op alive"
