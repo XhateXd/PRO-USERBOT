@@ -104,11 +104,11 @@ def button(page, modules):
     buttons.append(
         [
             custom.Button.inline(
-                f"⬅️ẞαƈƙ", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
+                f"⌫ ẞαƈƙ", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
             ),
             custom.Button.inline(f"🔥 ❌ 🔥", data="close"),
             custom.Button.inline(
-                f"ɳ̃êӿ†➡️", data=f"page({0 if page == (max_pages - 1) else page + 1})"
+                f"ɳ̃êӿ† ⌦", data=f"page({0 if page == (max_pages - 1) else page + 1})"
             ),
         ]
     )
@@ -320,7 +320,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 ],
                 link_preview=False,
             )"""
-            await event.answer([result] if result else None)
+        await event.answer([result] if result else None)
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"pmclick")))
     async def on_pm_click(event):
