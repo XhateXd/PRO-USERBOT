@@ -45,7 +45,16 @@ USER_BOT_WARN_ZERO = (
 )
 
 LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
+            
 
+about = os.environ.get("ALIVE_EMOJI", None) or "✥"
+if about is not None:
+    b = about.split()
+    c = []
+    if len(b) >= 1:
+        for d in b:
+        c.append(d)
+        alive_emoji = random.choice(c)
 
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
@@ -157,14 +166,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "alive":
             uptime = get_readable_time((time.time() - StartTime))
             uptime = uptime
-            about = os.environ.get("ALIVE_EMOJI", None) or "✥"
-            if about is not None:
-                b = about.split()
-                c = []
-                if len(b) >= 1:
-                    for d in b:
-                        c.append(d)
-                alive_emoji = random.choice(c)
             ALIVE_PIC = Config.ALIVE_PIC
             if ALIVE_PIC is not None:
                 b = ALIVE_PIC.split()
