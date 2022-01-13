@@ -34,7 +34,7 @@ async def amireallyalive(alive):
         c = []
         if len(b) >= 1:
             for d in b:
-            c.append(d)
+                c.append(d)
         alive_emoji = random.choice(c)
     if LEGEND_IMG:
         LEGEND_caption = f"**LegendBot is Up And Running**\n\n"
