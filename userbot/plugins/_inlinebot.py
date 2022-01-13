@@ -188,7 +188,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             leg_end = alive_txt.format(
                 Msg,
                 alive_emoji,
-                alive_emoji,        
+                alive_emoji,
                 alive_emoji,
                 LEGENDversion,
                 alive_emoji,
