@@ -1,9 +1,9 @@
-import time
 import asyncio
+import time
 
-from userbot.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
+from userbot.utils import admin_cmd
 
 from . import *
 
@@ -14,10 +14,10 @@ from telethon import version
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
 
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot import ALIVE_NAME, LEGENDversion
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 from . import *
 
@@ -97,7 +97,9 @@ async def amireallyalive(alive):
         )
 
 
-msg = gvarstatus("ALIVE_TEMPLATE") or f"""
+msg = (
+    gvarstatus("ALIVE_TEMPLATE")
+    or f"""
 **  ⚜️ Lêɠêɳ̃dẞø† ιѕ σиℓιиє ⚜️**
 
        {Config.ALIVE_MSG}
@@ -109,6 +111,7 @@ msg = gvarstatus("ALIVE_TEMPLATE") or f"""
 **•🌹•ßudø      :**  {is_sudo}
 **•🌹•Bøt.      :** {Config.BOY_OR_GIRL}
 """
+)
 botname = Config.BOT_USERNAME
 
 
@@ -122,8 +125,8 @@ async def legend_a(event):
             await event.delete()
     except (noin, dedbot):
         await eor(event, msg)
-        
-        
+
+
 file1 = "https://te.legra.ph/file/2426eab17330c6e6310ea.mp4"
 file2 = "https://te.legra.ph/file/11ec9dd576ee5536125b2.jpg"
 file3 = "https://te.legra.ph/file/d2a5265abdc4e73af1f94.jpg"
@@ -190,13 +193,14 @@ async def amireallyalive(yes):
 
     """ For .alive command, check if the bot is running.  """
     await borg.send_file(alive.chat_id, PM_IMG, caption=pm_caption)
-    await alive.delete()       
+    await alive.delete()
+
 
 CmdHelp("alive").add_command("bot", None, "υѕє αи∂ ѕєє").add_command(
     "legend", None, "Its Same Like Alive"
-).add_command(
-    "about", None, "BEST alive command"
-).add_command("alive", None, "Its Show ur Alive Template").add_warning(
+).add_command("about", None, "BEST alive command").add_command(
+    "alive", None, "Its Show ur Alive Template"
+).add_warning(
     "Harmless Module✅"
 ).add_info(
     "Checking Alive"

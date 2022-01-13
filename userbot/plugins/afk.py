@@ -1,17 +1,20 @@
 import asyncio
 import datetime
 from datetime import datetime
-from userbot import *
+
 from telethon import events
 from telethon.tl import functions, types
-from userbot.Config import Config 
-from userbot.utils import admin_cmd
+
+from userbot import *
 from userbot import ALIVE_NAME
 from userbot.cmdhelp import CmdHelp
+from userbot.Config import Config
+from userbot.utils import admin_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ℓєgєи∂"
 
 LEGEND = bot.uid
+
 
 class AFK:
     def __init__(self):
@@ -162,6 +165,7 @@ async def on_afk(event):  # sourcery no-metrics
                 link_preview=False,
             )
 
+
 @borg.on(admin_cmd(pattern=r"afk (.*)", outgoing=True))  # pylint:disable=E0602
 async def _(event):
     "To mark yourself as afk i.e. Away from keyboard"
@@ -189,9 +193,7 @@ async def _(event):
             AFK_.afk_time = datetime.now()
         AFK_.USERAFK_ON = f"on: {AFK_.reason}"
         if AFK_.reason:
-            await eod(
-                event, f"`I shall be Going afk! because ~` {AFK_.reason}", 5
-            )
+            await eod(event, f"`I shall be Going afk! because ~` {AFK_.reason}", 5)
         else:
             await eod(event, "`I shall be Going afk! `", 5)
         if LOGGER:
@@ -207,8 +209,6 @@ async def _(event):
                 )
 
 
-                
-                
 @borg.on(admin_cmd(pattern=r"afk (.*)", outgoing=True))
 async def _(event):
     "To mark yourself as afk i.e. Away from keyboard (supports media)"
@@ -257,7 +257,6 @@ async def _(event):
                 LOGGER_ID,
                 "#AFKTRUE \nSet AFK mode to True, and Reason is Not Mentioned",
             )
-
 
 
 CmdHelp("afk").add_command(

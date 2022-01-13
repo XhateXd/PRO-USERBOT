@@ -63,7 +63,9 @@ var_txt = """
 """
 
 
-alive_txt = gvarstatus("ALIVE_TEMPLATE") or """
+alive_txt = (
+    gvarstatus("ALIVE_TEMPLATE")
+    or """
 **Hey,
      {}**
   ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
@@ -75,6 +77,7 @@ alive_txt = gvarstatus("ALIVE_TEMPLATE") or """
 **•{}•ßudø      :** {}
 **•{}•Bø†       :** {}
 """
+)
 
 
 def button(page, modules):
