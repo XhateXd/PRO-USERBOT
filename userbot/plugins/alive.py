@@ -25,7 +25,9 @@ async def amireallyalive(alive):
     if alive.fwd_from:
         return
     reply_to_id = await reply_id(alive)
-    uptime = await get_readable_time((time.time() - time.time()))
+    StartTime = time.time()
+    uptime = get_readable_time((time.time() - StartTime))
+    uptime = uptime
     if LEGEND_IMG:
         LEGEND_caption = f"**{Config.ALIVE_MSG}**\n"
         LEGEND_caption += f"~~~~~~~~~~~~~~~~~~~~~~~\n"
