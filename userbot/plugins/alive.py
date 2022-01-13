@@ -52,7 +52,7 @@ msg = (
 **  ⚜️ Lêɠêɳ̃dẞø† is Online ⚜️**
      {Config.ALIVE_MSG}
     ** Bot Status **
-**••Owner   :** **{mention}**
+**••Owner   :** **{Config.ALIVE_NAME}**
 **••LegendBot  :** {LEGENDversion}
 **••Telethon  :** {version.__version__}
 **••Abuse    :**  {abuse_m}
