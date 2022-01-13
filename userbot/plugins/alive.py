@@ -1,4 +1,10 @@
 import asyncio
+import time 
+import random
+import re
+import time
+from datetime import datetime
+from platform import python_version
 
 from telethon import version
 from telethon.errors import ChatSendInlineForbiddenError as noin
@@ -23,13 +29,14 @@ async def amireallyalive(alive):
     if alive.fwd_from:
         return
     reply_to_id = await reply_id(alive)
-    uptime = await get_readable_time((time.time() - StartTime))
+    uptime = await get_readable_time((time.time() - time.time()))
     if LEGEND_IMG:
         LEGEND_caption = f"**{Config.ALIVE_MSG}**\n"
         LEGEND_caption += f"~~~~~~~~~~~~~~~~~~~~~~~\n"
         LEGEND_caption += f"    ✘Bot Status✘ \n"
         LEGEND_caption += f"**LegendBo† version**   ~ {LEGENDversion}\n"
-        LEGEND_caption += f"**†elethon version**  ~ `{version.__version__}`\n"
+        LEGEND_caption += f"**Telethon version**   ~ `{version.__version__}`\n"
+        LEGEND_caption += f"**Python version**    ~ `{python_version()}`\n"
         LEGEND_caption += f"**Uptime**           ~ `{uptime}`\n"
         LEGEND_caption += f"**Master**          ~ `{Config.ALIVE_NAME}`"
         await alive.client.send_file(
