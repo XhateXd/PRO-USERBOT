@@ -185,7 +185,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                         c.append(d)
                 Msg = random.choice(c)
             else:
-                 Msg = " Pro LegendBot Is Up"
+                Msg = " Pro LegendBot Is Up"
             leg_end = alive_txt.format(
                 Msg,
                 alive_emoji,
