@@ -10,6 +10,7 @@ from userbot import ALIVE_NAME
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from userbot.utils import admin_cmd
+from userbot.helpers.tools import media_type
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ℓєgєи∂"
 
@@ -151,7 +152,7 @@ async def on_afk(event):  # sourcery no-metrics
         messaget = media_type(event)
         resalt = f"#AFK_TAGS \n<b>Group : </b><code>{hmm.title}</code>"
         if full is not None:
-            resalt += f"\n<b>From : </b> 👤{_format.htmlmentionuser(full.first_name , full.id)}"
+            resalt += f"\n<b>From : </b> 👤"
         if messaget is not None:
             resalt += f"\n<b>Message type : </b><code>{messaget}</code>"
         else:
@@ -241,7 +242,9 @@ async def _(event):
             AFK_.afk_time = datetime.now()
         AFK_.USERAFK_ON = f"on: {AFK_.reason}"
         if AFK_.reason:
-            await eod(event, f"`I shall be Going afk! because ~` {AFK_.reason}", 5)
+            await eod(
+                event, f"`I shall be Going afk! because ~` {AFK_.reason}", 5
+            )
         else:
             await eod(event, "`I shall be Going afk! `", 5)
         AFK_.media_afk = await reply.forward_to(BOTLOG_CHATID)
