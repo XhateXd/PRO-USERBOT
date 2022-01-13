@@ -12,6 +12,24 @@ from telethon.events import InlineQuery, callbackquery
 from telethon.sync import custom
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.functions.users import GetFullUserRequest
+import asyncio
+import html
+import os
+import re
+import random
+import sys
+
+from math import ceil
+from re import compile
+
+from telethon import Button, custom, events, functions
+from telethon.tl.functions.users import GetFullUserRequest
+from telethon.events import InlineQuery, callbackquery
+from telethon.sync import custom
+from telethon.errors.rpcerrorlist import UserNotParticipantError
+from telethon.tl.functions.channels import GetParticipantRequest
+from telethon.tl.functions.channels import JoinChannelRequest
+from telethon.tl.functions.messages import ExportChatInviteRequest
 
 from userbot.Config import Config
 from userbot.plugins.sql_helper.globals import gvarstatus
@@ -137,11 +155,18 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 help_msg = HELP_MESSAGE
             else:
                 help_msg = f"『{legend_mention}』\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
-            HELP_PIC = gvarstatus("HELP_PIC")
-            if HELP_PIC:
-                LEGEND = [x for x in HELP_PIC.split()]
-                PIC = list(LEGEND)
-                help_pic = random.choice(PIC)
+            a = gvarstatus("HELP_PIC")
+            if a is not None:
+                b = a.split(" ")
+                c = []
+                if len(b) >= 1:
+                    
+                    for d in b:
+                        
+                        c.append(d)
+                help_pic = random.choice(c)
+            else:
+                help_pic = "https://te.legra.ph/file/c1976f0c9c976d394246e.jpg"
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
