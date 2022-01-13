@@ -7,7 +7,7 @@ from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from userbot.utils import *
 
-from .sql_helper.gvar_sql import gvarstatus
+from userbot.sql_helper.globals import gvarstatus, addgvar, delgvar
 
 LEGEND_USER = bot.me.first_name
 Pro_LegendBoy = bot.uid
