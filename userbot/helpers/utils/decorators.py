@@ -3,8 +3,8 @@ import asyncio
 from telethon.errors import FloodWaitError, MessageNotModifiedError
 from telethon.events import CallbackQuery
 
-from ..Config import Config
-from ..pligins.sql_helper.globals import gvarstatus
+from userbot.Config import Config
+from userbot.plugins.sql_helper.globals import gvarstatus
 
 
 def check_owner(func):
