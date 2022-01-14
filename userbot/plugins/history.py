@@ -1,10 +1,10 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
+from userbot import CmdHelp, bot
 from userbot.utils import admin_cmd
 from userbot.utils import edit_or_reply as eor
 from userbot.utils import sudo_cmd
-from userbot import CmdHelp, bot
 
 
 @bot.on(admin_cmd(pattern="history ?(.*)"))

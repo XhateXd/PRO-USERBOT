@@ -9,10 +9,7 @@ from PIL import Image
 from telegraph import upload_file
 from telethon.tl.types import MessageMediaPhoto
 
-from userbot.utils import admin_cmd, sudo_cmd
-from userbot import LOGS, CmdHelp
-from userbot import bot
-from userbot import bot as LegendBot
+from userbot import LOGS, CmdHelp, bot
 from userbot.cmdhelp import CmdHelp
 from userbot.helpers.funct import (
     convert_toimage,
@@ -23,6 +20,7 @@ from userbot.helpers.funct import (
     solarize,
     take_screen_shot,
 )
+from userbot.utils import admin_cmd, sudo_cmd
 
 pathdc = "./userbot/"
 if not os.path.isdir(pathdc):

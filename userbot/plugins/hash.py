@@ -10,9 +10,10 @@ from subprocess import run as runapp
 
 import pybase64
 
+from userbot.cmdhelp import CmdHelp
+
 # from userbot import CMD_HELP
 from userbot.utils import admin_cmd, errors_handler, sudo_cmd
-from userbot.cmdhelp import CmdHelp
 
 
 @bot.on(admin_cmd(pattern="hash (.*)", outgoing=True))
