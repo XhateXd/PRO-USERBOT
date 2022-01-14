@@ -144,6 +144,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     for d in b:
                         c.append(d)
                 help_pic = random.choice(c)
+            else:
+                help_pic = "https://te.legra.ph/file/b5d01ceea49ee0a822661.mp4"
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
@@ -348,12 +350,12 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 url=ALV_PIC, size=0, mime_type="image/jpeg", attributes=[]
             )
             text, msg_entities = await event.client._parse_message_text(
-                "𝘿𝙀𝙋𝙇𝙊𝙔 𝙐𝙍 𝙊𝙒𝙉 𝙇𝙀𝙂𝙀𝙉𝘿𝘽𝙊𝙏\n            [ Lêɠêɳ̃dẞø† ]", "md"
+                "𝒟𝐸𝒫𝐿𝒪𝒴 𝒴𝒪𝒰𝑅 𝒪𝒲𝒩 𝒫𝑅𝒪 𝐿𝐸𝒢𝐸𝒩𝒟𝐵𝒪𝒯", "md"
             )
             result = types.InputBotInlineResult(
                 id=str(uuid4()),
                 type="photo",
-                title="Lêɠêɳ̃dẞø†",
+                title="LEGENDBOT",
                 description="Deploy yourself",
                 url="https://github.com/PROBOY-OP/PRO-USERBOT",
                 thumb=photo,
