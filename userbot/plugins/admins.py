@@ -220,7 +220,6 @@ async def demote(dmod):
 @bot.on(sudo_cmd(pattern="ban(?: |$)(.*)", allow_sudo=True))
 @errors_handler
 async def _ban(event):
-    async def _ban_person(event):
     user, reason = await get_user_from_init(event)
     if not user:
         return
