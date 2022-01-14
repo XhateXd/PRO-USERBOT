@@ -11,7 +11,6 @@ from userbot.plugins.sql_helper.blacklist_assistant import (
     is_he_added,
     removenibba,
 )
-
 from userbot.plugins.sql_helper.botusers import add_me_in_db, his_userid
 from userbot.plugins.sql_helper.idadder import (
     add_usersid_in_db,
@@ -23,23 +22,23 @@ from userbot.plugins.sql_helper.idadder import (
 @tgbot.on(events.NewMessage(pattern="^/start"))
 async def start(event):
     chat = await event.get_chat()
-    starkbot = await tgbot.get_me()
+    await tgbot.get_me()
     if check_is_black_list(chat.id):
         return
-    reply_to = await reply_id(event)
+    await reply_id(event)
     mention = f"[{chat.first_name}](tg://user?id={chat.id})"
     my_mention = f"[{user.first_name}](tg://user?id={user.id})"
     first = chat.first_name
     last = chat.last_name
-    fullname = f"{first} {last}" if last else first
-    username = f"@{chat.username}" if chat.username else mention
-    userid = chat.id
+    f"{first} {last}" if last else first
+    f"@{chat.username}" if chat.username else mention
+    chat.id
     my_first = user.first_name
     my_last = user.last_name
-    my_fullname = f"{my_first} {my_last}" if my_last else my_first
-    my_username = f"@{user.username}" if user.username else my_mention
+    f"{my_first} {my_last}" if my_last else my_first
+    f"@{user.username}" if user.username else my_mention
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
-    firstname = replied_user.user.first_name
+    replied_user.user.first_name
     vent = event.chat_id
     starttext = f"Hey! 👤{mention},\nI am {my_mention}'s assistant bot.\nYou can contact to my master from here.\n\nPowered By [『Lêɠêɳ̃dẞø†』](https://t.me/Pro_LegendBots)"
     if event.sender_id == bot.uid:
@@ -74,7 +73,6 @@ async def start(event):
                 ],
             ],
         )
-
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"users")))
