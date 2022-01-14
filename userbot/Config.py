@@ -5,6 +5,7 @@ if ENV:
     import os
 
     class Config(object):
+        OWNER_ID = int(os.environ.get("OWNER_ID") or 0)
         NO_OF_COLUMNS = int(os.environ.get("NO_OF_COLUMNS", 2))
         BL_CHAT = os.environ.get("BL_CHAT", "-1001344140905")
         G_BAN_LOGGER_GROUP = int(os.environ.get("G_BAN_LOGGER_GROUP", -1001169892177))
