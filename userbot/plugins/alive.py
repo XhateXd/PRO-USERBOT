@@ -19,7 +19,7 @@ from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from . import *
 
 LEGEND_IMG = "https://telegra.ph/file/153977a71b928874151a5.jpg"
-CUSTOM_YOUR_GROUP = Config.YOUR_GROUP or "@LegendBot_Pro"
+CUSTOM_YOUR_GROUP = Config.YOUR_GROUP or "@LegendBot_Pros"
 
 
 @bot.on(admin_cmd(outgoing=True, pattern="legend$"))
@@ -84,7 +84,7 @@ async def legend_a(event):
     try:
         legend = await bot.inline_query(botname, "alive")
         await legend[0].click(event.chat_id)
-        if event.sender_id == Pro_LegendBoy:
+        if event.sender_id == Pro_Userboy:
             await event.delete()
     except (noin, dedbot):
         await eor(event, msg)
@@ -99,9 +99,9 @@ file5 = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
 pm_caption = f"**╭────────────**\n"
 pm_caption += f"┣✨ Owner   ~ {Config.ALIVE_NAME}\n"
 pm_caption += f"┣✨ Lêɠêɳ̃dẞø† ~ {LEGENDversion}\n"
-pm_caption += f"┣✨ ProBoy   ~ [Owner](https://t.me/Pro_LegendBoy)\n"
-pm_caption += f"┣✨ Support ~ [Group](https://t.me/LegendBot_Pro)\n"
-pm_caption += f"┣✨ Repo   ~ [Repo](https://github.com/PROBOY-OP/PRO-LEGENDBOT)\n"
+pm_caption += f"┣✨ ProBoy   ~ [Owner](https://t.me/Pro_Userboy)\n"
+pm_caption += f"┣✨ Support ~ [Group](https://t.me/LegendBot_Pros)\n"
+pm_caption += f"┣✨ Repo   ~ [Repo](https://github.com/PROBOY-OP/LegendBot)\n"
 pm_caption += f"**╰────────────**\n"
 
 

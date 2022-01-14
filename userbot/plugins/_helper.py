@@ -19,7 +19,7 @@ else:
 msg = f"""
 **⚜ 𝙻𝚎𝚐𝚎𝚗𝚍𝚊𝚛𝚢 𝙰𝚏 𝙻𝚎𝚐𝚎𝚗𝚍𝙱𝚘𝚝 ⚜**
 
-  •        [♥️ 𝚁𝚎𝚙𝚘 ♥️](https://github.com/PROBOY-OP/PRO-LEGENDBOT)
+  •        [♥️ 𝚁𝚎𝚙𝚘 ♥️](https://github.com/PROBOY-OP/LegendBot)
   •        [♦️ Deploy ♦️](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FPROBOY-OP%2FPRO-LEGENDBOT&template=https%3A%2F%2Fgithub.com%2FPROBOY-OP%2FPRO-LEGENDBOT)
 
   •  ©️ {Legend_channel} ™
@@ -32,7 +32,7 @@ async def repo(event):
     try:
         legend = await bot.inline_query(botname, "repo")
         await legend[0].click(event.chat_id)
-        if event.sender_id == Pro_LegendBoy:
+        if event.sender_id == Pro_Userboy:
             await event.delete()
     except (noin, dedbot):
         await eor(event, msg)

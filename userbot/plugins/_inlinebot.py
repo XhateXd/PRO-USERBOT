@@ -162,7 +162,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             else:
                 result = builder.article(
                     text="Check Group Inline Permission Or",
-                    title="PRO-LEGENDBOT Alive",
+                    title="LegendBot Alive",
                     buttons=veriler[1],
                     link_preview=False,
                 )
@@ -209,7 +209,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             alv_btn = [
                 [
                     Button.url(
-                        f"{LEGEND_USER}", f"tg://openmessage?user_id={Pro_LegendBoy}"
+                        f"{LEGEND_USER}", f"tg://openmessage?user_id={Pro_Userboy}"
                     )
                 ],
                 [
@@ -228,14 +228,14 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 result = builder.document(
                     ALV_PIC,
                     text=leg_end,
-                    title="PRO-LEGENDBOT Alive",
+                    title="LegendBot Alive",
                     buttons=alv_btn,
                     link_preview=False,
                 )
             else:
                 result = builder.article(
                     text=leg_end,
-                    title="PRO-LEGENDBOT Alive",
+                    title="LegendBot Alive",
                     buttons=alv_btn,
                     link_preview=False,
                 )
@@ -243,7 +243,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             fsub_btn = [
                 [
                     Button.url(
-                        f"{LEGEND_USER}", f"tg://openmessage?user_id={Pro_LegendBoy}"
+                        f"{LEGEND_USER}", f"tg://openmessage?user_id={Pro_Userboy}"
                     )
                 ],
                 [
@@ -308,7 +308,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     [Button.url("♥️ Tutorial ♥", "https://youtu.be/9dQgdUJfk_k")],
                     [
                         Button.url(
-                            "📍 𝚁𝚎𝚙𝚘 📍", "https://github.com/PROBOY-OP/PRO-LEGENDBOT"
+                            "📍 𝚁𝚎𝚙𝚘 📍", "https://github.com/PROBOY-OP/LegendBot"
                         )
                     ],
                     [
@@ -330,7 +330,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         else:
             buttons = [
                 (
-                    Button.url("Sources", "https://github.com/PROBOY-OP/PRO-LEGENDBOT"),
+                    Button.url("Sources", "https://github.com/PROBOY-OP/LegendBot"),
                     Button.url(
                         "Deploy",
                         "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FPROBOY-OP%2FPRO-LEGENDBOT&template=https%3A%2F%2Fgithub.com%2FPROBOY-OP%2FPRO-LEGENDBOT",
