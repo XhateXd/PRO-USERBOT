@@ -53,6 +53,6 @@ if Config.LOGGER_ID:
                 link_preview=False,
                 buttons=[[custom.Button.url(button_text, message_link)]],
                 silent=True,
-            )"""
+            )
         else:
             return
