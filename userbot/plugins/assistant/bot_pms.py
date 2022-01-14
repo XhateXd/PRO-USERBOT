@@ -10,7 +10,7 @@ from telethon.utils import get_display_name
 
 from userbot import Config
 
-from ..helpers.events import reply_id
+from userbot.helpers.events import reply_id
 from ..helpers.logger import logging
 from ..helpers.utils import _format
 from ..helpers.utils.decorators import check_owner, pool
