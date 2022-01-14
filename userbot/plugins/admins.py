@@ -19,7 +19,7 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 from telethon.utils import get_display_name
-
+from userbot.helpers.utils import _format 
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
@@ -219,50 +219,49 @@ async def demote(dmod):
 @bot.on(admin_cmd("ban(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="ban(?: |$)(.*)", allow_sudo=True))
 @errors_handler
-async def ban(bon):
-    if bon.fwd_from:
-        return
-    chat = await bon.get_chat()
-    admin = chat.admin_rights
-    creator = chat.creator
-    if not admin and not creator:
-        await edit_or_reply(bon, NO_ADMIN)
-        return
-    user, reason = await get_user_from_init(bon)
+async def _ban(event):
+    async def _ban_person(event):
+    "To ban a person in group"
+    user, reason = await get_user_from_event(event)
     if not user:
         return
-    LEGENDevent = await bot.send_file(
-        bon.chat_id,
-        help_pic,
-        caption=f"[{user.first_name}](tg://user?id={user.id}) Is Banned In Chat: {bon.chat_title} !!\nяєαѕοи: Not Mentioned",
-    )
+    if user.id == event.client.uid:
+        return await edit_delete(event, "__You cant ban yourself.__")
+    Legendevent = await edit_or_reply(event, "`Whacking the pest!`")
     try:
-        await bon.client(EditBannedRequest(bon.chat_id, user.id, BANNED_RIGHTS))
+        await event.client(EditBannedRequest(event.chat_id, user.id, BANNED_RIGHTS))
     except BadRequestError:
-        await LEGENDevent.edit(NO_PERM)
-        return
+        return await Legendevent.edit(NO_PERM)
     try:
-        reply = await bon.get_reply_message()
+        reply = await event.get_reply_message()
         if reply:
             await reply.delete()
     except BadRequestError:
-        await LEGENDevent.edit("I ain't got msg deleting right. But still Banned!")
-        return
+        return await Legendevent.edit(
+            "`I dont have message nuking rights! But still he is banned!`"
+        )
     if reason:
-        await bot.send_file(
-            bon.chat_id,
-            help_pic,
-            caption=f"[{user.first_name}](tg://user?id={user.id}) Is Banned In Chat: {bon.chat_title} !!\nяєαѕοи: {reason}",
+        await bot.send_file(event.chat_id, help_pic, caption=f"{_format.mentionuser(user.first_name ,user.id)}` is banned !!`\n**Reason : **`{reason}`"
         )
     else:
-        await LEGENDevent.edit(f"{str(user.id)} is banned!")
-    if LOGGER:
-        await bon.client.send_message(
-            lg_id,
-            "#BAN\n"
-            f"USER: [{user.first_name}](tg://user?id={user.id})\n"
-            f"CHAT: {bon.chat.title}({bon.chat_id})",
+        await bot.send_file(event.chat_id, help_pic, caption=f"{_format.mentionuser(user.first_name ,user.id)} `is banned !!`"
         )
+    if LOGGER:
+        if reason:
+            await event.client.send_message(
+                LOGGER_ID,
+                f"#BAN\
+                \nUSER: [{user.first_name}](tg://user?id={user.id})\
+                \nCHAT: {get_display_name(await event.get_chat())}(`{event.chat_id}`)\
+                \nREASON : {reason}",
+            )
+        else:
+            await event.client.send_message(
+                LOGGER_ID,
+                f"#BAN\
+                \nUSER: [{user.first_name}](tg://user?id={user.id})\
+                \nCHAT: {get_display_name(await event.get_chat())}(`{event.chat_id}`)",
+            )
 
 
 @bot.on(admin_cmd("unban(?: |$)(.*)"))
