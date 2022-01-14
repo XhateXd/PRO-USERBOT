@@ -1,4 +1,3 @@
-from . import exceptions as _exceptions
 from .aiohttp_helper import *
 from .convert import *
 from .FastTelethon import *
