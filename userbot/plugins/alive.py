@@ -110,6 +110,7 @@ pm_caption += f"**╰────────────**\n"
 @borg.on(sudo_cmd(pattern="about$", allow_sudo=True))
 async def amireallyalive(yes):
     edit_time = 12
+    reply_to_id = await reply_id(yes)
     await yes.get_chat()
     on = await borg.send_file(
         yes.chat_id, file=file1, caption=pm_caption, reply_to=reply_to_id
