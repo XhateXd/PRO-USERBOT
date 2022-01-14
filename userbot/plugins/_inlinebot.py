@@ -177,7 +177,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 if len(b) >= 1:
                     for d in b:
                         c.append(d)
-               alive_emoji = random.choice(c)
+                alive_emoji = random.choice(c)
             else:
                 alive_emoji = "✥"
             pp = Config.ALIVE_MSG
