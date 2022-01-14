@@ -60,21 +60,21 @@ else:
 
 if legend_emj1 is not None:
     b = legend_emj1.split()
-    c = []
+    h = []
     if len(b) >= 1:
         for d in b:
-            c.append(d)
-    legend_emoji1 = random.choice(c)
+            h.append(d)
+    legend_emoji1 = random.choice(h)
 else:
     legend_emoji1 = "✥"
 
 if legend_emj2 is not None:
     b = legend_emj2.split()
-    c = []
+    j = []
     if len(b) >= 1:
         for d in b:
-            c.append(d)
-    legend_emoji2 = random.choice(c)
+            j.append(d)
+    legend_emoji2 = random.choice(j)
 else:
     legend_emoji2 = "✥"
 
