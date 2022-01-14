@@ -46,6 +46,16 @@ USER_BOT_WARN_ZERO = (
 
 LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
 
+about = Config.ALIVE_EMOJI
+if about is not None:
+    b = about.split()
+    c = []
+    if len(b) >= 1:
+        for d in b:
+            c.append(d)
+    alive_emoji = random.choice(c)
+else:
+    alive_emoji = "✥"
 
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
@@ -169,16 +179,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 ALV_PIC = random.choice(c)
             else:
                 ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
-            about = Config.ALIVE_EMOJI
-            if about is not None:
-                b = about.split()
-                c = []
-                if len(b) >= 1:
-                    for d in b:
-                        c.append(d)
-                alive_emoji = random.choice(c)
-            else:
-                alive_emoji = "✥"
             pp = Config.ALIVE_MSG
             if pp is not None:
                 b = pp.split(", ")
@@ -563,7 +563,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 apn.append(y)
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
-                f"⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}\n",
+                f"{legend_mention}\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}\n",
                 buttons=veriler[1],
                 link_preview=False,
             )
