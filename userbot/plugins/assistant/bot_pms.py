@@ -192,7 +192,7 @@ async def bot_pms(event):  # sourcery no-metrics
                     )
 
 
-@tgbot.on(edited=True)
+@tgbot.on(events.NewMessage(func=lambda e: e.is_private))
 async def bot_pms_edit(event):  # sourcery no-metrics
     chat = await event.get_chat()
     if check_is_black_list(chat.id):
@@ -245,7 +245,7 @@ async def bot_pms_edit(event):  # sourcery no-metrics
                     LOGS.error(str(e))
 
 
-@tgbot.on(events.MessageDeleted)
+@tgbot.on(events.NewMessage(func=lambda e: e.is_private))
 async def handler(event):
     for msg_id in event.deleted_ids:
         users_1 = get_user_reply(msg_id)
@@ -286,7 +286,7 @@ async def handler(event):
                 LOGS.error(str(e))
 
 
-@tgbot.on(pattern="^/uinfo$", from_users=Config.OWNER_ID)
+@tgbot.on(events.NewMessage(pattern="^/uinfo"))
 async def bot_start(event):
     reply_to = await reply_id(event)
     if not reply_to:
