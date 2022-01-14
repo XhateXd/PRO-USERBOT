@@ -6,7 +6,7 @@ import sys
 import telethon.utils
 from telethon import Button, TelegramClient, custom, events
 
-from userbot import LOGS, LEGENDversion, bot
+from . import LOGS, LEGENDversion, bot
 from userbot.Config import Config
 from userbot.start import abuses, addons, assistants, hekp, install, module, spams
 
