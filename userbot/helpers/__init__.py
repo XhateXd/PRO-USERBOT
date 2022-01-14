@@ -1,6 +1,6 @@
 from .aiohttp_helper import *
 from .convert import *
-from .exceptions import *
+from . import exceptions as _exceptions
 from .FastTelethon import *
 from .fonts import *
 from .fun import *
