@@ -1,14 +1,10 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.b (the "License");
-# you may not use this file except in compliance with the License.
-#
+
 
 import asyncio
 
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
-from userbot.plugins.sql_helper.gvar_sql import *
+from userbot.plugins.sql_helper.globals import *
 from userbot.utils import admin_cmd, sudo_cmd
 
 from . import legend_mention
