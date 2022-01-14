@@ -288,11 +288,12 @@ async def nothanos(unbon):
         return
     try:
         await unbon.client(EditBannedRequest(unbon.chat_id, user.id, UNBAN_RIGHTS))
-        await LEGENDevent.edit(
+        await bot.send_file(
             unbon.chat_id,
             help_pic,
             f"[{user.first_name}](tg://user?id={user.id})has been unbanned Successfully In Chat: {unbon.chat_title} \nGiving one more chance 😏",
         )
+        await LEGENDevent.delete()
         if LOGGER:
             await unbon.client.send_message(
                 lg_id,
