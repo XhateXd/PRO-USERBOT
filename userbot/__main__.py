@@ -340,11 +340,12 @@ async def start(event):
         )
 
 
-bot.loop.run_until_complete(assistants())
+
 bot.loop.run_until_complete(module())
 bot.loop.run_until_complete(addons())
 bot.loop.run_until_complete(abuses())
 bot.loop.run_until_complete(spams())
+bot.loop.run_until_complete(assistants())
 bot.loop.create_task(hekp())
 bot.loop.run_until_complete(killer())
 bot.loop.run_until_complete(install())
