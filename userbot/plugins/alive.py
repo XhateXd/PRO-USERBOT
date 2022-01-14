@@ -84,6 +84,7 @@ async def legend_a(event):
     try:
         legend = await bot.inline_query(botname, "alive")
         await legend[0].click(event.chat_id)
+        await event.delete()
         if event.sender_id == Pro_Userboy:
             await event.delete()
     except (noin, dedbot):
@@ -110,7 +111,7 @@ pm_caption += f"**╰────────────**\n"
 async def amireallyalive(yes):
     edit_time = 12
     await yes.get_chat()
-    on = await borg.send_file(yes.chat_id, file=file1, caption=pm_caption)
+    on = await borg.send_file(yes.chat_id, file=file1, caption=pm_caption,reply_to=reply_to_id)
     await asyncio.sleep(edit_time)
     ok = await borg.edit_message(yes.chat_id, on, file=file2)
 
