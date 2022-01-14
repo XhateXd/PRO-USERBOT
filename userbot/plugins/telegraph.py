@@ -4,8 +4,9 @@ import os
 from PIL import Image
 from telegraph import Telegraph, exceptions, upload_file
 
-from . import legend_mention
 from userbot.Config import Config
+
+from . import legend_mention
 
 LEGEND_NAME = Config.ALIVE_NAME or "LegendBot"
 lg_id = Config.LOGGER_ID
