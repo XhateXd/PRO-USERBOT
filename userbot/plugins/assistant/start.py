@@ -29,8 +29,8 @@ async def start(event):
     await reply_id(event)
     mention = f"[{chat.first_name}](tg://user?id={chat.id})"
     my_mention = f"[{user.first_name}](tg://user?id={user.id})"
-    first = chat.first_name
-    last = chat.last_name
+    chat.first_name
+    chat.last_name
     my_first = user.first_name
     my_last = user.last_name
     f"{my_first} {my_last}" if my_last else my_first
