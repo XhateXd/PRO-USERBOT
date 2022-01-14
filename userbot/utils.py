@@ -11,8 +11,10 @@ import time
 import traceback
 from pathlib import Path
 from time import gmtime, strftime
+import requests
 
 from telethon import events
+
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
@@ -26,8 +28,8 @@ ENV = bool(os.environ.get("ENV", False))
 if ENV:
     from userbot.Config import Config
 else:
-    if os.path.exists("config.py"):
-        from config import Development as Config
+    if os.path.exists("exampleconfig.py"):
+        from exampleconfig import Development as Config
 
 
 def load_module(shortname):

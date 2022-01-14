@@ -137,8 +137,8 @@ async def help(event):
             message=f"Hey Sir It's Me {bot_id}, Your Assistant! How Can I Help U?",
             buttons=[
                 [
-                    Button.url(" Support ", "https://t.me/LegendBot_Pro"),
-                    Button.url(" Updates ", "https://t.me/Pro_LegendBot"),
+                    Button.url(" Support ", "https://t.me/LegendBot_Pros"),
+                    Button.url(" Updates ", "https://t.me/Pro_LegendBots"),
                 ],
                 [
                     custom.Button.inline("Users", data="users"),
@@ -195,7 +195,7 @@ async def rel(event):
         await event.answer(
             "Reloading Lêɠêɳ̃dẞø†... Wait for few seconds...", cache_time=0, alert=True
         )
-        await reload_PRO - LEGENDBOT()
+        await reload_LEGENDBOT()
     else:
         await event.answer(
             "Sorry U Dont Have Access to Use this Button", cache_time=0, alert=True
@@ -352,7 +352,7 @@ print(
     f"""
 ╔════❰PRO-LEGENDBOT❱═❍⊱❁۪۪
 ║┣⪼ OWNER - {Config.ALIVE_NAME}
-║┣⪼ Group - @LegendBot_Pro
+║┣⪼ Group - @LegendBot_Pros
 ║┣⪼ CREATOR - @Pro_LegendBoy
 ║┣⪼ PRO-LEGENDBOT - {LEGENDversion}
 ║┣⪼ ✨ 『🔱🇱 🇪 🇬 🇪 🇳 🇩 🔱』𝐔𝐬𝐞𝐫𝐛𝐨𝐭✨

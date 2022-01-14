@@ -76,11 +76,11 @@ if ENV:
             os.environ.get("PING_PIC", None)
             or "https://te.legra.ph/file/ace5feae5b1ac8ea262ed.jpg"
         )
-        ALIVE_MSG = os.environ.get("ALIVE_MSG", None) or "Lêɠêɳ̃dẞø† Is Online"
+        ALIVE_MSG = os.environ.get("ALIVE_MSG", None) or "Lêɠêɳ̃dẞøt Is Online"
         PM_MSG = os.environ.get("PM_MSG", None)
-        INSTANT_BLOCK = os.environ.get("INSTANT_BLOCK", "ON")
-        YOUR_GROUP = os.environ.get("YOUR_GROUP", "@LegendBot_Pro")
-        YOUR_CHANNEL = os.environ.get("YOUR_CHANNEL", "@Pro_LegendBot.")
+        INSTANT_BLOCK = os.environ.get("INSTANT_BLOCK", "OFF")
+        YOUR_GROUP = os.environ.get("YOUR_GROUP", "@LegendBot_Pros")
+        YOUR_CHANNEL = os.environ.get("YOUR_CHANNEL", "@Pro_LegendBots.")
         BOT_PIC = os.environ.get("ALIVE_PIC", None)
         # auto bio
         BIO_MSG = os.environ.get("ALIVE_MSG", None)
@@ -134,7 +134,7 @@ if ENV:
         TMP_DOWNLOAD_DIRECTORY = os.environ.get(
             "TMP_DOWNLOAD_DIRECTORY", "./userbot/DOWNLOADS/"
         )
-        TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "PRO-LEGENDBOT")
+        TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "LEGENDBOT")
         TG_GLOBAL_ALBUM_LIMIT = int(os.environ.get("TG_GLOBAL_ALBUM_LIMIT", 9))
         # MIRROR ACE API KEY AND TOKEN
         MIRROR_ACE_API_KEY = os.environ.get("MIRROR_ACE_API_KEY", None)

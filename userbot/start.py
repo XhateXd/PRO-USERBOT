@@ -37,18 +37,18 @@ async def hekp():
             await bot.send_file(
                 Config.LOGGER_ID,
                 LEGEND_PIC,
-                caption=f"Deployed Lêɠêɳ̃dẞø† Successfully\n\nLêɠêɳ̃dẞø† ~ {LEGENDversion}\n\nType `{l1}help` or `{l1}ping` to check!\nFor Assistant Type `.on` \n\nJoin [PRO-LEGENDBOT Channel](t.me/Pro_LegendBot) for Updates & [PRO-LEGENDBOT Chat](t.me/LegendBot_Pro) for any query regarding PRO-LEGENDBOT",
+                caption=f"Deployed Lêɠêɳ̃dẞø† Successfully\n\nLêɠêɳ̃dẞøt ~ {LEGENDversion}\n\nType `{l1}help` or `{l1}ping` to check!\nFor Assistant Type `.on` \n\nJoin [PRO-LEGENDBOT Channel](t.me/Pro_LegendBots) for Updates & [PRO-LEGENDBOT Chat](t.me/LegendBot_Pros) for any query regarding PRO-LEGENDBOT",
             )
     except Exception as e:
         print(str(e))
 
     try:
-        await bot(JoinChannelRequest("@Pro_LegendBot"))
+        await bot(JoinChannelRequest("@Pro_LegendBots"))
     except BaseException:
         pass
 
     try:
-        await bot(JoinChannelRequest("@LegendBot_Pro"))
+        await bot(JoinChannelRequest("@LegendBot_Pros"))
     except BaseException:
         pass
 
