@@ -4,8 +4,9 @@ import os
 from PIL import Image
 from telegraph import Telegraph, upload_file
 from telegraph.exceptions import TelegraphException
-
-from . import *
+from userbot.utils import admin_cmd, sudo_cmd, eor, edit_or_reply
+from userbot.Config import Config 
+from userbot.cmdhelp import CmdHelp 
 
 LEGEND_NAME = Config.ALIVE_NAME or "Legendẞø†"
 lg_id = Config.LOGGER_ID
