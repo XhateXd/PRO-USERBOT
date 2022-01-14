@@ -6,9 +6,10 @@ import sys
 import telethon.utils
 from telethon import Button, TelegramClient, custom, events
 
-from . import LOGS, LEGENDversion, bot
 from userbot.Config import Config
 from userbot.start import abuses, addons, assistants, hekp, install, module, spams
+
+from . import LOGS, LEGENDversion, bot
 
 l1 = Config.HANDLER
 l2 = Config.SUDO_HANDLER
