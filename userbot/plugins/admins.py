@@ -232,10 +232,10 @@ async def ban(bon):
     if not user:
         return
     LEGENDevent = await bot.send_file(
-            bon.chat_id,
-            help_pic,
-            caption=f"[{user.first_name}](tg://user?id={user.id}) Is Banned In Chat: {bon.chat_title} !!\nяєαѕοи: Not Mentioned",
-        )
+        bon.chat_id,
+        help_pic,
+        caption=f"[{user.first_name}](tg://user?id={user.id}) Is Banned In Chat: {bon.chat_title} !!\nяєαѕοи: Not Mentioned",
+    )
     try:
         await bon.client(EditBannedRequest(bon.chat_id, user.id, BANNED_RIGHTS))
     except BadRequestError:
