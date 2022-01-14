@@ -31,8 +31,8 @@
 
 ---------
 
-- [![Telegram Group](https://img.shields.io/badge/Telegram-Group-brightgreen)](https://t.me/LegendBot_Pro)
-- [![Telegram Channel](https://img.shields.io/badge/Telegram-Channel-brightgreen)](https://t.me/Pro_LegendBot)
+- [![Telegram Group](https://img.shields.io/badge/Telegram-Group-brightgreen)](https://t.me/LegendBot_Pros)
+- [![Telegram Channel](https://img.shields.io/badge/Telegram-Channel-brightgreen)](https://t.me/Pro_LegendBots)
 
 -----------
 
@@ -108,11 +108,11 @@
 
 - To Get Details Of StringSession Follow Step: 
 
-- Go To Telegram And Search @Pro_StringBot
+- Go To Telegram And Search @LegendStringbot
 
 - Click Start
 
-- Send Ur Phone Number To @Pro_StringBot
+- Send Ur Phone Number To @LegendStringbot
 
 - U Received Code From Telegram Like This=VGFK0rHbzaF
 

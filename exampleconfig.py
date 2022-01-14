@@ -32,13 +32,13 @@ class Development(Config):
   LOGGER_ID = -100
 
   # Custom Command Handler. 
-  HANDLER = os.environ.get("HANDLER", r"\."
+  HANDLER = os.environ.get("HANDLER", r"\.")
   #User Command Handler
-  HANDLER = os.environ.get("HANDLER", r"\."
+  HANDLER = os.environ.get("HANDLER", r"\.")
   # enter the userid of sudo users.
   # you can add multiple ids by separating them by space.
   # fill values in [] only.
   SUDO_USERS = []
 
   # command hanler for sudo users.
-  SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"\,"
+  SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"\,")
