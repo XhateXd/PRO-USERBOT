@@ -11,19 +11,19 @@ from telethon.utils import get_display_name
 from userbot import Config
 from userbot.helpers.events import reply_id
 
-from ..helpers.logger import logging
-from ..helpers.utils import _format
-from ..helpers.utils.decorators import check_owner, pool
-from ..plugins.sql_helper.bl_bot import add_starter_to_db, get_starter_details
-from ..plugins.sql_helper.bot_blacklists import check_is_black_list
-from ..plugins.sql_helper.globals import delgvar, gvarstatus
-from ..plugins.sql_helper.idadder import (
+from userbot.helpers.logger import logging
+from userbot.helpers.utils import _format
+from userbot.helpers.utils.decorators import check_owner, pool
+from userbot.plugins.sql_helper.bl_bot import add_starter_to_db, get_starter_details
+from userbot.plugins.sql_helper.bot_blacklists import check_is_black_list
+from userbot.plugins.sql_helper.globals import delgvar, gvarstatus
+from userbot.plugins.sql_helper.idadder import (
     add_user_to_db,
     get_user_id,
     get_user_logging,
     get_user_reply,
 )
-from . import LOGGER, LOGGER_ID
+from userbot import LOGGER, LOGGER_ID
 from .botmanagers import ban_user_from_bot
 
 BOTLOG = LOGGER
