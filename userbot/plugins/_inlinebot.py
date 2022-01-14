@@ -47,7 +47,6 @@ USER_BOT_WARN_ZERO = (
 LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
 
 
-
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
     or """
