@@ -135,7 +135,7 @@ async def bot_start(event):
         await check_bot_started_users(chat, event)
 
 
-@tgbot.on(incoming=True, func=lambda e: e.is_private)
+@tgbot.on(events.NewMessage(func=lambda e: e.is_private))
 async def bot_pms(event):  # sourcery no-metrics
     chat = await event.get_chat()
     if check_is_black_list(chat.id):
