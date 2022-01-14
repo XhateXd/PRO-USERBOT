@@ -221,7 +221,6 @@ async def demote(dmod):
 @errors_handler
 async def _ban(event):
     async def _ban_person(event):
-    "To ban a person in group"
     user, reason = await get_user_from_event(event)
     if not user:
         return
