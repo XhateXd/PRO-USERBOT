@@ -250,6 +250,7 @@ async def _ban(event):
             help_pic,
             caption=f"{_format.mentionuser(user.first_name ,user.id)} `is banned !!`",
         )
+    Legendevent.delete()
     if LOGGER:
         if reason:
             await event.client.send_message(
