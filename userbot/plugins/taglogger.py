@@ -19,7 +19,7 @@ if Config.LOGGER_ID:
     async def all_messages_catcher(event):
         # the bot might not have the required access_hash to mention the
         # appropriate PM
-        await event.forward_to(Var.BOT_USERNAME)
+        # await event.forward_to(Var.BOT_USERNAME)
 
         # construct message
         # the message format is stolen from @MasterTagAlertBot
@@ -38,7 +38,7 @@ if Config.LOGGER_ID:
 
         if isinstance(where_, Channel):
             message_link = f"https://t.me/c/{where_.id}/{event.id}"
-        """elif:
+        else:
             # not an official link,
             # only works in DrKLO/Telegram,
             # for some reason
