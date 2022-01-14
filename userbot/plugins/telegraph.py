@@ -1,10 +1,10 @@
-
 import datetime
 import os
 
 from PIL import Image
 from telegraph import Telegraph, upload_file
 from telegraph.exceptions import TelegraphException
+
 from . import *
 
 LEGEND_NAME = Config.ALIVE_NAME or "Legendẞø†"
