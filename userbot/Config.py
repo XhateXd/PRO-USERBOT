@@ -11,12 +11,6 @@ if ENV:
         FBAN_LOGGER_GROUP = os.environ.get("FBAN_LOGGER_GROUP", None)
         if FBAN_LOGGER_GROUP:
             FBAN_LOGGER_GROUP = int(FBAN_LOGGER_GROUP)
-
-        HELP_EMOJI1 = os.environ.get("HELP_EMOJI1", None)
-        HELP_EMOJI2 = os.environ.get("HELP_EMOJI2", None)
-        ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", None)
-        # specify command handler that should be used for the plugins
-        # this should be a valid "regex" pattern
         HANDLER = os.environ.get("HANDLER", r"\.")
         # custom animation to kang plugin
         CUSTOM_STICKER_PACK_NAME = os.environ.get("CUSTOM_STICKER_PACK_NAME", None)
@@ -56,6 +50,10 @@ if ENV:
         # MongoDB
         MONGO_URI = os.environ.get("MONGO_URI", None)
         # alive
+        
+        HELP_EMOJI1 = os.environ.get("HELP_EMOJI1", None) or "✥"
+        HELP_EMOJI2 = os.environ.get("HELP_EMOJI2", None) or "✥"
+        ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", None) or "✥"
         ALIVE_PIC = (
             os.environ.get("ALIVE_PIC", None)
             or "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
