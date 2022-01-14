@@ -3,7 +3,6 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import CmdHelp
-from userbot import bot as LegendBot
 from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 

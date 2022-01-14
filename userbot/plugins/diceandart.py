@@ -1,7 +1,7 @@
 from telethon.tl.types import InputMediaDice
 
-from userbot.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
+from userbot.utils import admin_cmd
 
 # EMOJI CONSTANTS
 DART_E_MOJI = "🎯"
