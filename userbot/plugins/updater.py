@@ -48,7 +48,9 @@ IFFUCI_ACTIVE_BRANCH_NAME = "Pro"
 DIFF_MARKER = "HEAD..{remote_name}/{branch_name}"
 NO_HEROKU_APP_CFGD = "no heroku application found, but a key given? 😕 "
 
-PRO_LEGENDBOT_info = "https://raw.githubusercontent.com/LegendBot/PRO-USERBOT/Pro/proboy-info.json"
+PRO_LEGENDBOT_info = (
+    "https://raw.githubusercontent.com/LegendBot/PRO-USERBOT/Pro/proboy-info.json"
+)
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 requirements_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "requirements.txt"
@@ -259,7 +261,9 @@ async def upstream(event):
     ac_br = repo.active_branch.name
     ups_rem = repo.remote("upstream")
     ups_rem.fetch(ac_br)
-    _version, _release, _branch, _author, _auturl = await legend_info(PRO_LEGENDBOT_info)
+    _version, _release, _branch, _author, _auturl = await legend_info(
+        PRO_LEGENDBOT_info
+    )
     await event.edit(
         f"<b><i>Lêɠêɳ̃dẞø† Docker Build In Progress !!</b></i> \n\n<b><i><u>Update Information :</b></i></u> \n<b>• Branch :</b> {_branch} \n<b>• Release Date :</b> {_release} \n<b>• Version :</b> {_version} \n<b>• Author :</b> <a href='{_auturl}'>{_author}</a>",
         link_preview=False,

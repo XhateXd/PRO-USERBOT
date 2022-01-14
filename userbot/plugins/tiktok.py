@@ -4,8 +4,8 @@
 Dont edit credits """
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
+from userbot.utils import admin_cmd
 
 
 @bot.on(admin_cmd("tti ?(.*)"))

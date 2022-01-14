@@ -4,8 +4,8 @@ import cfscrape  # https://github.com/Anorov/cloudflare-scrape
 import requests
 from bs4 import BeautifulSoup as bs
 
-from userbot.utils import admin_cmd, humanbytes
 from userbot.cmdhelp import CmdHelp
+from userbot.utils import admin_cmd, humanbytes
 
 
 def dogbin(magnets):

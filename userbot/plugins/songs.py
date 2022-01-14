@@ -27,11 +27,10 @@ try:
 except:
     os.system("pip install pip install youtube-search-python")
 
-from userbot.utils import admin_cmd, edit_or_reply, progress, sudo_cmd
 from userbot import bot
 from userbot.cmdhelp import CmdHelp
 from userbot.helpers.funct import deEmojify
-from userbot.utils import edit_or_reply
+from userbot.utils import admin_cmd, edit_or_reply, progress, sudo_cmd
 
 
 @bot.on(admin_cmd(pattern="lyrics(?: |$)(.*)", outgoing=True))

@@ -1,9 +1,8 @@
 import asyncio
 import os
 
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot import CmdHelp
-from userbot import bot as LegendBot
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
 @bot.on(admin_cmd(pattern=r"unpack", outgoing=True))

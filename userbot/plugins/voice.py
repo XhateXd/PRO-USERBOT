@@ -9,8 +9,8 @@ from datetime import datetime
 
 from gtts import gTTS
 
-from userbot.utils import admin_cmd, sudo_cmd
 from userbot.cmdhelp import CmdHelp
+from userbot.utils import admin_cmd, sudo_cmd
 
 
 @bot.on(admin_cmd(pattern="voice (.*)"))

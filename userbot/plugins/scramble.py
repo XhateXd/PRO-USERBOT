@@ -5,8 +5,8 @@
 import random
 import re
 
-from userbot.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
+from userbot.utils import admin_cmd
 
 
 @borg.on(admin_cmd(pattern="scramble(\s+[\S\s]+|$)"))

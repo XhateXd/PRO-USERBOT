@@ -1,8 +1,8 @@
 import asyncio
 
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
 @bot.on(admin_cmd(pattern="mute ?(\d+)?", outgoing=True))

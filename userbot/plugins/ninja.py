@@ -4,9 +4,8 @@
 
 from telethon.errors import rpcbaseerrors
 
-from userbot.utils import admin_cmd, errors_handler, sudo_cmd
 from userbot import LOGGER, LOGGER_ID
-from userbot import bot as LegendBot
+from userbot.utils import admin_cmd, errors_handler, sudo_cmd
 
 
 @bot.on(admin_cmd(outgoing=True, pattern="del$"))

@@ -5,8 +5,8 @@ from datetime import datetime
 
 import speedtest
 
-from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
 @bot.on(admin_cmd(pattern="speedtest ?(.*)"))
