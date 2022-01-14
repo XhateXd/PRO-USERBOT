@@ -221,11 +221,11 @@ async def demote(dmod):
 @errors_handler
 async def _ban(event):
     async def _ban_person(event):
-    user, reason = await get_user_from_event(event)
+    user, reason = await get_user_from_init(event)
     if not user:
         return
     if user.id == event.client.uid:
-        return await edit_delete(event, "__You cant ban yourself.__")
+        return await eod(event, "__You cant ban yourself.__")
     Legendevent = await edit_or_reply(event, "`Whacking the pest!`")
     try:
         await event.client(EditBannedRequest(event.chat_id, user.id, BANNED_RIGHTS))
