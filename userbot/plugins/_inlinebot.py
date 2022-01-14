@@ -21,8 +21,8 @@ from . import *
 
 DEFAULTUSER = alive_name = Config.ALIVE_NAME
 legend_row = Config.BUTTONS_IN_HELP
-legend_emj1 = Config.HELP_EMOJI1
-legend_emj2 = Config.HELP_EMOJI2
+legend_emoji1 = Config.HELP_EMOJI1 or "✥"
+legend_emoji2 = Config.HELP_EMOJI2 or "✥"
 mssge = cstm_pmp = (
     Config.PM_MSG
     or "I am Assistant Of My Owner\nI am Here To Protect My Owner From Scanner"
@@ -58,25 +58,6 @@ if about is not None:
 else:
     alive_emoji = "✥"
 
-if legend_emj1 is not None:
-    b = legend_emj1.split()
-    h = []
-    if len(b) >= 1:
-        for d in b:
-            h.append(d)
-    legend_emoji1 = random.choice(h)
-else:
-    legend_emoji1 = "✥"
-
-if legend_emj2 is not None:
-    b = legend_emj2.split()
-    j = []
-    if len(b) >= 1:
-        for d in b:
-            j.append(d)
-    legend_emoji2 = random.choice(j)
-else:
-    legend_emoji2 = "✥"
 
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
