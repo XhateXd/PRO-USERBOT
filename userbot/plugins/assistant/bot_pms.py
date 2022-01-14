@@ -454,9 +454,7 @@ async def settings_toggle(c_q: CallbackQuery):
     await c_q.answer("Bot Antiflood disabled.", alert=False)
     await c_q.edit("BOT_ANTIFLOOD is now disabled !")
 
-
-@tgbot.on(incoming=True, func=lambda e: e.is_private)
-@tgbot.on(edited=True, func=lambda e: e.is_private)
+tgbot.on(events.NewMessage(func=lambda e: e.is_private))
 async def antif_on_msg(event):
     if gvarstatus("bot_antif") is None:
         return
