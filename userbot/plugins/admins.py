@@ -23,7 +23,7 @@ from telethon.utils import get_display_name
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
-from userbot.helpers.events import get_user_from_init
+from userbot.helpers.events import get_user_from_init, get_user_from_event
 from userbot.helpers.utils import _format
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
 from userbot.utils import *
@@ -250,7 +250,7 @@ async def _ban(event):
             help_pic,
             caption=f"{_format.mentionuser(user.first_name ,user.id)} `is banned !!`",
         )
-    Legendevent.delete()
+    await event.delete()
     if LOGGER:
         if reason:
             await event.client.send_message(
@@ -282,7 +282,7 @@ async def nothanos(unbon):
         await edit_or_reply(unbon, NO_ADMIN)
         return
     LEGENDevent = await edit_or_reply(unbon, "Unbanning...")
-    user = await get_user_from_init(unbon)
+    user = await get_user_from_event(unbon)
     user = user[0]
     if not user:
         return
