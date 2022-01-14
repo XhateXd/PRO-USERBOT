@@ -13,7 +13,7 @@ from userbot.plugins.sql_helper.gban_sql import (
     is_gbanned,
     ungbaner,
 )
-from userbot.plugins.sql_helper.gvar_sql import *
+from userbot.plugins.sql_helper.globals import *
 
 from . import *
 
