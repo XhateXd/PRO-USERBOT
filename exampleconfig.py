@@ -1,7 +1,5 @@
 import os
 
-from sample_config import Var
-
 
 class Development(Config):
   # get this values from my.telegram.org. 
