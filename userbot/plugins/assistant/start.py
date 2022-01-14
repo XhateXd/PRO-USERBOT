@@ -11,6 +11,7 @@ from userbot.plugins.sql_helper.blacklist_assistant import (
     is_he_added,
     removenibba,
 )
+from userbot.plugins.sql_helper.bot_blacklists import check_is_black_list
 from userbot.plugins.sql_helper.botusers import add_me_in_db, his_userid
 from userbot.plugins.sql_helper.idadder import (
     add_usersid_in_db,
@@ -30,9 +31,6 @@ async def start(event):
     my_mention = f"[{user.first_name}](tg://user?id={user.id})"
     first = chat.first_name
     last = chat.last_name
-    f"{first} {last}" if last else first
-    f"@{chat.username}" if chat.username else mention
-    chat.id
     my_first = user.first_name
     my_last = user.last_name
     f"{my_first} {my_last}" if my_last else my_first
