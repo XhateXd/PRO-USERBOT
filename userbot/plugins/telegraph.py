@@ -1,18 +1,13 @@
+
 import datetime
 import os
 
 from PIL import Image
 from telegraph import Telegraph, upload_file
 from telegraph.exceptions import TelegraphException
+from . import *
 
-from userbot import *
-from userbot.cmdhelp import CmdHelp
-from userbot.Config import Config
-from userbot.utils import admin_cmd, edit_or_reply, eor, sudo_cmd
-
-from . import legend_mention
-
-LEGEND_NAME = Config.ALIVE_NAME or "LegendBot"
+LEGEND_NAME = Config.ALIVE_NAME or "Legendẞø†"
 lg_id = Config.LOGGER_ID
 
 telegraph = Telegraph()
@@ -53,7 +48,7 @@ async def _(event):
                 start = datetime.datetime.now()
                 media_urls = upload_file(downloaded_file_name)
             except TelegraphException as exc:
-                await eor(event, "ERROR: " + str(exc), 8)
+                await eod(event, "ERROR: " + str(exc), 8)
                 os.remove(downloaded_file_name)
             else:
                 end = datetime.datetime.now()
