@@ -38,7 +38,7 @@ if Config.LOGGER_ID:
 
         if isinstance(where_, Channel):
             message_link = f"https://t.me/c/{where_.id}/{event.id}"
-        else:
+        """elif:
             # not an official link,
             # only works in DrKLO/Telegram,
             # for some reason
@@ -53,6 +53,6 @@ if Config.LOGGER_ID:
                 link_preview=False,
                 buttons=[[custom.Button.url(button_text, message_link)]],
                 silent=True,
-            )
+            )"""
         else:
             return
