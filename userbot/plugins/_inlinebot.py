@@ -371,7 +371,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"🔰 This is Lêɠêɳ̃dẞø† PM Security for {legend_mention} to keep away unwanted retards from spamming PM..."
+                f"🔰 This is Pro-Lêɠêɳ̃dẞø† PM Security for {legend_mention} to keep away unwanted retards from spamming PM..."
             )
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"req")))
@@ -534,7 +534,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 link_preview=False,
             )
         else:
-            reply_pop_up_alert = "This Is For My Master Only.Dont Try To Touch Again. Deploy Ur Own © Lêɠêɳ̃dẞø†™"
+            reply_pop_up_alert = "This Is For My Master Only.Dont Try To Touch Again. Deploy Ur Own ©Pro-Lêɠêɳ̃dẞø†™"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"close")))
@@ -550,7 +550,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
         else:
             await event.answer(
-                "Deploy Ur Own     ©Lêɠêɳ̃dẞø†", cache_time=0, alert=True
+                "Deploy Ur Own     ©Pro-Lêɠêɳ̃dẞø†", cache_time=0, alert=True
             )
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"page\((.+?)\)")))
@@ -563,13 +563,13 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 apn.append(y)
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
-                f"{legend_mention}\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}\n",
+                f"{legend_mention}\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}\n",
                 buttons=veriler[1],
                 link_preview=False,
             )
         else:
             return await event.answer(
-                "Deploy Ur Own  ©Lêɠêɳ̃dẞø†",
+                "Deploy Ur Own  ©Pro-Lêɠêɳ̃dẞø†",
                 cache_time=0,
                 alert=True,
             )
@@ -609,7 +609,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
         else:
             return await event.answer(
-                "Deploy Ur Own. ©Lêɠêɳ̃dẞø†™",
+                "Deploy Ur Own. ©Pro-Lêɠêɳ̃dẞø†™",
                 cache_time=0,
                 alert=True,
             )
@@ -658,7 +658,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
         else:
             return await event.answer(
-                "Deploy Ur Own ©Lêɠêɳ̃dẞø†™ ",
+                "Deploy Ur Own ©Pro-Lêɠêɳ̃dẞø†™ ",
                 cache_time=0,
                 alert=True,
             )
