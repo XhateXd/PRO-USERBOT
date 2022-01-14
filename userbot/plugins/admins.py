@@ -23,7 +23,7 @@ from telethon.utils import get_display_name
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
-from userbot.helpers.events import get_user_from_init, get_user_from_event
+from userbot.helpers.events import get_user_from_event, get_user_from_init
 from userbot.helpers.utils import _format
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
 from userbot.utils import *
