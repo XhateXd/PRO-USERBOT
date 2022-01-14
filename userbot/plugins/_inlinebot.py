@@ -47,17 +47,6 @@ USER_BOT_WARN_ZERO = (
 LEGEND_FIRST = "__{}__\n**Please choose why u are here.** ♥️!!"
 
 
-about = Config.ALIVE_EMOJI
-if about is not None:
-    b = about.split()
-    c = []
-    if len(b) >= 1:
-        for d in b:
-            c.append(d)
-    alive_emoji = random.choice(c)
-else:
-    alive_emoji = "✥"
-
 
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
@@ -181,6 +170,16 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 ALV_PIC = random.choice(c)
             else:
                 ALV_PIC = "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
+            about = Config.ALIVE_EMOJI
+            if about is not None:
+                b = about.split()
+                c = []
+                if len(b) >= 1:
+                    for d in b:
+                        c.append(d)
+               alive_emoji = random.choice(c)
+            else:
+                alive_emoji = "✥"
             pp = Config.ALIVE_MSG
             if pp is not None:
                 b = pp.split(", ")
