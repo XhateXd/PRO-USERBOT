@@ -19,7 +19,7 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 from telethon.utils import get_display_name
-from userbot.helpers.utils import _format 
+
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
@@ -239,10 +239,16 @@ async def _ban(event):
             "`I dont have message nuking rights! But still he is banned!`"
         )
     if reason:
-        await bot.send_file(event.chat_id, help_pic, caption=f"{_format.mentionuser(user.first_name ,user.id)}` is banned !!`\n**Reason : **`{reason}`"
+        await bot.send_file(
+            event.chat_id,
+            help_pic,
+            caption=f"{_format.mentionuser(user.first_name ,user.id)}` is banned !!`\n**Reason : **`{reason}`",
         )
     else:
-        await bot.send_file(event.chat_id, help_pic, caption=f"{_format.mentionuser(user.first_name ,user.id)} `is banned !!`"
+        await bot.send_file(
+            event.chat_id,
+            help_pic,
+            caption=f"{_format.mentionuser(user.first_name ,user.id)} `is banned !!`",
         )
     if LOGGER:
         if reason:
