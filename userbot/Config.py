@@ -50,7 +50,7 @@ if ENV:
         # MongoDB
         MONGO_URI = os.environ.get("MONGO_URI", None)
         # alive
-        
+
         HELP_EMOJI1 = os.environ.get("HELP_EMOJI1", None) or "✥"
         HELP_EMOJI2 = os.environ.get("HELP_EMOJI2", None) or "✥"
         ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", None) or "✥"
