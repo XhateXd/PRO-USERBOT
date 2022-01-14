@@ -66,7 +66,7 @@ if legend_emj1 is not None:
             c.append(d)
     legend_emoji1 = random.choice(c)
 else:
-    legend_emoji1 = alive_emoji
+    legend_emoji1 = "✥"
 
 if legend_emj2 is not None:
     b = legend_emj2.split()
@@ -76,7 +76,7 @@ if legend_emj2 is not None:
             c.append(d)
     legend_emoji2 = random.choice(c)
 else:
-    legend_emoji2 = alive_emoji
+    legend_emoji2 = "✥"
 
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
