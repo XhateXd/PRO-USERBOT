@@ -8,7 +8,8 @@ from telethon.errors import UserIsBlockedError
 from telethon.events import CallbackQuery, StopPropagation
 from telethon.utils import get_display_name
 
-from userbot import LOGGER, LOGGER_ID, Config
+from userbot import LOGGER, LOGGER_ID
+from userbot.Config import Config
 from userbot.helpers.events import reply_id
 from userbot.helpers.logger import logging
 from userbot.helpers.utils import _format
