@@ -8,23 +8,24 @@ from telethon.errors import UserIsBlockedError
 from telethon.events import CallbackQuery, StopPropagation
 from telethon.utils import get_display_name
 
-from userbot import Config, bot, tbot
+from userbot import Config
 
-from ..helpers.utils.decorators import check_owner, pool
-from ..helpers.logger import logging
 from ..helpers.events import reply_id
+from ..helpers.logger import logging
 from ..helpers.utils import _format
+from ..helpers.utils.decorators import check_owner, pool
+from ..plugins.sql_helper.bl_bot import add_starter_to_db, get_starter_details
 from ..plugins.sql_helper.bot_blacklists import check_is_black_list
+from ..plugins.sql_helper.globals import delgvar, gvarstatus
 from ..plugins.sql_helper.idadder import (
     add_user_to_db,
     get_user_id,
     get_user_logging,
     get_user_reply,
 )
-from ..plugins.sql_helper.bl_bot import add_starter_to_db, get_starter_details
-from ..plugins.sql_helper.globals import delgvar, gvarstatus
 from . import LOGGER, LOGGER_ID
 from .botmanagers import ban_user_from_bot
+
 BOTLOG = LOGGER
 BOTLOG_ID = LOGGER_ID
 LOGS = logging.getLogger(__name__)
@@ -452,8 +453,8 @@ async def settings_toggle(c_q: CallbackQuery):
     delgvar("bot_antif")
     await c_q.answer("Bot Antiflood disabled.", alert=False)
     await c_q.edit("BOT_ANTIFLOOD is now disabled !")
-    
-    
+
+
 @tgbot.on(incoming=True, func=lambda e: e.is_private)
 @tgbot.on(edited=True, func=lambda e: e.is_private)
 async def antif_on_msg(event):
