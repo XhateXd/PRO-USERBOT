@@ -2,7 +2,7 @@ from datetime import datetime
 from math import floor
 
 from telethon.utils import get_display_name
-
+from userbot.Config import Config 
 from userbot import LOGGER, LOGGER_ID
 from userbot.helpers.events import reply_id
 from userbot.helpers.logger import logging
