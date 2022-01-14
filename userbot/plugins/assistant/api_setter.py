@@ -3,11 +3,11 @@ from re import compile
 from telethon import events
 from telethon.events import callbackquery
 
-from userbot.utils import *
 from userbot import *
 from userbot import ALIVE_NAME
 from userbot.cmdhelp import *
 from userbot.Config import Config
+from userbot.utils import *
 
 LEGEND_row = Config.BUTTONS_IN_HELP
 LEGEND_emoji = Config.HELP_EMOJI1
