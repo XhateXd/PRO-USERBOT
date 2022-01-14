@@ -12,7 +12,7 @@ from userbot.plugins.sql_helper.blacklist_assistant import (
     removenibba,
 )
 
-# from userbot.plugins.sql_helper.botusers import add_me_in_db, his_userid
+from userbot.plugins.sql_helper.botusers import add_me_in_db, his_userid
 from userbot.plugins.sql_helper.idadder import (
     add_usersid_in_db,
     already_added,
@@ -22,13 +22,26 @@ from userbot.plugins.sql_helper.idadder import (
 
 @tgbot.on(events.NewMessage(pattern="^/start"))
 async def start(event):
+    chat = await event.get_chat()
     starkbot = await tgbot.get_me()
-    bot_id = starkbot.first_name
-    starkbot.username
+    if check_is_black_list(chat.id):
+        return
+    reply_to = await reply_id(event)
+    mention = f"[{chat.first_name}](tg://user?id={chat.id})"
+    my_mention = f"[{user.first_name}](tg://user?id={user.id})"
+    first = chat.first_name
+    last = chat.last_name
+    fullname = f"{first} {last}" if last else first
+    username = f"@{chat.username}" if chat.username else mention
+    userid = chat.id
+    my_first = user.first_name
+    my_last = user.last_name
+    my_fullname = f"{my_first} {my_last}" if my_last else my_first
+    my_username = f"@{user.username}" if user.username else my_mention
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
     vent = event.chat_id
-    starttext = f"Hello, {firstname} ! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy [➤ Master](tg://user?id={bot.uid}) \nI Can Deliver Message To My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [『Lêɠêɳ̃dẞø†』](https://t.me/Pro_LegendBots)"
+    starttext = f"Hey! 👤{mention},\nI am {my_mention}'s assistant bot.\nYou can contact to my master from here.\n\nPowered By [『Lêɠêɳ̃dẞø†』](https://t.me/Pro_LegendBots)"
     if event.sender_id == bot.uid:
         await tgbot.send_message(
             vent,
@@ -56,26 +69,12 @@ async def start(event):
             link_preview=False,
             buttons=[
                 [
-                    custom.Button.inline(" Rules ", data="rules"),
+                    Button.url(" Repo ", "https://github.com/PROBOY-OP/PRO-LEGENDBOT"),
                     Button.url(" Support ", "https://t.me/LegendBot_Pros"),
                 ],
             ],
         )
 
-
-# Data's
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rules")))
-async def help(event):
-    if event.query.user_id == bot.uid:
-        await event.answer("This Is Not For U My Master", cache_time=0, alert=True)
-    else:
-        await tgbot.send_message(
-            event.chat_id,
-            message="🔰Rᴇᴀᴅ Tʜᴇ Rᴜʟᴇꜱ Tᴏᴏ🔰\n\n🔹 Dᴏɴ'ᴛ Sᴩᴀᴍ\n🔹 ᴛᴀʟᴋ Fʀɪᴇɴᴅʟy\n🔹 Dᴏɴ'ᴛ Bᴇ Rᴜᴅᴇ\n🔹 Sᴇɴᴅ Uʀ Mᴇꜱꜱᴀɢᴇꜱ Hᴇʀᴇ\n🔹 Nᴏ Pᴏʀɴᴏɢʀᴀᴘʜʏ\n🔹 Dᴏɴ'ᴛ Wʀɪᴛᴇ Bᴀᴅ Wᴏʀᴅs.\n\nWʜᴇɴ I Gᴇᴛ Fʀᴇᴇ Tɪᴍᴇ , I'ʟʟ Rᴇᴩʟy U 💯✅",
-            buttons=[
-                [custom.Button.inline("Close", data="close")],
-            ],
-        )
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"users")))
@@ -103,6 +102,8 @@ async def users(event):
 
 
 # Bot Permit.
+
+
 @tgbot.on(events.NewMessage(func=lambda e: e.is_private))
 async def all_messages_catcher(event):
     if is_he_added(event.sender_id):
@@ -115,6 +116,8 @@ async def all_messages_catcher(event):
         await event.get_sender()
         event.chat_id
         sed = await event.forward_to(bot.uid)
+        # Add User To Database ,Later For Broadcast Purpose
+        # (C) @SpecHide
         add_me_in_db(sed.id, event.sender_id, event.id)
 
 
