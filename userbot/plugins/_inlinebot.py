@@ -21,8 +21,8 @@ from . import *
 
 DEFAULTUSER = alive_name = Config.ALIVE_NAME
 legend_row = Config.BUTTONS_IN_HELP
-legend_emoji1 = Config.HELP_EMOJI1
-legend_emoji2 = Config.HELP_EMOJI2
+legend_emj1 = Config.HELP_EMOJI1
+legend_emj2 = Config.HELP_EMOJI2
 mssge = cstm_pmp = (
     Config.PM_MSG
     or "I am Assistant Of My Owner\nI am Here To Protect My Owner From Scanner"
@@ -57,6 +57,26 @@ if about is not None:
     alive_emoji = random.choice(c)
 else:
     alive_emoji = "✥"
+
+if legend_emj1 is not None:
+    b = legend_emj1.split()
+    c = []
+    if len(b) >= 1:
+        for d in b:
+            c.append(d)
+    legend_emoji1 = random.choice(c)
+else:
+    legend_emoji1 = alive_emoji
+
+if legend_emj2 is not None:
+    b = legend_emj2.split()
+    c = []
+    if len(b) >= 1:
+        for d in b:
+            c.append(d)
+    legend_emoji2 = random.choice(c)
+else:
+    legend_emoji2 = alive_emoji
 
 alive_txt = (
     os.environ.get("ALIVE_TEMPLATE", None)
@@ -544,10 +564,10 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             veriler = custom.Button.inline(
-                f"{legend_emoji1} Re-Open Menu {legend_emoji2}", data="reopen"
+                f"{legend_emoji1} OPEN MENU {legend_emoji2}", data="reopen"
             )
             await event.edit(
-                f"**⚜️ Lêɠêɳ̃dẞø† Mêñû Prõvîdêr háš běěn čłøšĕd ⚜️**\n\n**Bot Of :**  {legend_mention}\n\n            [©️Lêɠêɳ̃dẞø†]({chnl_link})",
+                f"My Master {Config.ALIVE_NAME} has Been Closed Menu\n\n               [©️Lêɠêɳ̃dẞø†]({chnl_link})",
                 buttons=veriler,
                 link_preview=False,
             )
@@ -566,13 +586,13 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 apn.append(y)
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
-                f"⚜『{legend_mention}』⚜\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}\n",
+                f"⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}\n",
                 buttons=veriler[1],
                 link_preview=False,
             )
         else:
             return await event.answer(
-                "This Button Only For My Master.   ©Lêɠêɳ̃dẞø†",
+                "Deploy Ur Own  ©Lêɠêɳ̃dẞø†",
                 cache_time=0,
                 alert=True,
             )
