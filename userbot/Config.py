@@ -12,7 +12,7 @@ if ENV:
         FBAN_LOGGER_GROUP = os.environ.get("FBAN_LOGGER_GROUP", None)
         if FBAN_LOGGER_GROUP:
             FBAN_LOGGER_GROUP = int(FBAN_LOGGER_GROUP)
-        HANDLER = os.environ.get("HANDLER", r"\.")
+        HANDLER = os.environ.get("HANDLER", None) or "."
         # custom animation to kang plugin
         CUSTOM_STICKER_PACK_NAME = os.environ.get("CUSTOM_STICKER_PACK_NAME", None)
         # specify list of users allowed to use bot
