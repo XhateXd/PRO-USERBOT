@@ -7,10 +7,12 @@ from telethon.errors import *
 from telethon.tl.types import *
 
 from userbot import bot
+
 bot = tgbot
 p = print
 
-#LegendBot
+# LegendBot
+
 
 async def aexec(code, event):
     exec(
