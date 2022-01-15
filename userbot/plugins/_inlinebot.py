@@ -124,17 +124,15 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             for x in CMD_LIST.values():
                 for y in x:
                     apn.append(y)
-            HELP_MESSAGE = os.environ.get("HELP_MESSAGE", None)
+            HELP_MESSAGE = os.environ.get("HELP_MESSAGE", None) or f"『{legend_mention}』\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
             if HELP_MESSAGE:
                 b = HELP_MESSAGE.split(", ")
                 c = []
                 if len(b) >= 1:
                     for d in b:
                         c.append(d)
-                help_msg = random.choice(c)
-            else:
-                help_msg = f"『{legend_mention}』\n\n⭐ 𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 ⭆ `{len(CMD_HELP)}`\n🔥 𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`\n📖 Pαցҽ⭆ 1/{veriler[0]}"
-            HELP_PIC = os.environ.get("HELP_PIC", None)
+                help_msg = random.choice(c) 
+            HELP_PIC = os.environ.get("HELP_PIC", None) or "https://te.legra.ph/file/b5d01ceea49ee0a822661.mp4"
             if HELP_PIC is not None:
                 b = HELP_PIC.split()
                 c = []
@@ -142,8 +140,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     for d in b:
                         c.append(d)
                 help_pic = random.choice(c)
-            else:
-                help_pic = "https://te.legra.ph/file/b5d01ceea49ee0a822661.mp4"
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
