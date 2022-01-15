@@ -44,8 +44,8 @@
 
 ---------
 
-- [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCvp8PY25PTRhFDZjLv3sVfg?style=social)](https://youtube.com/channel/UCvp8PY25PTRhFDZjLv3sVfg)
-- [![YouTube Video Views](https://img.shields.io/youtube/views/9dQgdUJfk_k?label=Tutorial+•+Heroku+•&style=social)](https://youtu.be/9dQgdUJfk_k)
+- [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/xUnyW8qz6ZI?style=social)](https://youtube.com/channel/UCvp8PY25PTRhFDZjLv3sVfg)
+- [![YouTube Video Views](https://img.shields.io/youtube/views/9dQgdUJfk_k?label=Tutorial+•+Heroku+•&style=social)](https://youtu.be/xUnyW8qz6ZI)
 
 --------
 
@@ -71,7 +71,7 @@
 - Install Requirements.
 
 `pip install -U -r requirements.txt`
-- Generate Legend STRING.
+- Generate PRO STRING.
 
 `python String.py`
 - Create config.py or rename exampleconfig.py to config.py. Fill All The Required Variables.
@@ -124,7 +124,7 @@
 
 - Now Run StringSession Given Below:
    
-## [![String](https://telegra.ph/file/a6bca4695a54de983c015.jpg)](https://replit.com/@KrishnaJaiswal1/PRO-LEGENDBOT#main.py) 
+## [![String](https://telegra.ph/file/a6bca4695a54de983c015.jpg)](https://replit.com/@PROBOY-OP/PRO-LEGENDBOT#main.py) 
 
 - Click On Generate String
 
