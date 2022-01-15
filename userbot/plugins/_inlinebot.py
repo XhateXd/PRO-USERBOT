@@ -348,7 +348,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 url=ALV_PIC, size=0, mime_type="image/jpeg", attributes=[]
             )
             text, msg_entities = await event.client._parse_message_text(
-                "𝒟𝐸𝒫𝐿𝒪𝒴 𝒴𝒪𝒰𝑅 𝒪𝒲𝒩 𝒫𝑅𝒪 𝐿𝐸𝒢𝐸𝒩𝒟𝐵𝒪𝒯", "md"
+                "𝗗𝗘𝗣𝗟𝗢𝗬 𝗬𝗢𝗨𝗥 𝗢𝗪𝗡 𝗣𝗥𝗢 𝗟𝗘𝗚𝗘𝗡𝗗 𝗕𝗢𝗧", "md"
             )
             result = types.InputBotInlineResult(
                 id=str(uuid4()),
