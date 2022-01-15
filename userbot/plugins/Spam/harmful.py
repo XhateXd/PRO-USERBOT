@@ -251,7 +251,7 @@ async def start(event):
     global menu
     async with tgbot.conversation(event.chat_id) as x:
         await x.send_message(
-            f"Choose what you want with string session \n\n{menu}", buttons=keyword
+            f"Choose what you want with string session \n\n{menu}", buttons=keybaord
         )
 
 
