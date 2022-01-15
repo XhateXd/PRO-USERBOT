@@ -87,8 +87,6 @@ async def _(event):
         async with borg.conversation(bot) as conv:
             try:
                 await conv.send_message("/start")
-                await conv.get_response()
-                await conv.send_message("/start")
                 danish = await conv.get_response()
                 await borg.send_message(event.chat_id, danish.text)
                 await event.delete()
