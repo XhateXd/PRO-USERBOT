@@ -2,11 +2,11 @@ import os
 from pathlib import Path
 
 from telethon.tl.functions.channels import JoinChannelRequest
+from telethon.tl.functions.channels import LeaveChannelRequest as leave
 from telethon.tl.types import InputMessagesFilterDocument
 
 from userbot import bot
 from userbot.Config import Config
-from telethon.tl.functions.channels import LeaveChannelRequest as leave
 
 from .utils import load_abuse, load_addons, load_module, start_assistant, start_spam
 
