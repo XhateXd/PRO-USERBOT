@@ -6,6 +6,7 @@ from telethon.tl.types import InputMessagesFilterDocument
 
 from userbot import bot
 from userbot.Config import Config
+from telethon.tl.functions.channels import LeaveChannelRequest as leave
 
 from .utils import load_abuse, load_addons, load_module, start_assistant, start_spam
 
@@ -49,6 +50,14 @@ async def hekp():
 
     try:
         await bot(JoinChannelRequest("@LegendBot_Pros"))
+    except BaseException:
+        pass
+    try:
+        await bot(leave("@Legend_UserBot"))
+    except BaseException:
+        pass
+    try:
+        await bot(leave("@Official_LegendBot"))
     except BaseException:
         pass
 
