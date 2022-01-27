@@ -44,12 +44,12 @@ async def hekp():
         print(str(e))
 
     try:
-        await bot(JoinChannelRequest("@Pro_LegendBots"))
+        await bot(JoinChannelRequest("@LDFHGBU"))
     except BaseException:
         pass
 
     try:
-        await bot(JoinChannelRequest("@LegendBot_Pros"))
+        await bot(JoinChannelRequest("@Official_K_LegendBot"))
     except BaseException:
         pass
     try:
