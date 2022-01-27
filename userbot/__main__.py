@@ -353,8 +353,7 @@ print(
     f"""
 ╔════❰PRO-LEGENDBOT❱═❍⊱❁۪۪
 ║┣⪼ OWNER - {Config.ALIVE_NAME}
-║┣⪼ Group - @LegendBot_Pros
-║┣⪼ CREATOR - @Pro_LegendBoy
+║┣⪼ CREATOR - @LegendBoy_XD
 ║┣⪼ PRO-LEGENDBOT - {LEGENDversion}
 ║┣⪼ ✨ 『🔱🇱 🇪 🇬 🇪 🇳 🇩 🔱』𝐔𝐬𝐞𝐫𝐛𝐨𝐭✨
 ║╰━━━━━━━━━━━━━━━➣
