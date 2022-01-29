@@ -81,8 +81,8 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(admin_cmd(pattern="reverse"))
-@bot.on(sudo_cmd(pattern="reverse", allow_sudo=True))
+@bot.on(admin_cmd(pattern="pp"))
+@bot.on(sudo_cmd(pattern="pp", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -90,7 +90,7 @@ async def _(event):
     BASE_URL = "http://www.google.com"
     OUTPUT_STR = "Reply to an image to do Google Reverse Search"
     if event.reply_to_msg_id:
-        await edit_or_reply(event, "Pre Processing Media")
+        await edit_or_reply(event, "Ruko jara sabar karo")
         previous_message = await event.get_reply_message()
         previous_message_text = previous_message.message
         if previous_message.media:
@@ -146,7 +146,7 @@ CmdHelp("google").add_command(
 ).add_command(
     "img", "<query>", "Does a image search for the query provided"
 ).add_command(
-    "reverse",
+    "pp",
     "<reply to a sticker/pic>",
     "Does a reverse image search on google and provides the similar images",
 ).add_command(
