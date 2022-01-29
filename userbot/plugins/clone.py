@@ -58,7 +58,7 @@ async def _(event):
     )
     await event.delete()
     await borg.send_message(
-        event.chat_id, "**Hello Who are u??🙄🙄**", reply_to=reply_message
+        event.chat_id, "**Hello bsdk, Who are u??🙄🙄**", reply_to=reply_message
     )
     if LOGGER:
         await event.client.send_message(
