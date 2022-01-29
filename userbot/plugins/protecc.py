@@ -21,12 +21,12 @@ def progress(current, total):
     )
 
 
-@bot.on(admin_cmd(pattern="pt ?(.*)"))
+@bot.on(admin_cmd(pattern="op ?(.*)"))
 @bot.on(sudo_cmd(pattern="pt ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "Hmm..")
+    hell = await eor(event, "Why god why")
     BASE_URL = "http://images.google.com"
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
@@ -109,7 +109,7 @@ async def _(event):
                 except:
                     pass
                 hell = await bot.send_message(event.chat_id, f"/protecc {text}")
-                await sleep(2)
+                await sleep(1)
                 await hell.delete()
                 os.remove(dl)
             except:
@@ -158,7 +158,7 @@ async def _(event):
                 except:
                     pass
                 hell = await bot.send_message(event.chat_id, f"/protecc {text}")
-                await sleep(2)
+                await sleep(1)
                 await hell.delete()
                 os.remove(dl)
             except:
