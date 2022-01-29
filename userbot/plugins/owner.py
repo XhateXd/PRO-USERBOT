@@ -26,7 +26,7 @@ async def _(event):
     result = result.stringify()
     logger.info(result)  # pylint:disable=E0602
     await event.edit(
-        """This is my master @Pro_Userboy. Support group~@LegendBot_Pros.  Channel~@Pro_Userboy"""
+        """This is my master @X_Hate. Support group~@animefansgroup_AFG.  Channel~@SyDeXaS"""
     )
 
 
